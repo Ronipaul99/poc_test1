@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Grid } from 'semantic-ui-react';
 import { GoogleLogin } from 'react-google-login';
-// import AppleLogin from "react-apple-login";
-// import FacebookLogin from "react-facebook-login";
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import GoogleIcon from '@mui/icons-material/Google';
 import { useForm } from 'react-hook-form';
-import { Card, Link, Typography } from '@mui/material';
+import { Card, FormControl, FormControlLabel, FormLabel, Link, Radio, RadioGroup, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import AppleIcon from '@mui/icons-material/Apple';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Snackbar from '@mui/material/Snackbar';
-// import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import CircularProgress from '@mui/material/CircularProgress';
 import MuiAlert from '@mui/material/Alert';
 import { green, red } from '@mui/material/colors';
 import P1 from './Images/P1.jpg';
-import P2 from './Images/P2.webp';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { gapi } from 'gapi-script';
+import P3 from './Images/P3.webp';
+import { useDispatch } from 'react-redux';
+import { Type } from './Store/User';
 
 // alert function for registration
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -37,8 +36,10 @@ function Auth() {
 
     // login page error state setting
     const [error, setError] = useState("");
-    // login page return function
+    // dispatch
+    const dispatch = useDispatch();
 
+    // login page return function
     const Login = () => {
         return (
             <>
@@ -50,14 +51,14 @@ function Auth() {
                     <Typography sx={{ textAlign: "center", fontSize: "25px", letterSpacing: "1px" }}>Login with</Typography>
                     <Divider sx={{
                         width: "140px",
-                        marginLeft: "119px"
+                        marginLeft: "169px"
                     }} />
                 </Box>
                 <Box sx={{
                     display: 'flex',
                     flexDirection: 'row',
                     p: 1,
-                    m: 1,
+                    m: 2,
                     alignItems: "center",
                     justifyContent: "center"
                 }}>
@@ -97,11 +98,11 @@ function Auth() {
                             /> */}
                 </Box>
                 <Divider />
-                <Box sx={{ textAlign: "center" }}>
+                <Box sx={{ marginTop: "20px", textAlign: "center" }}>
                     <Typography>or</Typography>
                 </Box>
                 <Form onSubmit={handleSubmit(onSubmitForLoginPage)}>
-                    <Box spacing={2} sx={{ textAlign: "center" }}>
+                    <Box spacing={2} sx={{ textAlign: "center", marginTop: "20px" }}>
 
                         {error && <Typography sx={{ fontSize: "12px" }} color="red">{error}</Typography>}
                         {errors.email && !error && <Typography sx={{ fontSize: "12px" }} color="red">Please check the Email</Typography>}
@@ -135,11 +136,11 @@ function Auth() {
                         </Grid>
 
                         <Box>
-                            <Button variant='contained' type="submit">Login</Button>
+                            <Button sx={{ marginTop: "20px" }} variant='contained' type="submit">Login</Button>
                         </Box>
                     </Box>
                 </Form>
-                <Box sx={{ textAlign: "center" }}>
+                <Box sx={{ textAlign: "center", marginTop: "20px" }}>
                     <Typography>Don't have an account?<Link underline="none" sx={{ cursor: "pointer" }} onClick={onclick}> Register</Link></Typography>
                 </Box>
             </>
@@ -154,8 +155,23 @@ function Auth() {
                 <ArrowBackIcon sx={{ cursor: "pointer" }} onClick={onclick2} />
                 <Box sx={{ textAlign: "center" }}>
                     <Box>
-                        <Typography sx={{ marginBottom: "50px", color: "GrayText" }} variant="h4">REGISTER HERE</Typography>
+                        <Typography sx={{ marginBottom: "20px", color: "GrayText" }} variant="h4">REGISTER HERE</Typography>
                     </Box>
+
+                    <FormControl sx={{ textAlign: "center" }}>
+                        <FormLabel id="demo-radio-buttons-group-label">Choose User Type</FormLabel>
+                        <Divider sx={{ marginLeft: "8px" }}></Divider>
+                        <RadioGroup
+                            row
+                            aria-labelledby="demo-radio-buttons-group-label"
+                            defaultValue="S"
+                            name="radio-buttons-group"
+                        >
+                            <FormControlLabel value="T" control={<Radio />} label="Teacher"  {...register("UserType")} />
+                            <FormControlLabel value="S" control={<Radio />} label="Student" {...register("UserType")} />
+                        </RadioGroup>
+                    </FormControl>
+
                     <Box>
                         {Go && <Typography variant='h6' color="green">{Go}</Typography>}
 
@@ -190,6 +206,25 @@ function Auth() {
                                         label="Last Name"
                                         variant="outlined"
                                         {...register("lastname", { required: true, maxLength: 10, pattern: /^[a-zA-Z]{2,15}$/ })}
+                                    />
+                                </Box>
+                            </Grid>
+                            <Grid spacing={2} sx={{ width: "350px" }}>
+                                <Box
+                                    sx={{
+                                        '& > :not(style)': { m: 0.5, width: '25ch' },
+                                    }}
+                                >
+                                    <TextField
+                                        helperText={errors.phone && <Typography sx={{ fontSize: "12px", color: "red" }}>Enter a valid phone number</Typography>}
+                                        label="Phone Number"
+                                        variant="outlined"
+                                        type="phone"
+                                        {...register("phone", {
+                                            required: true,
+                                            minLength: 10,
+                                            pattern: (/^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/i)
+                                        })}
                                     />
                                 </Box>
                             </Grid>
@@ -282,10 +317,12 @@ function Auth() {
 
     // onsubmit function for login page
     const onSubmitForLoginPage = (data) => {
-        window.localStorage.setItem("isLoggedIn", null);
-        axios.post('http://localhost:5001/user/login', data).then((res) => {
-            navigate("/");
-            console.log("Hi!")
+        axios.post('http://localhost:5002/user/login', data).then((res) => {
+            const a = (res.data.UserType);
+            window.localStorage.setItem('userType', res.data.UserType);
+            dispatch(Type(a));
+            navigate("/Dashboard");
+            console.log("Hi!");
         }).catch(() => {
             setError("Email or Password is incorrect");
         });
@@ -379,7 +416,7 @@ function Auth() {
         console.log(data);
         setLoading(true);
         setSuccess(false);
-        axios.post('http://localhost:5001/user/register', data).then(() => {
+        axios.post('http://localhost:5002/user/register', data).then(() => {
             setGo("You are redirecting to login page...")
             setShow(true)
             setWarn(false)
@@ -414,8 +451,8 @@ function Auth() {
                 backgroundColor: "#eee"
             }}>
                 <Card sx={{
-                    height: "530px",
-                    width: "800px",
+                    height: "600px",
+                    width: "1000px",
                     backgroundColor: "#fff",
                     position: "relative",
                     boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)"
@@ -438,7 +475,7 @@ function Auth() {
                                     objectFit: "cover",
                                     height: "100%",
                                     width: "100%"
-                                }} src={P2} alt="pic here" />
+                                }} src={P1} alt="pic here" />
 
                             </Box>}
                         {/* while login form will be right side */}
@@ -469,7 +506,7 @@ function Auth() {
                         {/* while registration image will be right side */}
                         {!Page &&
                             <Box sx={{
-                                width: "59%",
+                                width: "50%",
                                 backgroundColor: "#fff",
                                 height: "100%",
                                 overflow: "hidden"
@@ -479,7 +516,7 @@ function Auth() {
                                     objectFit: "cover",
                                     height: "100%",
                                     width: "100%"
-                                }} src={P1} alt="pic here" />
+                                }} src={P3} alt="pic here" />
                             </Box>}
                     </Box>
                 </Card>
