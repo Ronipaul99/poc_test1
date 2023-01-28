@@ -16,13 +16,13 @@ import Divider from '@mui/material/Divider';
 import CircularProgress from '@mui/material/CircularProgress';
 import MuiAlert from '@mui/material/Alert';
 import { green, red } from '@mui/material/colors';
-import P1 from './Images/P1.jpg';
+import P1 from '../Images/P1.jpg';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { gapi } from 'gapi-script';
-import P3 from './Images/P3.webp';
+import P3 from '../Images/P3.webp';
 import { useDispatch } from 'react-redux';
-import { Type } from './Store/User';
+import { Type } from '../Store/User';
 
 // alert function for registration
 const Alert = React.forwardRef(function Alert(props, ref) {
