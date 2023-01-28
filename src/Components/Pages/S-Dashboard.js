@@ -209,7 +209,8 @@ export default function StudentDashboard() {
     };
 
     return (
-        <><Box sx={{ display: 'flex', justifyContent: "center", backgroundColor: "#eee" }}>
+        <>
+
             {/* NavBar  */}
             <AppBar sx={{ background: 'white' }} position="fixed" >
                 <Container maxWidth="xl">
@@ -342,106 +343,112 @@ export default function StudentDashboard() {
             </AppBar>
 
 
-            {/* drawer */}
-            <Drawer
-                PaperProps={{
-                    sx: {
-                        height: 'calc(100% - 6vh)', top: 60
-                    }
-                }}
-                variant="permanent"
-                open={open}>
 
-                <DrawerHeader>
-
-                    <ChevronLeftIcon sx={{ paddingRight: "30px" }} onClick={handleDrawerClose} />
-                    {/* {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />} */}
-                    {/* </IconButton> */}
-
-                    <ChevronRightIcon sx={{ paddingRight: "12px" }} onClick={handleDrawerOpen} />
-                </DrawerHeader>
-                <Toolbar />
-                <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                            <ListItemButton
-                                sx={{
-                                    minHeight: 48,
-                                    justifyContent: open ? 'initial' : 'center',
-                                    px: 2.5,
-                                }}
-                            >
-                                <ListItemIcon
-                                    sx={{
-                                        minWidth: 0,
-                                        mr: open ? 3 : 'auto',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                </ListItemIcon>
-                                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                            </ListItemButton>
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                            <ListItemButton
-                                sx={{
-                                    minHeight: 48,
-                                    justifyContent: open ? 'initial' : 'center',
-                                    px: 2.5,
-                                }}
-                            >
-                                <ListItemIcon
-                                    sx={{
-                                        minWidth: 0,
-                                        mr: open ? 3 : 'auto',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                </ListItemIcon>
-                                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                            </ListItemButton>
-                        </ListItem>
-                    ))}
-                </List>
-            </Drawer>
             {/* Body */}
-            <Box sx={{ backgroundColor: "#eee" }}>
-                <Box>
-                    <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-                        <DrawerHeader />
-                        <Stack direction="row" sx={{ alignItems: "center", width: "84.5vw" }} >
-                            <Search>
-                                <SearchIconWrapper>
-                                    <SearchIcon />
-                                </SearchIconWrapper>
-                                <StyledInputBase
-                                    placeholder="Search…"
-                                    inputProps={{ 'aria-label': 'search' }}
-                                />
-                            </Search>
-                            <Card sx={{ width: "34vw", marginLeft: "10px", height: "40px" }}>
-                                <Box sx={{ alignItems: "center", textAlign: "center", marginTop: "10px" }}>
-                                    {date.toLocaleTimeString()}
-                                </Box>
-                            </Card>
-                        </Stack>
+            <Box sx={{ display: 'flex', justifyContent: "center", backgroundColor: "#eeee", marginLeft: { xs: 8, sm: 6, md: 7, lg: 8, xl: 9 } }}>
+                <Box sx={{ backgroundColor: "#eee" }}>
+                    <Box>
+                        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                            <DrawerHeader />
+                            <Stack direction="row" sx={{ alignItems: "center", width: "83.8vw" }} >
+                                <Search>
+                                    <SearchIconWrapper>
+                                        <SearchIcon />
+                                    </SearchIconWrapper>
+                                    <StyledInputBase
+                                        placeholder="Search…"
+                                        inputProps={{ 'aria-label': 'search' }}
+                                    />
+                                </Search>
+                                <Card sx={{ width: "34vw", marginLeft: "10px", height: "40px" }}>
+                                    <Box sx={{ alignItems: "center", textAlign: "center", marginTop: "10px" }}>
+                                        {date.toLocaleTimeString()}
+                                    </Box>
+                                </Card>
+                            </Stack>
+                        </Box>
+                        {/* Courses */}
+                        {Courses.map((e) => {
+                            return (
+                                <Info name={e.name} rollNo={e.rollNo} imgurl={e.imgurl} details={e.details} />
+                            );
+                        })}
                     </Box>
-                    {/* Courses */}
-                    {Courses.map((e) => {
-                        return (
-                            <Info name={e.name} rollNo={e.rollNo} imgurl={e.imgurl} details={e.details} />
-                        );
-                    })}
                 </Box>
             </Box>
-        </Box>
+
+
+            {/* drawer */}
+            <Box>
+                <Drawer
+                    PaperProps={{
+                        sx: {
+                            height: 'calc(100% - 6vh)', top: 60
+                        }
+                    }}
+                    variant="permanent"
+                    open={open}>
+
+                    <DrawerHeader>
+
+                        <ChevronLeftIcon sx={{ paddingRight: "30px" }} onClick={handleDrawerClose} />
+                        {/* {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />} */}
+                        {/* </IconButton> */}
+
+                        <ChevronRightIcon sx={{ paddingRight: "12px" }} onClick={handleDrawerOpen} />
+                    </DrawerHeader>
+                    <Toolbar />
+                    <List>
+                        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                                <ListItemButton
+                                    sx={{
+                                        minHeight: 48,
+                                        justifyContent: open ? 'initial' : 'center',
+                                        px: 2.5,
+                                    }}
+                                >
+                                    <ListItemIcon
+                                        sx={{
+                                            minWidth: 0,
+                                            mr: open ? 3 : 'auto',
+                                            justifyContent: 'center',
+                                        }}
+                                    >
+                                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                    </ListItemIcon>
+                                    <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                                </ListItemButton>
+                            </ListItem>
+                        ))}
+                    </List>
+                    <Divider />
+                    <List>
+                        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                                <ListItemButton
+                                    sx={{
+                                        minHeight: 48,
+                                        justifyContent: open ? 'initial' : 'center',
+                                        px: 2.5,
+                                    }}
+                                >
+                                    <ListItemIcon
+                                        sx={{
+                                            minWidth: 0,
+                                            mr: open ? 3 : 'auto',
+                                            justifyContent: 'center',
+                                        }}
+                                    >
+                                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                    </ListItemIcon>
+                                    <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                                </ListItemButton>
+                            </ListItem>
+                        ))}
+                    </List>
+                </Drawer>
+            </Box>
         </>
     );
 };
