@@ -1,0 +1,59 @@
+[33mcommit ec9a9f78656c9650c3b32b0afde0ba396c5329f5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Reshab <naskarreshab2003@gmail.com>
+Date:   Mon Jan 30 10:29:47 2023 +0530
+
+    design
+
+[33mcommit 2dbe7a77824ef2bed94c5e3cb584fbd5cad0c4f0[m
+Author: Reshab <naskarreshab2003@gmail.com>
+Date:   Sat Jan 28 13:13:48 2023 +0530
+
+    some design changes
+
+[33mcommit e002e3ee082fffe73e4916a64511c6a4a8d36935[m
+Author: Reshab <naskarreshab2003@gmail.com>
+Date:   Sat Jan 28 13:11:45 2023 +0530
+
+    Some Design changes
+
+[33mcommit 6b325db9603e87edab99fd3f69a67920fcc718d6[m
+Merge: a3f9218 1b22d8f
+Author: Reshab Naskar <naskarreshab2003@gmail.com>
+Date:   Wed Jan 25 18:52:00 2023 +0530
+
+    Merge pull request #2 from Ronipaul99/feat/landing-student
+    
+    Third commit
+
+[33mcommit 1b22d8fba219d60c2a0e03664bc88fb23b1371aa[m
+Author: Reshab <naskarreshab2003@gmail.com>
+Date:   Wed Jan 25 18:51:26 2023 +0530
+
+    Third commit
+
+[33mcommit a3f92181ab73848e1266e3273666db6afa1e8148[m
+Merge: 51a98fd 3bd7010
+Author: Reshab Naskar <naskarreshab2003@gmail.com>
+Date:   Tue Jan 24 20:35:12 2023 +0530
+
+    Merge pull request #1 from Ronipaul99/feat/landing-student
+    
+    second commit
+
+[33mcommit 3bd70102c8280ec11d5c80501c4af5e761db2d4c[m
+Author: Reshab <naskarreshab2003@gmail.com>
+Date:   Tue Jan 24 20:32:32 2023 +0530
+
+    second commit
+
+[33mcommit 51a98fd9b6996118328ea5f43f6341ee6e068fcd[m
+Author: Reshab <naskarreshab2003@gmail.com>
+Date:   Sat Jan 21 11:23:41 2023 +0530
+
+    initial commit
+
+[33mcommit c30924353aaab9b88b74fc6cf22be3570db66e36[m
+Author: Rani paul <66959326+Ronipaul99@users.noreply.github.com>
+Date:   Sat Jan 21 11:18:21 2023 +0530
+
+    Initial commit
