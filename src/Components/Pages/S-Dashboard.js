@@ -210,142 +210,213 @@ export default function StudentDashboard() {
 
     return (
         <>
-
-            {/* NavBar  */}
-            <AppBar sx={{ background: 'white' }} position="fixed" >
-                <Container maxWidth="xl">
-                    <Toolbar disableGutters>
-                        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: 'grey' }} />
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            // onClick={handleDrawerOpen}
-                            sx={{
-                                mr: 2,
-                                display: { xs: 'none', md: 'flex' },
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'grey',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            LOGO
-                        </Typography>
-
-                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                            <IconButton
-                                size="large"
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleOpenNavMenu}
-                                color="black"
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorElNav}
-                                anchorOrigin={{
-                                    vertical: 'bottom',
-                                    horizontal: 'left',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                }}
-                                open={Boolean(anchorElNav)}
-                                onClose={handleCloseNavMenu}
+            <Box sx={{ display: 'flex', justifyContent: "center", backgroundColor: "#eeee",height:"100vh",width:"100vw" }}>
+                {/* NavBar  */}
+                <AppBar sx={{ background: 'white' }} position="fixed" >
+                    <Container maxWidth="xl">
+                        <Toolbar disableGutters>
+                            <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: 'grey' }} />
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="a"
+                                // onClick={handleDrawerOpen}
                                 sx={{
-                                    display: { xs: 'block', md: 'none' },
+                                    mr: 2,
+                                    display: { xs: 'none', md: 'flex' },
+                                    fontFamily: 'monospace',
+                                    fontWeight: 700,
+                                    letterSpacing: '.3rem',
+                                    color: 'grey',
+                                    textDecoration: 'none',
                                 }}
                             >
-                                {pages.map((page) => (
-                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <Typography textAlign="center">{page}</Typography>
-                                    </MenuItem>
-                                ))}
-                            </Menu>
-                        </Box>
-                        <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, color: 'grey' }} />
-                        <Typography
-                            variant="h5"
-                            noWrap
-                            component="a"
-                            // href=""
-                            // onClick={handleDrawerOpen}
-                            sx={{
-                                mr: 2,
-                                display: { xs: 'flex', md: 'none' },
-                                flexGrow: 1,
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'grey',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            LOGO
-                        </Typography>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                            {pages.map((page) => (
-                                <Button
-                                    key={page}
-                                    onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                LOGO
+                            </Typography>
+
+                            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                                <IconButton
+                                    size="large"
+                                    aria-label="account of current user"
+                                    aria-controls="menu-appbar"
+                                    aria-haspopup="true"
+                                    onClick={handleOpenNavMenu}
+                                    color="black"
                                 >
-                                    {page}
-                                </Button>
-                            ))}
-                        </Box>
-
-                        <Box sx={{ flexGrow: 0 }}>
-                            <Tooltip title="Open settings">
-                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                    <MenuIcon />
                                 </IconButton>
-                            </Tooltip>
-                            <Menu
-                                sx={{ mt: '45px' }}
-                                id="menu-appbar"
-                                anchorEl={anchorElUser}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
+                                <Menu
+                                    id="menu-appbar"
+                                    anchorEl={anchorElNav}
+                                    anchorOrigin={{
+                                        vertical: 'bottom',
+                                        horizontal: 'left',
+                                    }}
+                                    keepMounted
+                                    transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'left',
+                                    }}
+                                    open={Boolean(anchorElNav)}
+                                    onClose={handleCloseNavMenu}
+                                    sx={{
+                                        display: { xs: 'block', md: 'none' },
+                                    }}
+                                >
+                                    {pages.map((page) => (
+                                        <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                            <Typography textAlign="center">{page}</Typography>
+                                        </MenuItem>
+                                    ))}
+                                </Menu>
+                            </Box>
+                            <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, color: 'grey' }} />
+                            <Typography
+                                variant="h5"
+                                noWrap
+                                component="a"
+                                // href=""
+                                // onClick={handleDrawerOpen}
+                                sx={{
+                                    mr: 2,
+                                    display: { xs: 'flex', md: 'none' },
+                                    flexGrow: 1,
+                                    fontFamily: 'monospace',
+                                    fontWeight: 700,
+                                    letterSpacing: '.3rem',
+                                    color: 'grey',
+                                    textDecoration: 'none',
                                 }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={Boolean(anchorElUser)}
-                                onClose={handleCloseUserMenu}
                             >
-                                <MenuItem>
-                                    Profile
-                                </MenuItem>
-                                <MenuItem>
-                                    Account
-                                </MenuItem>
-                                <MenuItem>
-                                    Dashboard
-                                </MenuItem>
-                                <MenuItem onClick={Logout}>
-                                    Logout
-                                </MenuItem>
-                            </Menu>
-                        </Box>
-                    </Toolbar>
-                </Container>
-            </AppBar>
+                                LOGO
+                            </Typography>
+                            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                                {pages.map((page) => (
+                                    <Button
+                                        key={page}
+                                        onClick={handleCloseNavMenu}
+                                        sx={{ my: 2, color: 'white', display: 'block' }}
+                                    >
+                                        {page}
+                                    </Button>
+                                ))}
+                            </Box>
+
+                            <Box sx={{ flexGrow: 0 }}>
+                                <Tooltip title="Open settings">
+                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                    </IconButton>
+                                </Tooltip>
+                                <Menu
+                                    sx={{ mt: '45px' }}
+                                    id="menu-appbar"
+                                    anchorEl={anchorElUser}
+                                    anchorOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                    }}
+                                    keepMounted
+                                    transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                    }}
+                                    open={Boolean(anchorElUser)}
+                                    onClose={handleCloseUserMenu}
+                                >
+                                    <MenuItem>
+                                        Profile
+                                    </MenuItem>
+                                    <MenuItem>
+                                        Account
+                                    </MenuItem>
+                                    <MenuItem>
+                                        Dashboard
+                                    </MenuItem>
+                                    <MenuItem onClick={Logout}>
+                                        Logout
+                                    </MenuItem>
+                                </Menu>
+                            </Box>
+                        </Toolbar>
+                    </Container>
+                </AppBar>
+
+                {/* drawer */}
+                <Box>
+                    <Drawer
+                        PaperProps={{
+                            sx: {
+                                height: 'calc(100% - 6vh)', top: 60
+                            }
+                        }}
+                        variant="permanent"
+                        open={open}>
+
+                        <DrawerHeader>
+
+                            <ChevronLeftIcon sx={{ paddingRight: "30px" }} onClick={handleDrawerClose} />
+                            {/* {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />} */}
+                            {/* </IconButton> */}
+
+                            <ChevronRightIcon sx={{ paddingRight: "12px" }} onClick={handleDrawerOpen} />
+                        </DrawerHeader>
+                        <Toolbar />
+                        <List>
+                            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                                <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                                    <ListItemButton
+                                        sx={{
+                                            minHeight: 48,
+                                            justifyContent: open ? 'initial' : 'center',
+                                            px: 2.5,
+                                        }}
+                                    >
+                                        <ListItemIcon
+                                            sx={{
+                                                minWidth: 0,
+                                                mr: open ? 3 : 'auto',
+                                                justifyContent: 'center',
+                                            }}
+                                        >
+                                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                        </ListItemIcon>
+                                        <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                            ))}
+                        </List>
+                        <Divider />
+                        <List>
+                            {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                                <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                                    <ListItemButton
+                                        sx={{
+                                            minHeight: 48,
+                                            justifyContent: open ? 'initial' : 'center',
+                                            px: 2.5,
+                                        }}
+                                    >
+                                        <ListItemIcon
+                                            sx={{
+                                                minWidth: 0,
+                                                mr: open ? 3 : 'auto',
+                                                justifyContent: 'center',
+                                            }}
+                                        >
+                                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                        </ListItemIcon>
+                                        <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                            ))}
+                        </List>
+                    </Drawer>
+                </Box>
 
 
+                {/* Body */}
 
-            {/* Body */}
-            <Box sx={{ display: 'flex', justifyContent: "center", backgroundColor: "#eeee", marginLeft: { xs: 8, sm: 6, md: 7, lg: 8, xl: 9 } }}>
                 <Box sx={{ backgroundColor: "#eee" }}>
                     <Box>
                         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
@@ -375,79 +446,6 @@ export default function StudentDashboard() {
                         })}
                     </Box>
                 </Box>
-            </Box>
-
-
-            {/* drawer */}
-            <Box>
-                <Drawer
-                    PaperProps={{
-                        sx: {
-                            height: 'calc(100% - 6vh)', top: 60
-                        }
-                    }}
-                    variant="permanent"
-                    open={open}>
-
-                    <DrawerHeader>
-
-                        <ChevronLeftIcon sx={{ paddingRight: "30px" }} onClick={handleDrawerClose} />
-                        {/* {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />} */}
-                        {/* </IconButton> */}
-
-                        <ChevronRightIcon sx={{ paddingRight: "12px" }} onClick={handleDrawerOpen} />
-                    </DrawerHeader>
-                    <Toolbar />
-                    <List>
-                        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton
-                                    sx={{
-                                        minHeight: 48,
-                                        justifyContent: open ? 'initial' : 'center',
-                                        px: 2.5,
-                                    }}
-                                >
-                                    <ListItemIcon
-                                        sx={{
-                                            minWidth: 0,
-                                            mr: open ? 3 : 'auto',
-                                            justifyContent: 'center',
-                                        }}
-                                    >
-                                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                    </ListItemIcon>
-                                    <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                                </ListItemButton>
-                            </ListItem>
-                        ))}
-                    </List>
-                    <Divider />
-                    <List>
-                        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton
-                                    sx={{
-                                        minHeight: 48,
-                                        justifyContent: open ? 'initial' : 'center',
-                                        px: 2.5,
-                                    }}
-                                >
-                                    <ListItemIcon
-                                        sx={{
-                                            minWidth: 0,
-                                            mr: open ? 3 : 'auto',
-                                            justifyContent: 'center',
-                                        }}
-                                    >
-                                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                    </ListItemIcon>
-                                    <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                                </ListItemButton>
-                            </ListItem>
-                        ))}
-                    </List>
-                </Drawer>
             </Box>
         </>
     );
