@@ -1,7 +1,7 @@
 import { Input } from '@mui/material'
 import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
-import RingVolumeIcon from '@mui/icons-material/RingVolume';
+import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
 import '../Style/Header.css'
 export default function Header() {
   return (
@@ -15,7 +15,7 @@ export default function Header() {
               
             <div className='call-info col-sm-3'>
                 <div className='call-icon'>
-                  <RingVolumeIcon/>
+                  <PhoneInTalkIcon style={{color:'5a5a5a'}}/>
                 </div>
                 <div className='col-sm-9'>
                     <div className='col-sm-12 call-text' >Talk to our experts</div>
