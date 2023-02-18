@@ -8,7 +8,7 @@ export default function Dashboard() {
     const e = useSelector(U);
     return (
         <>
-            {e==="S" && <StudentDashboard />}
+            {e === "S" && <StudentDashboard />}
         </>
     );
 };
