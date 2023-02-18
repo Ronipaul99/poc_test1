@@ -17,12 +17,12 @@
     background-repeat:no-repeat;
     background-size: cover;
     background-position: center;
-    height: 80px;
+    height: 70px;
     width: 250px;
 }
 
 .search-bar{
-    height: 60px;
+    height: 50px;
     margin: 10px;
   display: flex;
   align-items: center;
@@ -51,8 +51,8 @@
 
 .search-bar button {
     border: 0;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     cursor: pointer;
     background: #d3d3d3;
@@ -85,8 +85,8 @@
 
 .icon-button{
  margin-inline-end: 15px;
- border: 2px solid rgb(180, 180, 180);
- height: 55px;
+ border: 2px solid rgb(113, 112, 112);
+ height: 50px;
  width: 110px;
  display: flex;
  justify-content: center;
