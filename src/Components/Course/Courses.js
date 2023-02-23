@@ -21,6 +21,7 @@ const Courses = () => {
               name={course.name}
               imgURL={course.imgURL}
               price={course.price}
+              details={course.details}
             />
           </ListItem>
         ))}

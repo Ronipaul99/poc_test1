@@ -448,7 +448,7 @@ function Auth() {
 
     return (
         // main interface
-        <Box>
+        <Card>
             <><Box sx={{
                 minHeight: "100vh",
                 display: "flex",
@@ -528,7 +528,7 @@ function Auth() {
                 </Card>
             </Box>
             </>
-        </Box>
+        </Card>
     );
 }
 export default Auth;
