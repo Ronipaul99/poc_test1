@@ -16,12 +16,29 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import Menu from '@mui/material/Menu';
-import Avatar from '@mui/material/Avatar';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
+import SpeedDial from '@mui/material/SpeedDial';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import LogoutIcon from '@mui/icons-material/Logout';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from 'react-router-dom';
+import { Avatar } from '@mui/material';
+import { U1 } from '../../Store/U-Data';
+import { useSelector } from 'react-redux';
+
+
+
+
+
+// Hover effect styling
+const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
+    position: 'absolute',
+    '&.MuiSpeedDial-directionDown, &.MuiSpeedDial-directionRight': {
+        top: theme.spacing(.5),
+    },
+}));
 
 
 
@@ -97,29 +114,29 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function NavDrawer() {
 
 
+    const e = useSelector(U1);
+
+
     const navigate = useNavigate();
 
     // Logout function
     const Logout = () => {
         navigate("/")
         window.localStorage.removeItem("userType");
+        window.localStorage.removeItem("userData");
         // navigate("/");
     };
 
-
-    // navbar functionality
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
-
+    // hover profile
+    const actions = [
+        { icon: <AccountCircleIcon />, name: 'Profile' },
+        { icon: < AccountBoxIcon />, name: 'Account' },
+        { icon: <DashboardIcon />, name: 'Dashboard' },
+        { icon: <LogoutIcon onClick={Logout} />, name: 'Logout' },
+    ];
 
 
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
+
 
     // drawer functionality
     const [open, setOpen] = React.useState(false);
@@ -192,42 +209,25 @@ export default function NavDrawer() {
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                     </Box>
+                    <Typography sx={{ mr: 1 }} variant='h6' color="black">{e.firstname}</Typography>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, mr: 2 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
-                        </Tooltip>
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
+                        <Typography sx={{ mr: 9 }} />
+                        <StyledSpeedDial
+                            ariaLabel="Profile"
+                            icon={<Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />}
+                            direction="down"
                         >
-                            <MenuItem>
-                                Profile
-                            </MenuItem>
-                            <MenuItem>
-                                Account
-                            </MenuItem>
-                            <MenuItem>
-                                Dashboard
-                            </MenuItem>
-                            <MenuItem onClick={Logout}>
-                                Logout
-                            </MenuItem>
-                        </Menu>
+                            {actions.map((action) => (
+                                <SpeedDialAction
+                                    key={action.name}
+                                    icon={action.icon}
+                                    tooltipTitle={action.name}
+                                />
+                            ))}
+                        </StyledSpeedDial>
+
+
                     </Box>
                 </Toolbar>
             </AppBar>
@@ -296,7 +296,6 @@ export default function NavDrawer() {
                     </List>
                 </Drawer>
             </Box>
-
         </>
     );
 };

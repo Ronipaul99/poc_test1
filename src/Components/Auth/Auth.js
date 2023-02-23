@@ -23,7 +23,8 @@ import { gapi } from 'gapi-script';
 import P3 from '../Images/P3.webp';
 import { useDispatch } from 'react-redux';
 import { Type } from '../Store/User';
-import userData from '../../DummyData/user'
+import { Type1 } from '../Store/U-Data';
+
 
 // alert function for registration
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -318,32 +319,19 @@ function Auth() {
 
     // onsubmit function for login page
     const onSubmitForLoginPage = (data) => {
-        console.log(data);
-        var flag = false
-        var User = null
-        userData.forEach(item=>{
-            if (item.email==data.email && item.password==data.password) {
-                flag = true
-                User = item
-            }
-        })
-        if (flag) {
-            const a = (User.UserType);
-            window.localStorage.setItem('userType', User.UserType);
+        axios.post('http://localhost:5002/user/login', data).then((res) => {
+            const a = (res.data.UserType);
+            const b = (res.data);
+            const c = JSON.stringify(b)
+            window.localStorage.setItem('userData', c);
+            window.localStorage.setItem('userType', res.data.UserType);
             dispatch(Type(a));
+            dispatch(Type1(b));
             navigate("/Dashboard");
-        }else{
+            console.log("Hi!");
+        }).catch(() => {
             setError("Email or Password is incorrect");
-        }
-        // axios.post('http://localhost:5002/user/login', data).then((res) => {
-        //     const a = (res.data.UserType);
-        //     window.localStorage.setItem('userType', res.data.UserType);
-        //     dispatch(Type(a));
-        //     navigate("/Dashboard");
-        //     console.log("Hi!");
-        // }).catch(() => {
-        //     setError("Email or Password is incorrect");
-        // });
+        });
     };
 
 
@@ -431,13 +419,14 @@ function Auth() {
 
     // onsubmit function for registration
     const onSubmit = (data) => {
-        console.log(userData);
-
+        console.log(data);
         setLoading(true);
         setSuccess(false);
-             setGo("You are redirecting to login page...")
+        axios.post('http://localhost:5002/user/register', data).then(() => {
+            setGo("You are redirecting to login page...")
             setShow(true)
             setWarn(false)
+
             timer.current = window.setTimeout(() => {
                 setSuccess(true);
                 setLoading(false);
@@ -448,27 +437,12 @@ function Auth() {
                 window.location.reload();
                 setPage(true);
             }, 2500);
-        // axios.post('http://localhost:5002/user/register', data).then(() => {
-        //     setGo("You are redirecting to login page...")
-        //     setShow(true)
-        //     setWarn(false)
 
-        //     timer.current = window.setTimeout(() => {
-        //         setSuccess(true);
-        //         setLoading(false);
-        //         setFail(false)
-        //     }, 2000);
-
-        //     setTimeout(() => {
-        //         window.location.reload();
-        //         setPage(true);
-        //     }, 2500);
-
-        // }).catch(() => {
-        //     setWarn(true)
-        //     setLoading(false);
-        //     setFail(true)
-        // })
+        }).catch(() => {
+            setWarn(true)
+            setLoading(false);
+            setFail(true)
+        })
 
     }
 

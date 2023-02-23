@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "MacBook",
+    "imgURL": "https://www.apple.com/v/macbook-pro-14-and-16/b/images/overview/hero/intro__ewz1ro7xs14y_large.jpg",
+    "price": 1199
+  },
+  {
+    "id": 2,
+    "name": "Lenovo Yoga",
+    "imgURL": "https://cdn1.smartprix.com/rx-iU6WN3sSg-w1200-h1200/U6WN3sSg.jpg",
+    "price": 284
+  },
+  {
+    "id": 3,
+    "name": "Dell lattitude",
+    "imgURL":"https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/page/franchise/latitude/laptop_latitude_14_5421_800x550.png?fmt=jpg&wid=800&hei=550",
+    "price": 749
+  },
+  {
+    "id": 4,
+    "name": "HP Pavillion",
+    "imgURL":"https://cdn1.smartprix.com/rx-iU6WN3sSg-w1200-h1200/U6WN3sSg.jpg",
+    "price": 479
+  },
+  {
+    "id": 5,
+    "name": "Acer Aspire",
+   "imgURL":"https://cdn1.smartprix.com/rx-iU6WN3sSg-w1200-h1200/U6WN3sSg.jpg",
+    "price": 643
+  },
+  {
+    "id": 6,
+    "name": "ASUS Vivobook 14",
+    "imgURL":"https://cdn1.smartprix.com/rx-iU6WN3sSg-w1200-h1200/U6WN3sSg.jpg",
+    "price": 533
+  },
+  {
+    "id": 7,
+    "name": "MSI GF63",
+"imgURL":"https://cdn1.smartprix.com/rx-iU6WN3sSg-w1200-h1200/U6WN3sSg.jpg",
+    "price": 648
+  },
+  {
+    "id": 8,
+    "name": "HP Elitebook 1030",
+    "imgURL":"https://cdn1.smartprix.com/rx-iU6WN3sSg-w1200-h1200/U6WN3sSg.jpg",
+    "price": 360
+  },
+  {
+    "id": 9,
+    "name": "Asus Zenbook 14x",
+    "imgURL":"https://cdn1.smartprix.com/rx-iU6WN3sSg-w1200-h1200/U6WN3sSg.jpg",
+    "price": 1299
+  },
+  {
+    "id": 10,
+    "name": "Microsoft Surface",
+    "imgURL":"https://cdn1.smartprix.com/rx-iU6WN3sSg-w1200-h1200/U6WN3sSg.jpg",
+    "price": 538
+  }
+]
