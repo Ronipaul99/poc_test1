@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { Button, Card, Grid, Link, Typography, CardActions, IconButton } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { Cdata, Data } from '../../Store/CourseData';
-import JsonData from "../CoursesData/data.json";
+import JsonData from "../AllCoursesData/data.json";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Rating from '@mui/material/Rating';
 import ReportIcon from '@mui/icons-material/Report';
@@ -117,8 +117,6 @@ export default function CourseDetails() {
                         </Card>
                     </Card>
 
-
-
                     {/* Course heading details box */}
                     <Card sx={{ p: 1, width: "100%" }} >
                         <Grid
@@ -128,7 +126,7 @@ export default function CourseDetails() {
                             alignItems="center"
                             justify="center"
                         >
-                            <Card sx={{ width: "50%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
+                            <Card sx={{ width: "55%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
                                 <Typography sx={{ p: 1 }}><Link underline='none'>Developement</Link><Button><KeyboardArrowRightIcon fontSize='small' /></Button><Link underline='none'>Web Developement</Link></Typography>
 
                                 <Typography variant='h4' sx={{ p: 1, fontWeight: 'bold' }} >{getById(JsonData, `${id}`)[0].Heading}</Typography>
@@ -141,13 +139,16 @@ export default function CourseDetails() {
                                 <Typography sx={{ p: 1 }}>{getById(JsonData, `${id}`)[0].name}</Typography>
                                 <Typography sx={{ p: 1 }}>{getById(JsonData, `${id}`)[0].details}</Typography>
                             </Card>
+
                         </Grid>
                     </Card>
 
 
-
-
                     {/* What you'll learn box */}
+
+
+
+
                     <Card sx={{ p: 1, width: "100%" }} >
                         <Grid
                             container
@@ -156,7 +157,7 @@ export default function CourseDetails() {
                             alignItems="center"
                             justify="center"
                         >
-                            <Card sx={{ width: "50%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
+                            <Card sx={{ width: "55%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
                                 <Typography variant='h5' sx={{ fontWeight: "bold", p: 3 }}>What you'll learn</Typography>
                                 <Box sx={{
                                     width: "100%",
@@ -187,9 +188,9 @@ export default function CourseDetails() {
 
 
 
-
-
                     {/* Course include box */}
+
+
                     <Card sx={{ p: 1, width: "100%" }} >
                         <Grid
                             container
@@ -198,7 +199,7 @@ export default function CourseDetails() {
                             alignItems="center"
                             justify="center"
                         >
-                            <Card sx={{ width: "50%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
+                            <Card sx={{ width: "55%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
                                 <Typography variant='h5' sx={{ fontWeight: "bold", p: 3 }}>This course includes:</Typography>
                                 <Box sx={{
                                     width: "100%",
@@ -241,13 +242,15 @@ export default function CourseDetails() {
                             alignItems="center"
                             justify="center"
                         >
-                            <Card sx={{ width: "50%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
+                            <Card sx={{ width: "55%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
                                 <Typography variant='h5' sx={{ fontWeight: "bold", p: 3 }}>Course content</Typography>
                                 <Box sx={{
                                     width: "100%",
                                     height: "100%",
                                     display: "flex"
                                 }}>
+
+
 
                                     <List
                                         sx={{ width: '100%', bgcolor: 'background.paper' }}
@@ -259,6 +262,8 @@ export default function CourseDetails() {
                                     //     </ListSubheader>
                                     // }
                                     >
+
+
                                         <ListItemButton onClick={handleClick}>
                                             <ListItemText primary="Front-End Web Development" />
                                             {open ? <ExpandLess /> : <ExpandMoreIcon />}
@@ -312,6 +317,8 @@ export default function CourseDetails() {
                                     </List>
 
 
+
+
                                 </Box>
                             </Card>
                         </Grid>
@@ -330,7 +337,7 @@ export default function CourseDetails() {
                             alignItems="center"
                             justify="center"
                         >
-                            <Card sx={{ width: "50%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
+                            <Card sx={{ width: "55%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
                                 <Typography variant='h5' sx={{ fontWeight: "bold", p: 3 }}>Requirements</Typography>
 
 
@@ -357,7 +364,7 @@ export default function CourseDetails() {
                             alignItems="center"
                             justify="center"
                         >
-                            <Card sx={{ width: "50%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
+                            <Card sx={{ width: "55%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
                                 <Typography variant='h5' sx={{ fontWeight: "bold", p: 3 }}>Description</Typography>
 
 
@@ -401,11 +408,12 @@ export default function CourseDetails() {
                                 </Collapse>
                             </Card>
                         </Grid>
+
+
+
+
+
                     </Card>
-
-
-
-
                 </Box>
             </Card>
         </>

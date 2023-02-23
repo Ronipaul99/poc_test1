@@ -457,8 +457,8 @@ function Auth() {
                 backgroundColor: "#eee"
             }}>
                 <Card sx={{
-                    height: "600px",
-                    width: "1000px",
+                    height: "58vh",
+                    width: "55vw",
                     backgroundColor: "#fff",
                     position: "relative",
                     boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)"

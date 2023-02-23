@@ -1,7 +1,7 @@
 import { Box, List, ListItem } from "@mui/material";
 import React from "react";
 import Course from "./Course";
-import JsonData from "./CoursesData/data.json"
+import JsonData from "./AllCoursesData/data.json"
 
 
 
