@@ -23,6 +23,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CardContent from '@mui/material/CardContent';
 import StarBorder from '@mui/icons-material/StarBorder';
+import Divider from '@mui/material/Divider';
 
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -120,7 +121,7 @@ export default function CourseDetails() {
 
 
                     {/* Course heading details box */}
-                    <Card sx={{ p: 1, width: "100%" }} >
+                    <Box sx={{ p: 1, width: "100%" }} >
                         <Grid
                             container
                             spacing={0}
@@ -128,7 +129,7 @@ export default function CourseDetails() {
                             alignItems="center"
                             justify="center"
                         >
-                            <Card sx={{ width: "50%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
+                            <Box sx={{ width: "50%", p: 1 }}>
                                 <Typography sx={{ p: 1 }}><Link underline='none'>Developement</Link><Button><KeyboardArrowRightIcon fontSize='small' /></Button><Link underline='none'>Web Developement</Link></Typography>
 
                                 <Typography variant='h4' sx={{ p: 1, fontWeight: 'bold' }} >{getById(JsonData, `${id}`)[0].Heading}</Typography>
@@ -140,15 +141,16 @@ export default function CourseDetails() {
                                 <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}>< ReportIcon /> <Typography sx={{ p: 1 }}>Last Updated 1/2023</Typography><LanguageIcon sx={{ marginLeft: "15px" }} /><Typography sx={{ p: 1 }}> English</Typography></Box>
                                 <Typography sx={{ p: 1 }}>{getById(JsonData, `${id}`)[0].name}</Typography>
                                 <Typography sx={{ p: 1 }}>{getById(JsonData, `${id}`)[0].details}</Typography>
-                            </Card>
+                                <Divider />
+                            </Box>
                         </Grid>
-                    </Card>
+                    </Box>
 
 
 
 
                     {/* What you'll learn box */}
-                    <Card sx={{ p: 1, width: "100%" }} >
+                    <Box sx={{ p: 1, width: "100%" }} >
                         <Grid
                             container
                             spacing={0}
@@ -156,8 +158,8 @@ export default function CourseDetails() {
                             alignItems="center"
                             justify="center"
                         >
-                            <Card sx={{ width: "50%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
-                                <Typography variant='h5' sx={{ fontWeight: "bold", p: 3 }}>What you'll learn</Typography>
+                            <Box sx={{ width: "50%", p: 1 }}>
+                                <Typography variant='h5' sx={{ fontWeight: "bold" }}>What you'll learn</Typography>
                                 <Box sx={{
                                     width: "100%",
                                     height: "100%",
@@ -181,16 +183,17 @@ export default function CourseDetails() {
                                             <Typography sx={{ p: 1 }}>Learn the latest technologies, including Javascript, React, Node and even Web3 development.</Typography>
                                         </Box></Box>
                                 </Box>
-                            </Card>
+                                <Divider />
+                            </Box>
                         </Grid>
-                    </Card>
+                    </Box>
 
 
 
 
 
                     {/* Course include box */}
-                    <Card sx={{ p: 1, width: "100%" }} >
+                    <Box sx={{ p: 1, width: "100%" }} >
                         <Grid
                             container
                             spacing={0}
@@ -198,8 +201,8 @@ export default function CourseDetails() {
                             alignItems="center"
                             justify="center"
                         >
-                            <Card sx={{ width: "50%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
-                                <Typography variant='h5' sx={{ fontWeight: "bold", p: 3 }}>This course includes:</Typography>
+                            <Box sx={{ width: "50%", p: 1 }}>
+                                <Typography variant='h5' sx={{ fontWeight: "bold" }}>This course includes:</Typography>
                                 <Box sx={{
                                     width: "100%",
                                     height: "100%",
@@ -224,16 +227,18 @@ export default function CourseDetails() {
                                             <DescriptionIcon />
                                             <Typography sx={{ p: 1 }}>86 articles</Typography>
                                         </Box></Box>
+
                                 </Box>
-                            </Card>
+                                <Divider />
+                            </Box>
                         </Grid>
-                    </Card>
+                    </Box>
 
 
 
                     {/* Course details box */}
 
-                    <Card sx={{ p: 1, width: "100%" }} >
+                    <Box sx={{ p: 1, width: "100%" }} >
                         <Grid
                             container
                             spacing={0}
@@ -241,8 +246,8 @@ export default function CourseDetails() {
                             alignItems="center"
                             justify="center"
                         >
-                            <Card sx={{ width: "50%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
-                                <Typography variant='h5' sx={{ fontWeight: "bold", p: 3 }}>Course content</Typography>
+                            <Box sx={{ width: "50%", p: 1 }}>
+                                <Typography variant='h5' sx={{ fontWeight: "bold" }}>Course content</Typography>
                                 <Box sx={{
                                     width: "100%",
                                     height: "100%",
@@ -313,16 +318,17 @@ export default function CourseDetails() {
 
 
                                 </Box>
-                            </Card>
+                                <Divider />
+                            </Box>
                         </Grid>
-                    </Card>
+                    </Box>
 
 
 
 
 
                     {/* Requirement box */}
-                    <Card sx={{ p: 1, width: "100%" }} >
+                    <Box sx={{ p: 1, width: "100%" }} >
                         <Grid
                             container
                             spacing={0}
@@ -330,25 +336,26 @@ export default function CourseDetails() {
                             alignItems="center"
                             justify="center"
                         >
-                            <Card sx={{ width: "50%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
-                                <Typography variant='h5' sx={{ fontWeight: "bold", p: 3 }}>Requirements</Typography>
+                            <Box sx={{ width: "50%", p: 1 }}>
+                                <Typography variant='h5' sx={{ fontWeight: "bold" }}>Requirements</Typography>
 
 
                                 <Typography sx={{ p: 2 }}>No programming experience needed - I'll teach you everything you need to know</Typography>
                                 <Typography sx={{ p: 2 }}>A computer with access to the internet</Typography>
                                 <Typography sx={{ p: 2 }}>No paid software required</Typography>
                                 <Typography sx={{ p: 2 }}>I'll walk you through, step-by-step how to get all the software installed and set up</Typography>
-
-                            </Card>
+                                <Divider />
+                            </Box>
                         </Grid>
-                    </Card>
+
+                    </Box>
 
 
 
 
                     {/* Course description */}
 
-                    <Card sx={{ p: 1, width: "100%" }} >
+                    <Box sx={{ p: 1, width: "100%" }} >
 
                         <Grid
                             container
@@ -357,8 +364,8 @@ export default function CourseDetails() {
                             alignItems="center"
                             justify="center"
                         >
-                            <Card sx={{ width: "50%", boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)", p: 1 }}>
-                                <Typography variant='h5' sx={{ fontWeight: "bold", p: 3 }}>Description</Typography>
+                            <Box sx={{ width: "50%", p: 1 }}>
+                                <Typography variant='h5' sx={{ fontWeight: "bold" }}>Description</Typography>
 
 
                                 <Typography sx={{ p: 2 }}>Welcome to the Complete Web Development Bootcamp, the only course you need to learn to code and become a full-stack web developer. With 150,000+ ratings and a 4.8 average, my Web Development course is one of the HIGHEST RATED courses in the history of Udemy!</Typography>
@@ -399,9 +406,9 @@ export default function CourseDetails() {
                                         <List>If you want to start your own startup by building your own websites and web apps.</List>
                                     </CardContent>
                                 </Collapse>
-                            </Card>
+                            </Box>
                         </Grid>
-                    </Card>
+                    </Box>
 
 
 
