@@ -1,12 +1,12 @@
 import { Box } from '@mui/system';
 import React from "react";
-import Button from '@mui/material/Button';
 import { Card, Typography } from "@mui/material";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import Carousel from "react-grid-carousel";
 
 
 
-const TeacherCourse = ({ name, id, imgURL, price, details }) => {
+const TeacherCourse = ({ CourseName, id, imgURL, teacherName }) => {
 
 
     //   const dispatch = useDispatch();
@@ -23,56 +23,53 @@ const TeacherCourse = ({ name, id, imgURL, price, details }) => {
     // }
     return (
         <>
-
-            <Link style={{ textDecoration: 'none', color: 'white' }} to={`/CourseDetails/10`}>
-                <Box sx={{
-                    minHeight: "25vh",
-                    display: "flex",
-                    justifyContent: "center"
-                }}>
-                    <Card sx={{
-                        height: "25vh",
-                        width: "250px",
+            <Carousel.Item>
+                <Box sx={{ width: "90.1px" }}>
+                    <Box sx={{
+                        height: "30vh",
+                        width: "230px",
                         backgroundColor: "#fff",
                         position: "relative",
-                        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)"
+                        borderRadius:"15px"
+
                     }}>
                         <Box sx={{
                             width: "100%",
                             height: "100%",
                             display: "flex",
-                            flexDirection:"column"
+                            flexDirection: "column",
                         }}>
 
                             <Box sx={{
                                 width: "100%",
-                                backgroundColor: "#fff",
+                                borderRadius: "15px",
                                 height: "50%",
                                 overflow: "hidden"
                             }}>
-                                <img style={{
-                                    boxSizing: "border-box",
-                                    objectFit: "cover",
-                                    height: "100%",
-                                    width: "100%"
-                                }} src={imgURL} alt="pic here" />
+                                <NavLink to={`/CourseDetails/10`}>
+                                    <img style={{
+                                        boxSizing: "border-box",
+                                        objectFit: "cover",
+                                        height: "100%",
+                                        width: "100%"
+                                    }} src={imgURL} alt="pic here" />
+                                </NavLink>
                             </Box>
+
                             <Box sx={{
                                 width: "100%",
-                                backgroundColor: "#eee",
-                                height: "50%",
-                                padding: "20px"
+                                height: "auto",
+                                borderRadius:"15px"
                             }}>
                                 {/* product heading details */}
-                                <Typography variant="h5">{name}</Typography>
-                                <Typography>$ {price}</Typography>
-                                <Button variant="contained" >Add to cart</Button>
+                                <Box sx={{ display: "flex", p: 1 }}> <Card sx={{ width: "34px", justifyContent: "center", display: "flex", alignItems: "center" }}><Typography sx={{ fontSize: "12px", color: "#3C4852", fontWeight: 700 }}>Hindi</Typography></Card> <Typography sx={{ marginLeft: "5px", fontSize: "12px", color: "#F1B334", fontWeight: 700 }}>English</Typography></Box>
+                                <Typography sx={{ fontSize: "16px", fontWeight: 600, color: "#3C4852", letterSpacing: "-0.005em", p: 1 }}>{CourseName}</Typography>
+                                <Typography sx={{ color: "#7A8B94", fontSize: "14px", p: 1 }}>{teacherName}</Typography>
                             </Box>
                         </Box>
-                    </Card>
+                    </Box>
                 </Box>
-            </Link>
-
+            </Carousel.Item>
         </>
     );
 };

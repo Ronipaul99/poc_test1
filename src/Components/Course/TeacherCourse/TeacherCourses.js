@@ -1,33 +1,28 @@
-import { Box, Card } from "@mui/material";
 import React from "react";
 import TeacherCourse from "./TeacherCourse";
 import JsonData from "../TeacherProfileData/TeacherCourse.json"
+import Carousel from "react-grid-carousel";
 
 
 
 const TeacherCourses = () => {
   return (
-    <Card sx={{display:"flex",width:"100%"}}>
-    <Box sx={{
-      display: "flex",
-      flexDirection:"row",
-      flexWrap: 'wrap',
-      justifyContent: "space-between",
-      alignContent: "center"
-    }}>
-      {JsonData.map((course, index) => (
-        <Box sx={{p:1}} key={index}>
-          <TeacherCourse
-            id={course.id}
-            name={course.name}
-            imgURL={course.imgURL}
-            price={course.price}
-            details={course.details}
-          />
-        </Box>
-      ))}
-    </Box>
-    </Card>
+  
+      <Carousel cols={4}>
+        {JsonData.map((course, index) => (
+          <Carousel.Item key={index}>
+            <TeacherCourse
+              id={course.id}
+              CourseName={course.CourseName}
+              imgURL={course.imgURL}
+              price={course.price}
+              teacherName={course.teacherName}
+              details={course.details}
+            />
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    
   );
 };
 

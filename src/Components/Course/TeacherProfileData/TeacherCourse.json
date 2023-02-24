@@ -1,70 +1,80 @@
 [
     {
     "id": "c001",
-    "name": "MERN Stack",
-    "imgURL": "https://dotnettrickscloud.blob.core.windows.net/uploads/CourseImages/becomeamernstackdeveloper-mobile.png",
+    "CourseName": "English | 50 most important Questions | Term 1 Commerce king",
+    "teacherName":"Reshab Naskar",
+    "imgURL": "https://static.uacdn.net/thumbnail/course/v2/E9322975-8C2D-4D0F-A51D-D8BCBF2A9F18_special_class.png?q=75&w=640&fm=webp",
     "price": 1199,
     "details": "This device is form the best Company in the entire world Apple"
   },
   {
     "id":"c002",
-    "name": "MEAN Stack",
-    "imgURL": "https://uploads-ssl.webflow.com/60cca9384ff7eaa931a24b69/60ce440d8fffcaf55396b276_meanstack.png",
+    "CourseName": "Crash Course : Last Minute Questions + Tips",
+    "teacherName":"Biswarup Kundu",
+    "imgURL": "https://static.uacdn.net/thumbnail/course/v2/D3678A2A-BD66-48C0-91F7-1FF279B371E5_special_class.png?q=75&w=384&fm=webp",
     "price": 284,
     "details": "This device is from the company called Lenovo"
   },
   {
     "id": "c003",
-    "name": "AWS",
-    "imgURL": "https://www.softwareone.com/-/media/global/logos/aws-logo-teaser.png?rev=7faf0711601f44be8c333218fb2de560&sc_lang=en-us&hash=F17B9AFF0F48F017F04E8BB9680D698C",
+    "CourseName": "50 Most Important Questions | English | Rahul & Anurag Dwivedi",
+    "teacherName":"Joy Biswas",
+    "imgURL": "https://static.uacdn.net/thumbnail/course/v2/ABD7E11C-7F44-44FF-9A2D-C5B94182A054_special_class.png?q=75&w=384&fm=webp",
     "price": 749,
     "details": "This device is from Dell"
   },
   {
     "id": "c004",
-    "name": "Node ",
-    "imgURL": "https://miro.medium.com/max/800/1*bc9pmTiyKR0WNPka2w3e0Q.png",
+    "CourseName": "Sample Paper MCQs - Full Literature Part 2 (Code: VB20) ",
+    "teacherName":"Jesmina Parvin",
+    "imgURL": "https://static.uacdn.net/thumbnail/course/v2/72BDC43C-F319-40C5-A6AE-B4CE2351E4F6_special_class.png?q=75&w=640&fm=webp",
     "price": 479,
-    "details": "This device is from Very popular company named HP"
+    "details": "This device is from Very popular company CourseNamed HP"
   },
   {
     "id":"c005",
-    "name": "Acer Aspire",
-    "imgURL": "https://cdn1.smartprix.com/rx-iJWdBPrxH-w1200-h1200/JWdBPrxH.jpg",
+    "CourseName": "Thug Life Series #2 : English Literature Complete MCQ battle | Term 1",
+    "teacherName":"Rounak Roy",
+    "imgURL": "https://static.uacdn.net/thumbnail/course/v2/B005229F-C0C7-4E1B-850C-479D851CC4C0_special_class.png?q=75&w=640&fm=webp",
     "price": 643,
     "details": "This device is from a company called Acer"
   },
   {
     "id": "c006",
-    "name": "ASUS Vivobook 14",
-    "imgURL": "https://dlcdnwebimgs.asus.com/gain/da5dc389-316b-4c84-8635-4ce7e8f93d2a/",
+    "CourseName": "50 Most important questions for English Board Exam",
+    "teacherName":"Deep Naskar",
+    "imgURL": "https://static.uacdn.net/thumbnail/course/v2/1382A161-630D-4368-BDA7-0010906E70C0_special_class.png?q=75&w=384&fm=webp",
     "price": 533,
     "details": "This device is comes from very known company and the company of trus ASUS"
   },
   {
     "id": "c007",
-    "name": "MSI GF63",
-    "imgURL": "https://www.notebookcheck.net/uploads/tx_nbc2/MSI_GF63_8RD-028ES_01.jpg",
+    "CourseName": "A Thing of Beauty (Analysis) - XII English Term II",
+    "teacherName":"Ayan Ghosh",
+    "imgURL": "https://static.uacdn.net/thumbnail/course/v2/98D1FDA8-BF0C-4209-A43D-29B76680E047_special_class.png?q=75&w=384&fm=webp",
     "price": 648,
     "details": "This device is from very durable company MSI"
   },
   {
     "id": "c008",
-    "name": "HP Elitebook 1030",
-    "imgURL": "https://uniquec.com/wp-content/uploads/eb-x360-1020g2.png",
+    "CourseName": "Aarambh - THE LAST LESSON | PART-I",
+    "teacherName":"Asish Kayal",
+    "imgURL": "https://static.uacdn.net/thumbnail/course/v2/B0A805F5-8970-41A0-97FA-56B255397232_special_class.png?q=75&w=384&fm=webp",
     "price": 360,
     "details": "This device is from very popular HP"
   },
   {
     "id": "c009",
-    "name": "Asus Zenbook 14x",
+    "CourseName": "SDC Sample Paper - 1 Part II",
+    "teacherName":"Koushik Sardar",
     "imgURL": "https://dlcdnwebimgs.asus.com/gain/6136b9b8-d2ce-42b7-9b00-fa1a95a2439f/",
     "price": 1299,
     "details": "This device is comes from very known company and the company of trus ASUS"
   },
     {
       "id": "c010",
-      "name": "Full Stack",
+      "CourseName": "Crash Course : Last Minute Questions + Tips",
+      "teacherName":"Sourav Mondal",
       "imgURL": "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE5apBJ?ver=aff3&q=90&m=8&h=431&w=767&b=%23FFFFFFFF&l=f&x=1065&y=0&s=2135&d=1200&aim=true",
       "details": "This Course is for Web Developement",
       "price": 1199

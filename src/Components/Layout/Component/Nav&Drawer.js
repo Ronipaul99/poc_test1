@@ -233,7 +233,7 @@ export default function NavDrawer() {
             </AppBar>
 
             {/* drawer */}
-            <Box>
+            {/* <Box>
                 <Drawer
 
                     variant="permanent"
@@ -295,7 +295,7 @@ export default function NavDrawer() {
                         ))}
                     </List>
                 </Drawer>
-            </Box>
+            </Box> */}
         </>
     );
 };
