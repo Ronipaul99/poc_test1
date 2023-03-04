@@ -1,4 +1,4 @@
-import { Box, Button, Card, Grid, Typography } from '@mui/material'
+import { Box, Button, Card, Collapse, Divider, Grid, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles';
 import React from 'react'
 import NavDrawer from '../../Layout/Component/Nav&Drawer';
@@ -6,8 +6,19 @@ import CircularProgress from '@mui/material/CircularProgress';
 // import Teacher from '../../../Images/Teacher.jfif'
 import { useParams } from 'react-router-dom';
 // import JsonData from "../../../Course/TeacherProfileData/TeacherData.json";
-import TeacherCourses from '../../Course/TeacherCourse/TeacherCourses';
+// import TeacherCourses from '../../Course/TeacherCourse/TeacherCourses';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import List from '@mui/material/List';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
+import PersonIcon from '@mui/icons-material/Person';
+import ReportProblemOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
+import { Icon } from '@iconify/react';
 
 const TDashboard = () => {
   const { id } = useParams();
@@ -18,6 +29,12 @@ const TDashboard = () => {
 
   };
 
+
+  const [open, setOpen] = React.useState(true);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
 
   const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -42,9 +59,9 @@ const TDashboard = () => {
 
   return (
 
-    <Card sx={{ display: 'flex', justifyContent: "center", backgroundColor: "#D3D3D3" }}>
+    <Card sx={{ display: 'flex', justifyContent: "center", backgroundColor: "#D3D3D3", height: "100%" }}>
       <NavDrawer />
-      <Card sx={{ display: "flex", flexDirection: "column", width: "100%", height: "110vh" }}>
+      <Card sx={{ display: "flex", flexDirection: "column", width: "100%", height: "100%", p: 2 }}>
         <DrawerHeader />
         <Grid
           container
@@ -57,9 +74,9 @@ const TDashboard = () => {
             <Box sx={{ width: "100%", display: "flex" }}>
               <Box sx={{ width: "70%", display: "flex", flexDirection: "column" }}>
                 <Typography sx={{ fontSize: "30", fontWeight: "bold", p: 1 }}>Hello, Reshab Naskar</Typography>
-                <Box sx={{display:"flex",p:1}}><Card sx={{display:"flex",justifyContent:"center",alignItems:"center",backgroundColor:"blue",height:"25px",width:"35px",color:"white",mr:1}}>#25</Card><Typography sx={{fontSize:"15"}}>in UPSC CSE</Typography></Box>
+                <Box sx={{ display: "flex", p: 1 }}><Card sx={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "blue", height: "25px", width: "35px", color: "white", mr: 1 }}>#25</Card><Typography sx={{ fontSize: "15" }}>in UPSC CSE</Typography></Box>
               </Box>
-              <Box sx={{ width: "30%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+              <Box sx={{ width: "30%", display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
                 <Button variant='contained' ><SupportAgentIcon fontSize='small' sx={{ p: 1 }} /><Typography sx={{ fontSize: "15px", fontWeight: "bold", color: "white" }}>Live support</Typography></Button>
               </Box>
             </Box>
@@ -67,7 +84,7 @@ const TDashboard = () => {
               {/* Upper Portion */}
               <Card sx={{ width: "100%", p: 3, display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
                 <Typography sx={{ fontSize: "15px", fontWeight: "bold" }}>Total hours tought this month</Typography>
-                <Box sx={{ display: "flex" }}><Typography sx={{ fontSize: "30px", fontWeight: "bold", marginTop: "15px" }}>117.5</Typography><Typography sx={{ marginTop: "35px", fontSize: "13px" }}>/150 hours</Typography></Box>
+                <Box sx={{ display: "flex" }}><Typography sx={{ fontSize: "30px", fontWeight: "bold", marginTop: "17px" }}>117.5</Typography><Typography sx={{ marginTop: "35px", fontSize: "13px" }}>/150 hours</Typography></Box>
               </Card>
               {/* Lower Portion */}
               <Card sx={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "center", height: "50%" }}>
@@ -86,7 +103,7 @@ const TDashboard = () => {
                   </Box>
                 </Card>
                 <Card sx={{ width: "33%", display: "flex", justifyContent: "center", height: "100%", alignItems: "center" }}>
-                  <CircularProgress variant="determinate" sx={{ color: "blue" }} value={78} />
+                  <CheckCircleIcon sx={{ color: "red", boxShadow: "0px 0px 25px #de1b1b", borderRadius: "50px" }} />
                   <Box sx={{ display: "flex", flexDirection: "column", p: 2 }}>
                     <Typography sx={{ fontSize: "12px", fontWeight: "bold" }}>Youtube</Typography>
                     <Box sx={{ display: "flex" }}><Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>117.5</Typography><Typography sx={{ fontSize: "12px", marginTop: "9px" }}>/150 hours</Typography></Box>
@@ -95,9 +112,185 @@ const TDashboard = () => {
               </Card>
             </Card>
           </Box>
-          <Box sx={{ display: "flex", justifyContent: "center", width: "60%", flexDirection: "column" }}>
-            <Typography variant='h6' sx={{ fontWeight: "bold", color: '#36454F', justifyContent: "flex-start", p: 3 }}>More from CA Reshab Naskar :</Typography>
-            <TeacherCourses />
+
+          {/* overview section */}
+
+          <Box sx={{ display: 'flex', width: "60%", flexDirection: "column", marginTop: "20px", }}>
+            <Box sx={{ width: "100%", display: "flex" }}>
+              <Box sx={{ width: "70%", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <Typography sx={{ fontSize: "30", fontWeight: "bold", p: 1 }}>Overview</Typography>
+              </Box>
+              <Box sx={{ width: "30%", display: "flex", justifyContent: "flex-end", alignItems: "center", margin: "15px 0" }}>
+                <List sx={{ width: '80%', maxWidth: 360, bgcolor: 'background.paper' }}>
+                  <ListItemButton onClick={handleClick}>
+                    <ListItemText primary="This week" />
+                    {open ? <ExpandLess /> : <ExpandMore />}
+                  </ListItemButton>
+                  <Collapse in={open} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemText primary="This month" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemText primary="Last month" />
+                      </ListItemButton>
+                    </List>
+                  </Collapse>
+                </List>
+              </Box>
+            </Box>
+
+            {/* overview section */}
+            <Box sx={{ display: 'flex', width: "100%", height: "100%", justifyContent: "space-between" }}>
+
+              <Card sx={{ display: "flex", flexDirection: "column", width: "46%", p: 2, boxShadow: "0 0 40px rgba(0, 0, 0, 0.1)" }}>
+                <Box sx={{ width: "100%", height: "100%", display: "flex" }}>
+                  <Box sx={{ width: "80%" }}>
+                    <Typography sx={{ fontSize: "15px", fontWeight: "bold", p: 1 }}>Views</Typography>
+                  </Box>
+                  <Box sx={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <SignalCellularAltIcon fontSize='large' />
+                  </Box>
+                </Box>
+
+                <Box sx={{ display: "flex", p: 1 }}>
+                  <Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>512,356</Typography>
+                  <Typography sx={{ fontSize: "12px", fontWeight: "bold", color: "#00D100", marginTop: "9px" }}>+200 today</Typography>
+                </Box>
+                <Box sx={{ display: "flex", p: 1, alignItems: "center" }}><Card sx={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#00D100", color: "white", mr: 1, fontSize: "12px", fontWeight: "bold", p: 0.2, width: "90px" }}>18% increase</Card><Typography sx={{ fontSize: "12px", fontWeight: "bold", color: "grey" }}>from last week(322.2k)</Typography></Box>
+                <Divider sx={{ margin: "15px 0" }} />
+                <Box sx={{ display: "flex", height: "100%", width: "100%", }}>
+                  <Box sx={{ width: "33%", p: 1 }}>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>Live courses</Typography>
+                    <Typography sx={{ fontSize: "17px", fontWeight: "bold", p: 1 }}>448</Typography>
+                  </Box>
+                  <Box sx={{ width: "34%", p: 1 }}>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>Free live courses</Typography>
+                    <Typography sx={{ fontSize: "17px", fontWeight: "bold", p: 1 }}>1.7k</Typography>
+                  </Box>
+                  <Box sx={{ width: "33%", p: 1 }}>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>Free courses</Typography>
+                    <Typography sx={{ fontSize: "17px", fontWeight: "bold", p: 1 }}>816</Typography>
+                  </Box>
+                </Box>
+              </Card>
+
+              {/* division */}
+
+              <Card sx={{ display: "flex", flexDirection: "column", width: "46%", p: 2, boxShadow: "0px 0px 50px rgba(0, 0, 0, 0.1)" }}>
+                <Box sx={{ width: "100%", height: "100%", display: "flex" }}>
+                  <Box sx={{ width: "80%" }}>
+
+
+                    <Typography sx={{ fontSize: "15px", fontWeight: "bold", p: 1 }}>Watch minutes</Typography>
+                  </Box>
+                  <Box sx={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <RemoveRedEyeIcon fontSize='large' sx={{ color: "red" }} />
+                  </Box>
+                </Box>
+                <Box sx={{ display: "flex", p: 1 }}>
+                  <Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>149,322</Typography>
+                  <Typography sx={{ fontSize: "12px", fontWeight: "bold", color: '#00D100', marginTop: "9px" }}>+200 today</Typography>
+                </Box>
+                <Box sx={{ display: "flex", p: 1, alignItems: "center" }}><Card sx={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#00D100", color: "white", mr: 1, fontSize: "12px", fontWeight: "bold", p: 0.2, width: "90px" }}>18% increase</Card><Typography sx={{ fontSize: "12px", fontWeight: "bold", color: "grey" }}>from last week(128.8k)</Typography></Box>
+                <Divider sx={{ margin: "15px 0" }} />
+                <Box sx={{ display: "flex", height: "100%", width: "100%", }}>
+                  <Box sx={{ width: "33%", p: 1 }}>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>Live courses</Typography>
+                    <Typography sx={{ fontSize: "17px", fontWeight: "bold", p: 1 }}>4.1k</Typography>
+                  </Box>
+                  <Box sx={{ width: "34%", p: 1 }}>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>Free live courses</Typography>
+                    <Typography sx={{ fontSize: "17px", fontWeight: "bold", p: 1 }}>8.1k</Typography>
+                  </Box>
+                  <Box sx={{ width: "33%", p: 1 }}>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>Free courses</Typography>
+                    <Typography sx={{ fontSize: "17px", fontWeight: "bold", p: 1 }}>11.2k</Typography>
+                  </Box>
+                </Box>
+              </Card>
+            </Box>
+
+            {/*Other section  */}
+
+            <Box sx={{ display: 'flex', width: "100%", height: "100%", justifyContent: "space-between", marginTop: "20px" }}>
+
+              <Card sx={{ display: "flex", flexDirection: "column", width: "46%", p: 2, boxShadow: "0 0 40px rgba(0, 0, 0, 0.1)" }}>
+                <Box sx={{ width: "100%", height: "100%", display: "flex" }}>
+                  <Box sx={{ width: "80%" }}>
+                    <Typography sx={{ fontSize: "15px", fontWeight: "bold", p: 1 }}>Live learners in free live classes</Typography>
+                  </Box>
+                  <Box sx={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <PersonIcon fontSize='large' />
+                  </Box>
+                </Box>
+
+                <Box sx={{ display: "flex", p: 1 }}>
+                  <Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>32,356</Typography>
+                </Box>
+                <Box sx={{ display: "flex", p: 1, alignItems: "center" }}><Card sx={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#00D100", color: "white", mr: 1, fontSize: "12px", fontWeight: "bold", p: 0.2, width: "90px" }}>10% increase</Card><Typography sx={{ fontSize: "12px", fontWeight: "bold", color: "grey" }}>from last week(28.8k)</Typography></Box>
+              </Card>
+
+              {/* division */}
+
+              <Card sx={{ display: "flex", flexDirection: "column", width: "46%", p: 2, boxShadow: "0px 0px 50px rgba(0, 0, 0, 0.1)" }}>
+                <Box sx={{ width: "100%", height: "100%", display: "flex" }}>
+                  <Box sx={{ width: "80%" }}>
+                    <Typography sx={{ fontSize: "15px", fontWeight: "bold", p: 1 }}>Referrals</Typography>
+                  </Box>
+                  <Box sx={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <Icon icon="mdi:gift" style={{ fontSize: "30px", color: "purple" }} />
+                  </Box>
+                </Box>
+                <Box sx={{ display: "flex", p: 1 }}>
+                  <Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>48</Typography>
+                </Box>
+                <Box sx={{ display: "flex", p: 1, alignItems: "center" }}><Card sx={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#00D100", color: "white", mr: 1, fontSize: "12px", fontWeight: "bold", p: 0.2, width: "90px" }}>17% increase</Card><Typography sx={{ fontSize: "12px", fontWeight: "bold", color: "grey" }}>from last week(34)</Typography></Box>
+              </Card>
+            </Box>
+
+            {/* other section */}
+
+            <Box sx={{ display: 'flex', width: "100%", height: "100%", justifyContent: "space-between", marginTop: "20px" }}>
+
+              <Card sx={{ display: "flex", flexDirection: "column", width: "46%", p: 2, boxShadow: "0 0 40px rgba(0, 0, 0, 0.1)" }}>
+                <Box sx={{ width: "100%", height: "100%", display: "flex" }}>
+                  <Box sx={{ width: "80%" }}>
+                    <Typography sx={{ fontSize: "15px", fontWeight: "bold", p: 1 }}>Alerts</Typography>
+                    <Box sx={{ display: "flex", p: 1,flexDirection:"column" }}>
+                      <Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>15</Typography>
+                      <Typography sx={{ fontSize: "12px", fontWeight: "bold", color: "grey" }}>Last week(5)</Typography>
+                    </Box>
+                  </Box>
+                  <Box sx={{ width: "20%", display: "flex", alignItems: "flex-start", justifyContent: "center" }}>
+                    <ReportProblemOutlinedIcon fontSize='large' sx={{ color: "#F0E68C" }} />
+                  </Box>
+                </Box>
+              </Card>
+
+              {/* division */}
+
+              <Card sx={{ display: "flex", flexDirection: "column", width: "46%", p: 2, boxShadow: "0px 0px 50px rgba(0, 0, 0, 0.1)" }}>
+                <Box sx={{ width: "100%", height: "100%", display: "flex" }}>
+                  <Box sx={{ width: "80%" }}>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>Wrong attire</Typography>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>No show</Typography>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>Late appearance</Typography>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>Classes rescheduled immediately</Typography>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>Future classes resheduled</Typography>
+
+                  </Box>
+                  <Box sx={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "flex-end", flexDirection: "column" }}>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>5</Typography>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>2</Typography>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>3</Typography>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>5</Typography>
+                    <Typography sx={{ fontSize: "15px", p: 1 }}>2</Typography>
+                  </Box>
+                </Box>
+              </Card>
+            </Box>
+
           </Box>
         </Grid>
       </Card>
