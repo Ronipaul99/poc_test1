@@ -221,7 +221,7 @@ const TDashboard = () => {
                     <Typography sx={{ fontSize: "15px", fontWeight: "bold", p: 1 }}>Live learners in free live classes</Typography>
                   </Box>
                   <Box sx={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <PersonIcon fontSize='large' />
+                    <PersonIcon fontSize='large' sx={{ color: "#00D100" }} />
                   </Box>
                 </Box>
 
@@ -257,7 +257,7 @@ const TDashboard = () => {
                 <Box sx={{ width: "100%", height: "100%", display: "flex" }}>
                   <Box sx={{ width: "80%" }}>
                     <Typography sx={{ fontSize: "15px", fontWeight: "bold", p: 1 }}>Alerts</Typography>
-                    <Box sx={{ display: "flex", p: 1,flexDirection:"column" }}>
+                    <Box sx={{ display: "flex", p: 1, flexDirection: "column" }}>
                       <Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>15</Typography>
                       <Typography sx={{ fontSize: "12px", fontWeight: "bold", color: "grey" }}>Last week(5)</Typography>
                     </Box>
@@ -297,5 +297,4 @@ const TDashboard = () => {
     </Card>
   );
 }
-
 export default TDashboard;
