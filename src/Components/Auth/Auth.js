@@ -321,6 +321,7 @@ function Auth() {
     const onSubmitForLoginPage = (data) => {
         axios.post('http://localhost:5002/user/login', data).then((res) => {
             const a = (res.data.UserType);
+            window.localStorage.setItem("IniIn",true);
             const b = (res.data);
             const c = JSON.stringify(b)
             window.localStorage.setItem('userData', c);

@@ -124,6 +124,8 @@ export default function NavDrawer() {
         navigate("/")
         window.localStorage.removeItem("userType");
         window.localStorage.removeItem("userData");
+        window.localStorage.setItem("IniIn",false);
+        window.localStorage.removeItem("TaskbarId");
         // navigate("/");
     };
 

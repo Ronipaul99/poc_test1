@@ -1,20 +1,27 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
 import TDrawerStyle from "../Style/T-Drawer";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
 export default function TDrawer() {
 
     const navigate = useNavigate()
+    const id = JSON.parse(window.localStorage.getItem("TaskbarId"))
 
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = React.useState(id);
 
     const handleChange = (event, newValue) => {
-      setValue(newValue);
+        setValue(newValue);
+    };
+    const goto = () => {
+        navigate("/Dashboard")
+    };
+    const goto2 = () => {
+        navigate("/createCourse")
     };
 
     return (
@@ -29,12 +36,11 @@ export default function TDrawer() {
                     aria-label="Vertical tabs example"
                     sx={{ borderRight: 1, borderColor: 'divider' }}
                 >
-                    <Tab label="Dashboard" onClick={()=>navigate("/Dashboard")}/>
-                    <Tab label="Create course" />
-                    <Tab label="Schedule" />
-                    <Tab label="All courses" />
-                    <Tab label="Documents" />
-                    <Tab label="Account" />
+                    <Tab label="Dashboard" onClick={() => (goto)(window.localStorage.setItem("TaskbarId", 0))} />
+                    <Tab label="Create course" onClick={() => (goto2)(window.localStorage.setItem("TaskbarId", 1))} />
+                    <Tab label="Schedule" onClick={() => (window.localStorage.setItem("TaskbarId", 2))} />
+                    <Tab label="Documents" onClick={() => (window.localStorage.setItem("TaskbarId", 3))} />
+                    <Tab label="Account" onClick={() => (window.localStorage.setItem("TaskbarId", 4))} />
                 </Tabs>
             </Box>
         </Box >
