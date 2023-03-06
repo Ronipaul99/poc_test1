@@ -34,7 +34,7 @@ export default function TDrawer() {
                     <Tab label="Schedule" />
                     <Tab label="All courses" />
                     <Tab label="Documents" />
-                    <Tab label="Settings" />
+                    <Tab label="Account" />
                 </Tabs>
             </Box>
         </Box >
