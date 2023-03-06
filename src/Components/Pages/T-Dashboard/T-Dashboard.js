@@ -19,6 +19,8 @@ import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import PersonIcon from '@mui/icons-material/Person';
 import ReportProblemOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
 import { Icon } from '@iconify/react';
+import styles from '../../Layout/Style/T-DashboardStyle';
+import TDrawer from '../../Layout/Component/TeacherDrawer';
 
 const TDashboard = () => {
   const { id } = useParams();
@@ -30,7 +32,7 @@ const TDashboard = () => {
   };
 
 
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
     setOpen(!open);
@@ -59,9 +61,10 @@ const TDashboard = () => {
 
   return (
 
-    <Card sx={{ display: 'flex', justifyContent: "center", backgroundColor: "#D3D3D3", height: "100%" }}>
+    <Card sx={styles.mainContainer}>
       <NavDrawer />
-      <Card sx={{ display: "flex", flexDirection: "column", width: "100%", height: "100%", p: 2 }}>
+      <TDrawer/>
+      <Card sx={styles.Card}>
         <DrawerHeader />
         <Grid
           container
@@ -70,43 +73,43 @@ const TDashboard = () => {
           alignItems="center"
           justify="center"
         >
-          <Box sx={{ display: "flex", flexDirection: "column", width: "60%" }}>
-            <Box sx={{ width: "100%", display: "flex" }}>
-              <Box sx={{ width: "70%", display: "flex", flexDirection: "column" }}>
-                <Typography sx={{ fontSize: "30", fontWeight: "bold", p: 1 }}>Hello, Reshab Naskar</Typography>
-                <Box sx={{ display: "flex", p: 1 }}><Card sx={{ display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "blue", height: "25px", width: "35px", color: "white", mr: 1 }}>#25</Card><Typography sx={{ fontSize: "15" }}>in UPSC CSE</Typography></Box>
+          <Box sx={styles.Box1}>
+            <Box sx={styles.Box1Heading}>
+              <Box sx={styles.Box1TeacherNameAndSupport}>
+                <Typography sx={styles.TeacherName}>Hello, Reshab Naskar</Typography>
+                <Box sx={styles.SubHeading}><Card sx={styles.SubCard}>#25</Card><Typography sx={styles.SubText}>in UPSC CSE</Typography></Box>
               </Box>
-              <Box sx={{ width: "30%", display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
-                <Button variant='contained' ><SupportAgentIcon fontSize='small' sx={{ p: 1 }} /><Typography sx={{ fontSize: "15px", fontWeight: "bold", color: "white" }}>Live support</Typography></Button>
+              <Box sx={styles.RightBox}>
+                <Button variant='contained' ><SupportAgentIcon sx={styles.ButtonIcon} /><Typography sx={styles.ButtonText}>Live support</Typography></Button>
               </Box>
             </Box>
-            <Card sx={{ display: "flex", flexDirection: "column", width: "100%", boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)" }}>
+            <Card sx={styles.FirstCard}>
               {/* Upper Portion */}
-              <Card sx={{ width: "100%", p: 3, display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-                <Typography sx={{ fontSize: "15px", fontWeight: "bold" }}>Total hours tought this month</Typography>
-                <Box sx={{ display: "flex" }}><Typography sx={{ fontSize: "30px", fontWeight: "bold", marginTop: "17px" }}>117.5</Typography><Typography sx={{ marginTop: "35px", fontSize: "13px" }}>/150 hours</Typography></Box>
+              <Card sx={styles.CardUpperPart}>
+                <Typography sx={styles.Text1}>Total hours tought this month</Typography>
+                <Box sx={styles.Box2}><Typography sx={styles.Text2}>117.5</Typography><Typography sx={styles.Text3}>/150 hours</Typography></Box>
               </Card>
               {/* Lower Portion */}
-              <Card sx={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "center", height: "50%" }}>
-                <Card sx={{ width: "33%", display: "flex", justifyContent: "center", height: "100%", alignItems: "center" }}>
+              <Card sx={styles.CardLowerPart}>
+                <Card sx={styles.CardDivision1}>
                   <CircularProgress variant="determinate" color="success" value={70} />
-                  <Box sx={{ display: "flex", flexDirection: "column", p: 2 }}>
-                    <Typography sx={{ fontSize: "12px", fontWeight: "bold" }}>Live classes</Typography>
-                    <Box sx={{ display: "flex" }}><Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>62.5</Typography><Typography sx={{ fontSize: "12px", marginTop: "9px" }}>/80 hours</Typography></Box>
+                  <Box sx={styles.Box3}>
+                    <Typography sx={styles.Text4}>Live classes</Typography>
+                    <Box sx={styles.Box4}><Typography sx={styles.Text5}>62.5</Typography><Typography sx={styles.Text6}>/80 hours</Typography></Box>
                   </Box>
                 </Card>
-                <Card sx={{ width: "34%", display: "flex", justifyContent: "center", height: "100%", alignItems: "center" }}>
-                  <CircularProgress variant="determinate" sx={{ color: "orange" }} value={45} />
-                  <Box sx={{ display: "flex", flexDirection: "column", p: 2 }}>
-                    <Typography sx={{ fontSize: "12px", fontWeight: "bold" }}> Free live classes</Typography>
-                    <Box sx={{ display: "flex" }}><Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>17.5</Typography><Typography sx={{ fontSize: "12px", marginTop: "9px" }}>/40 hours</Typography></Box>
+                <Card sx={styles.CardDivision2}>
+                  <CircularProgress variant="determinate" sx={styles.CircularProgress} value={45} />
+                  <Box sx={styles.Box3}>
+                    <Typography sx={styles.Text4}> Free live classes</Typography>
+                    <Box sx={styles.Box4}><Typography sx={styles.Text5}>17.5</Typography><Typography sx={styles.Text6}>/40 hours</Typography></Box>
                   </Box>
                 </Card>
-                <Card sx={{ width: "33%", display: "flex", justifyContent: "center", height: "100%", alignItems: "center" }}>
-                  <CheckCircleIcon sx={{ color: "red", boxShadow: "0px 0px 25px #de1b1b", borderRadius: "50px" }} />
-                  <Box sx={{ display: "flex", flexDirection: "column", p: 2 }}>
-                    <Typography sx={{ fontSize: "12px", fontWeight: "bold" }}>Youtube</Typography>
-                    <Box sx={{ display: "flex" }}><Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>117.5</Typography><Typography sx={{ fontSize: "12px", marginTop: "9px" }}>/150 hours</Typography></Box>
+                <Card sx={styles.CardDivision3}>
+                  <CheckCircleIcon sx={styles.CheckIcon} />
+                  <Box sx={styles.Box3}>
+                    <Typography sx={styles.Text4}>Youtube</Typography>
+                    <Box sx={styles.Box4}><Typography sx={styles.Text5}>117.5</Typography><Typography sx={styles.Text6}>/150 hours</Typography></Box>
                   </Box>
                 </Card>
               </Card>
@@ -115,13 +118,13 @@ const TDashboard = () => {
 
           {/* overview section */}
 
-          <Box sx={{ display: 'flex', width: "60%", flexDirection: "column", marginTop: "20px", }}>
-            <Box sx={{ width: "100%", display: "flex" }}>
-              <Box sx={{ width: "70%", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                <Typography sx={{ fontSize: "30", fontWeight: "bold", p: 1 }}>Overview</Typography>
+          <Box sx={styles.SecondCard}>
+            <Box sx={styles.SecondCardUpperPart}>
+              <Box sx={styles.Box5}>
+                <Typography sx={styles.Text7}>Overview</Typography>
               </Box>
-              <Box sx={{ width: "30%", display: "flex", justifyContent: "flex-end", alignItems: "center", margin: "15px 0" }}>
-                <List sx={{ width: '80%', maxWidth: 360, bgcolor: 'background.paper' }}>
+              <Box sx={styles.Box6}>
+                <List sx={styles.List}>
                   <ListItemButton onClick={handleClick}>
                     <ListItemText primary="This week" />
                     {open ? <ExpandLess /> : <ExpandMore />}
