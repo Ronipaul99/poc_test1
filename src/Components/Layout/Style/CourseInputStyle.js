@@ -13,21 +13,32 @@ const styles = {
     Card2: {
         display: "flex",
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
-        height: "500px",
+        minHeight: "500px",
         justifyContent: "center",
         width: "60%",
     },
     Box1: {
+        p: 2,
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
+        alignItems: "center",
         width: "50%",
-        marginTop: '100px'
+        textAlign: "center"
     },
-    List:{
-        width: '40%',
-        maxWidth: 360,
-        bgcolor: 'background.paper',
-        margin:"20px 0  20px "
+    Text1: {
+        p: 3,
+        fontSize: "35px",
+        fontWeight: "bold"
+    },
+    Text2: {
+        p: 1,
+        fontSize: "20px",
+        fontWeight: "bold"
+    },
+    Box2: {
+        display: "flex",
+        justifyContent: "center"
     }
 };
 export default styles;
