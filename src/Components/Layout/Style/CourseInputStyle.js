@@ -11,23 +11,24 @@ const styles = {
         height: "100vh",
     },
     Card2: {
+        p: 2,
         display: "flex",
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
         minHeight: "500px",
-        justifyContent: "center",
-        width: "60%",
+        width: "30%",
     },
     Box1: {
-        p: 2,
+        p: 1,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        width: "50%",
+        width: "100%",
+        height: "100%",
         textAlign: "center"
     },
     Text1: {
-        p: 3,
+        p: 1,
         fontSize: "35px",
         fontWeight: "bold"
     },
@@ -36,9 +37,6 @@ const styles = {
         fontSize: "20px",
         fontWeight: "bold"
     },
-    Box2: {
-        display: "flex",
-        justifyContent: "center"
-    }
+
 };
 export default styles;

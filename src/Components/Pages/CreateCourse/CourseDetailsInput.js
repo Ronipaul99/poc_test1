@@ -8,21 +8,27 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import dayjs from 'dayjs';
 import InputAdornment from '@mui/material/InputAdornment';
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
+import PinOutlinedIcon from '@mui/icons-material/PinOutlined';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { DemoItem } from '@mui/x-date-pickers/internals/demo';
 
 
 const CourseDetailsInput = () => {
 
-    const [value, setValue] = React.useState(dayjs('2023-03-9'));
+    const [value, setValue] = React.useState(dayjs('2023-03-20'));
     const [checked, setChecked] = React.useState(false);
 
     const handleChange = (event) => {
         setChecked(event.target.checked);
     };
+
+    const today = dayjs();
+    const todayStartOfTheDay = today.startOf('day');
 
 
     return (
@@ -41,25 +47,44 @@ const CourseDetailsInput = () => {
                             noValidate
                             autoComplete="off"
                         >
-                            <TextField id="NumberOfCourse" label="Number of course" variant="standard" />
-                            <TextField id="CourseName" label="Course name" variant="standard" />
-                            <TextField id="CourseDetails" label="Course details" multiline maxRows={4} variant="standard" />
-                            <br />
+                            <TextField id="NumberOfCourse" label="Number of course" InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        < PinOutlinedIcon />
+                                    </InputAdornment>
+                                ),
+                            }} variant="standard" />
+                            <TextField id="CourseName" label="Course name" InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <CreateOutlinedIcon />
+                                    </InputAdornment>
+                                ),
+                            }} variant="standard" />
+                            <TextField id="CourseDetails" label="Course details" multiline maxRows={4}
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <InfoOutlinedIcon />
+                                        </InputAdornment>
+                                    ),
+                                }} variant="standard" />
                             <Typography sx={styles.Text2}>Schedule</Typography>
                             <br />
-                            <Box sx={styles.Box2}>
-                                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <DemoContainer components={['DatePicker', 'DatePicker']}>
-                                        <DatePicker
-                                            label="Choose date"
-                                            value={value}
-                                            onChange={(newValue) => setValue(newValue)}
-                                        />
-                                    </DemoContainer>
-                                </LocalizationProvider>
-                            </Box>
-                            <TextField id="Start from" label="Start from" variant="standard" />
-                            <TextField id="End at" label="End at" variant="standard" />
+                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                <DatePicker
+                                    label="Choose date"
+                                    value={value}
+                                    onChange={(newValue) => setValue(newValue)}
+                                />
+
+                                <TimePicker label="Start from" defaultValue={todayStartOfTheDay} />
+
+
+                                <TimePicker label="End at" defaultValue={todayStartOfTheDay} />
+
+                            </LocalizationProvider>
+                            <br />
                             <FormControlLabel
                                 label="Paid"
                                 control={
@@ -71,14 +96,11 @@ const CourseDetailsInput = () => {
                             <br />
                             {checked && <TextField id="Price" label="Price" InputProps={{
                                 startAdornment: <InputAdornment position="start">INR</InputAdornment>,
-                            }} variant="standard" />}
-
+                            }} />}
                         </Box>
                         <Button variant='contained'>Create</Button>
                     </Box>
                 </Card>
-
-
             </Box>
         </>
     )
