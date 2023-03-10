@@ -9,6 +9,7 @@ const styles = {
         justifyContent: "center",
         width: "100%",
         height: "100vh",
+        p:2
     },
     Card2: {
         p: 2,
