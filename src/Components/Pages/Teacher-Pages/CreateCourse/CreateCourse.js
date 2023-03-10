@@ -1,11 +1,11 @@
-import { Box, Button, Card, Collapse, Grid, List, ListItemButton, ListItemText, Typography } from '@mui/material'
+import { Box, Button, Card, Collapse, List, ListItemButton, ListItemText, Typography } from '@mui/material'
 import React from 'react'
-import NavDrawer from '../../Layout/Component/Nav&Drawer'
-import TDrawer from '../../Layout/Component/TeacherDrawer'
-import styles from '../../Layout/Style/CreateCourseStyle'
+import NavDrawer from '../../../Layout/Component/Nav&Drawer'
+import TDrawer from '../../../Layout/Component/TeacherDrawer'
+import styles from '../../../Layout/Style/CreateCourseStyle'
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import TeacherCourses from '../../Course/TeacherCourse/TeacherCourses'
+import TeacherCourses from '../../../Course/TeacherCourse/TeacherCourses'
 import { useNavigate } from 'react-router-dom'
 
 const CreateCourse = () => {

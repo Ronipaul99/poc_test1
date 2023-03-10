@@ -4,9 +4,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Auth from "./Components/Auth/Auth";
 import CourseDetails from "./Components/Course/CoursesDetails/CourseDetails";
 import Dashboard from "./Components/Layout/Dashboard";
-import CourseDetailsInput from "./Components/Pages/CreateCourse/CourseDetailsInput";
-import CreateCourse from "./Components/Pages/CreateCourse/CreateCourse";
-import TProfile from "./Components/Pages/T-Dashboard/T-Profile/T-Profile";
+import CourseDetailsInput from "./Components/Pages/Teacher-Pages/CreateCourse/CourseDetailsInput";
+import CreateCourse from "./Components/Pages/Teacher-Pages/CreateCourse/CreateCourse";
+import TProfile from "./Components/Pages/Teacher-Pages/T-Dashboard/T-Profile/T-Profile";
 import { U } from "./Components/Store/User";
 
 function App() {

@@ -2,7 +2,7 @@ import React from "react";
 // import { useSelector } from "react-redux";
 // import { U } from "../Store/User";
 import StudentDashboard from "../Pages/S-Dashboard";
-import TDashboard from "../Pages/T-Dashboard/T-Dashboard";
+import TDashboard from "../Pages/Teacher-Pages/T-Dashboard/T-Dashboard";
 
 
 

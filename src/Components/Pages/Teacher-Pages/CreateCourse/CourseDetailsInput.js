@@ -1,9 +1,9 @@
 import { Button, Card, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
-import NavDrawer from '../../Layout/Component/Nav&Drawer'
-import TDrawer from '../../Layout/Component/TeacherDrawer'
-import styles from '../../Layout/Style/CourseInputStyle'
+import NavDrawer from '../../../Layout/Component/Nav&Drawer'
+import TDrawer from '../../../Layout/Component/TeacherDrawer'
+import styles from '../../../Layout/Style/CourseInputStyle'
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import dayjs from 'dayjs';
@@ -15,7 +15,6 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import PinOutlinedIcon from '@mui/icons-material/PinOutlined';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import { DemoItem } from '@mui/x-date-pickers/internals/demo';
 
 
 const CourseDetailsInput = () => {

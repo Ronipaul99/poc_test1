@@ -1,17 +1,16 @@
 import { Avatar, Box, Button, Card, Grid, ListItem, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles';
 import React from 'react'
-import NavDrawer from '../../../Layout/Component/Nav&Drawer';
-import Teacher from '../../../Images/Teacher.jfif'
+import NavDrawer from '../../../../Layout/Component/Nav&Drawer';
+import Teacher from '../../../../Images/Teacher.jfif'
 import { useParams } from 'react-router-dom';
 // import JsonData from "../../../Course/TeacherProfileData/TeacherData.json";
-import TeacherCourses from '../../../Course/TeacherCourse/TeacherCourses';
+import TeacherCourses from '../../../../Course/TeacherCourse/TeacherCourses';
 import AdjustIcon from '@mui/icons-material/Adjust';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
-import { display } from '@mui/system';
-import TDrawer from '../../../Layout/Component/TeacherDrawer';
+import TDrawer from '../../../../Layout/Component/TeacherDrawer';
 
 const TProfile = () => {
     const { id } = useParams();

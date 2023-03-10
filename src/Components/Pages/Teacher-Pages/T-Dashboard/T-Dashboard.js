@@ -1,7 +1,7 @@
 import { Box, Button, Card, Collapse, Divider, Grid, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles';
 import React from 'react'
-import NavDrawer from '../../Layout/Component/Nav&Drawer';
+import NavDrawer from '../../../Layout/Component/Nav&Drawer';
 import CircularProgress from '@mui/material/CircularProgress';
 // import Teacher from '../../../Images/Teacher.jfif'
 import { useParams } from 'react-router-dom';
@@ -19,8 +19,8 @@ import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import PersonIcon from '@mui/icons-material/Person';
 import ReportProblemOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
 import { Icon } from '@iconify/react';
-import styles from '../../Layout/Style/T-DashboardStyle';
-import TDrawer from '../../Layout/Component/TeacherDrawer';
+import styles from '../../../Layout/Style/T-DashboardStyle';
+import TDrawer from '../../../Layout/Component/TeacherDrawer';
 
 const TDashboard = () => {
   const { id } = useParams();
