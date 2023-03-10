@@ -3,6 +3,7 @@ import React from "react";
 import { Card, Typography } from "@mui/material";
 import { NavLink } from 'react-router-dom';
 import Carousel from "react-grid-carousel";
+import { CardActionArea } from '@mui/material';
 
 
 
@@ -24,6 +25,8 @@ const TeacherCourse = ({ CourseName, id, imgURL, teacherName }) => {
     return (
         <>
             <Carousel.Item>
+           < CardActionArea>
+           <NavLink to={`/CourseDetails/10`} style={{textDecoration:"none"}}>
                 <Box sx={{ width: "90.1px" }}>
                     <Box sx={{
                         height: "30vh",
@@ -46,14 +49,12 @@ const TeacherCourse = ({ CourseName, id, imgURL, teacherName }) => {
                                 height: "50%",
                                 overflow: "hidden"
                             }}>
-                                <NavLink to={`/CourseDetails/10`}>
                                     <img style={{
                                         boxSizing: "border-box",
                                         objectFit: "cover",
                                         height: "100%",
                                         width: "100%"
                                     }} src={imgURL} alt="pic here" />
-                                </NavLink>
                             </Box>
 
                             <Box sx={{
@@ -69,6 +70,8 @@ const TeacherCourse = ({ CourseName, id, imgURL, teacherName }) => {
                         </Box>
                     </Box>
                 </Box>
+                </NavLink>
+                </CardActionArea>
             </Carousel.Item>
         </>
     );

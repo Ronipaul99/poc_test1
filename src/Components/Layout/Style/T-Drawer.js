@@ -3,7 +3,7 @@ const TDrawerStyle = {
         display:"flex",
         position: "fixed",
         backgroundColor: "white",
-        width: "13%",
+        width: "200px",
         height: "100%",
         alignItems: "center",
         justifyContent: "center"
