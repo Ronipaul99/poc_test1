@@ -330,7 +330,6 @@ function Auth() {
             dispatch(Type(a));
             dispatch(Type1(b))
             dispatch(authActions.Login());
-            // navigate("/Dashboard");
             console.log("Hi!");
         }).catch(() => {
             setError("Email or Password is incorrect");

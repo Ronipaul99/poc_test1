@@ -14,9 +14,7 @@ export default function Dashboard() {
     const string2 = e
     const string3 = "S"
     const string4 = e
-
-
-    console.log(string3 === string4)
+    
     return (
         <>
             {string3 === string4 && <StudentDashboard />}
