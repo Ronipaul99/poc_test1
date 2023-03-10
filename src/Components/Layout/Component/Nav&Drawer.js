@@ -26,7 +26,8 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from 'react-router-dom';
 import { Avatar } from '@mui/material';
 import { U1 } from '../../Store/U-Data';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { authActions } from '../../Store/Auth';
 
 
 
@@ -113,6 +114,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function NavDrawer() {
 
+    const dispatch = useDispatch();
 
     const e = useSelector(U1);
 
@@ -126,6 +128,7 @@ export default function NavDrawer() {
         window.localStorage.removeItem("userData");
         window.localStorage.setItem("IniIn",false);
         window.localStorage.removeItem("TaskbarId");
+        dispatch(authActions.Logout());
         // navigate("/");
     };
 
