@@ -24,6 +24,7 @@ import P3 from '../Images/P3.webp';
 import { useDispatch } from 'react-redux';
 import { Type } from '../Store/User';
 import { Type1 } from '../Store/U-Data';
+import { authActions } from '../Store/Auth';
 
 
 // alert function for registration
@@ -327,8 +328,8 @@ function Auth() {
             window.localStorage.setItem('userData', c);
             window.localStorage.setItem('userType', res.data.UserType);
             dispatch(Type(a));
-            dispatch(Type1(b));
-            navigate("/Dashboard");
+            dispatch(Type1(b))
+            dispatch(authActions.Login());
             console.log("Hi!");
         }).catch(() => {
             setError("Email or Password is incorrect");
