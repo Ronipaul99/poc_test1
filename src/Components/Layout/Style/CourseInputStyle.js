@@ -8,26 +8,33 @@ const styles = {
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
-        height: "100vh",
+        height: "100%",
     },
     Card2: {
         display: "flex",
+        flexDirection: "column",
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
-        height: "500px",
-        justifyContent: "center",
-        width: "60%",
+        // minHeight: "500px",
+        width: "30%",
+        p: 1,
+        marginTop: "90px",
+        marginBottom: "20px"
     },
-    Box1: {
+    Text1: {
+        p: 2,
+        fontSize: "35px",
+        fontWeight: "bold"
+    },
+    Text2: {
+        p: 1,
+        fontSize: "20px",
+        fontWeight: "bold"
+    },
+    Textfield1: {
+        width:"100%",
         display: "flex",
-        justifyContent: "center",
-        width: "50%",
-        marginTop: '100px'
-    },
-    List:{
-        width: '40%',
-        maxWidth: 360,
-        bgcolor: 'background.paper',
-        margin:"20px 0  20px "
+        justifyContent: "space-Between"
     }
+
 };
 export default styles;
