@@ -26,7 +26,7 @@ const styles = {
         fontWeight: "bold"
     },
     Text2: {
-        p: 1,
+        p: 2,
         fontSize: "20px",
         fontWeight: "bold"
     },

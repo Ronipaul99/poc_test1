@@ -24,13 +24,13 @@ const styles = {
         display: "flex",
         alignItems: "center",
         marginLeft: "50px",
-        width: "80%"
+        width: "60%"
     },
     Box2: {
         display: "flex",
         justifyContent: 'center',
         alignItems: "center",
-        width: "30%"
+        width: "40%"
     },
     Text: {
         fontSize: "35px",
