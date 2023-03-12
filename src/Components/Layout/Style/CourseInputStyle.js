@@ -8,32 +8,41 @@ const styles = {
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
-        height: "100%",
+        height: "100%"
     },
-    Card2: {
+    Box2: {
         display: "flex",
-        flexDirection: "column",
-        boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
+        justifyContent: "space-Between",
+        // boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
         // minHeight: "500px",
-        width: "30%",
+        width: "70%",
+        minHeight: "200px",
         p: 1,
-        marginTop: "90px",
-        marginBottom: "20px"
+        marginTop: "78px",
+        marginBottom: "10px",
+        backgroundColor: 'transparent',
+
     },
     Text1: {
-        p: 2,
+        p: 1,
         fontSize: "35px",
-        fontWeight: "bold"
-    },
-    Text2: {
-        p: 2,
-        fontSize: "20px",
-        fontWeight: "bold"
+        fontWeight: "bold",
     },
     Textfield1: {
-        width:"100%",
+        width: "100%",
         display: "flex",
         justifyContent: "space-Between"
+    },
+    Box50R: {
+        display: "flex",
+        flexDirection: "column",
+        width: "60%",
+        height: "100%",
+        boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)"
+    },
+    Box50L: {
+        width: "35%",
+        height: "100%"
     }
 
 };
