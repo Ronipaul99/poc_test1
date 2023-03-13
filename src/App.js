@@ -6,6 +6,7 @@ import CourseDetails from "./Components/Course/CoursesDetails/CourseDetails";
 import Dashboard from "./Components/Layout/Dashboard";
 import CourseDetailsInput from "./Components/Pages/Teacher-Pages/CreateCourse/CourseDetailsInput";
 import CreateCourse from "./Components/Pages/Teacher-Pages/CreateCourse/CreateCourse";
+import Schedule from "./Components/Pages/Teacher-Pages/Schedule/Schedule";
 import TProfile from "./Components/Pages/Teacher-Pages/T-Dashboard/T-Profile/T-Profile";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/Tprofile" element={isLoggedIn && <TProfile />} />
           <Route path="/createCourse" element={isLoggedIn && <CreateCourse />} />
           <Route path="/CourseInput" element={isLoggedIn && <CourseDetailsInput />} />
+          <Route path="/Schedule" element={isLoggedIn && <Schedule/>} />
         </Routes>
       </BrowserRouter>
     </div>
