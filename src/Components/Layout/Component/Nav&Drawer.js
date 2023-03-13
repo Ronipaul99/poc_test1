@@ -4,24 +4,33 @@ import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import Menu from '@mui/material/Menu';
-import Avatar from '@mui/material/Avatar';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
+import SpeedDial from '@mui/material/SpeedDial';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import LogoutIcon from '@mui/icons-material/Logout';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from 'react-router-dom';
+import { Avatar } from '@mui/material';
+import { U1 } from '../../Store/U-Data';
+import { useDispatch, useSelector } from 'react-redux';
+import { authActions } from '../../Store/Auth';
+
+
+
+
+
+// Hover effect styling
+const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
+    position: 'absolute',
+    '&.MuiSpeedDial-directionDown, &.MuiSpeedDial-directionRight': {
+        top: theme.spacing(.5),
+    },
+}));
 
 
 
@@ -96,6 +105,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function NavDrawer() {
 
+    const dispatch = useDispatch();
+
+    const e = useSelector(U1);
+
 
     const navigate = useNavigate();
 
@@ -103,23 +116,22 @@ export default function NavDrawer() {
     const Logout = () => {
         navigate("/")
         window.localStorage.removeItem("userType");
-        // navigate("/");
+        window.localStorage.removeItem("userData");
+        window.localStorage.setItem("IniIn", false);
+        window.localStorage.removeItem("TaskbarId");
+        dispatch(authActions.Logout());
     };
 
-
-    // navbar functionality
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
-
+    // hover profile
+    const actions = [
+        { icon: <AccountCircleIcon />, name: 'Profile' },
+        { icon: < AccountBoxIcon />, name: 'Account' },
+        { icon: <DashboardIcon />, name: 'Dashboard' },
+        { icon: <LogoutIcon onClick={Logout} />, name: 'Logout' },
+    ];
 
 
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
+
 
     // drawer functionality
     const [open, setOpen] = React.useState(false);
@@ -192,111 +204,26 @@ export default function NavDrawer() {
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                     </Box>
+                    <Typography sx={{ mr: 1 }} variant='h6' color="black">{e.firstname}</Typography>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, mr: 2 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
-                        </Tooltip>
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
+                        <Typography sx={{ mr: 9 }} />
+                        <StyledSpeedDial
+                            ariaLabel="Profile"
+                            icon={<Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />}
+                            direction="down"
                         >
-                            <MenuItem>
-                                Profile
-                            </MenuItem>
-                            <MenuItem>
-                                Account
-                            </MenuItem>
-                            <MenuItem>
-                                Dashboard
-                            </MenuItem>
-                            <MenuItem onClick={Logout}>
-                                Logout
-                            </MenuItem>
-                        </Menu>
+                            {actions.map((action) => (
+                                <SpeedDialAction
+                                    key={action.name}
+                                    icon={action.icon}
+                                    tooltipTitle={action.name}
+                                />
+                            ))}
+                        </StyledSpeedDial>
                     </Box>
                 </Toolbar>
             </AppBar>
-
-            {/* drawer */}
-            <Box>
-                <Drawer
-
-                    variant="permanent"
-                    open={open}>
-
-                    <DrawerHeader>
-
-                        <ChevronLeftIcon sx={{ paddingRight: "50px", marginTop: "80px" }} onClick={handleDrawerClose} />
-
-                    </DrawerHeader>
-                    <Toolbar />
-                    <List>
-                        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton
-                                    sx={{
-                                        minHeight: 48,
-                                        justifyContent: open ? 'initial' : 'center',
-                                        px: 2.5,
-                                    }}
-                                >
-                                    <ListItemIcon
-                                        sx={{
-                                            minWidth: 0,
-                                            mr: open ? 3 : 'auto',
-                                            justifyContent: 'center',
-                                        }}
-                                    >
-                                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                    </ListItemIcon>
-                                    <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                                </ListItemButton>
-                            </ListItem>
-                        ))}
-                    </List>
-                    <Divider />
-                    <List>
-                        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton
-                                    sx={{
-                                        minHeight: 48,
-                                        justifyContent: open ? 'initial' : 'center',
-                                        px: 2.5,
-                                    }}
-                                >
-                                    <ListItemIcon
-                                        sx={{
-                                            minWidth: 0,
-                                            mr: open ? 3 : 'auto',
-                                            justifyContent: 'center',
-                                        }}
-                                    >
-                                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                    </ListItemIcon>
-                                    <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                                </ListItemButton>
-                            </ListItem>
-                        ))}
-                    </List>
-                </Drawer>
-            </Box>
-
         </>
     );
 };
