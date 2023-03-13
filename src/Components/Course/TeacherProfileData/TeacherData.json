@@ -1,0 +1,9 @@
+[
+    {
+      "id": 1,
+      "name": "Reshab Naskar",
+      "imgURL": "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE5apBJ?ver=aff3&q=90&m=8&h=431&w=767&b=%23FFFFFFFF&l=f&x=1065&y=0&s=2135&d=1200&aim=true",
+      "details": "This Course is for Web Developement",
+     "Courses":["c001","c002","c003"]
+    }
+]
