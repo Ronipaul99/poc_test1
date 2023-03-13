@@ -13,6 +13,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import kp from "../../../Images/kp.png"
+import { useNavigate } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 const CourseDetailsInput = () => {
@@ -40,22 +42,28 @@ const CourseDetailsInput = () => {
     const todayStartOfTheDay = today.startOf('day');
 
 
+    const navigate = useNavigate();
+    const goBack = () => {
+        navigate(-1);
+    }
+
     return (
         <>
             <NavDrawer />
             <TDrawer />
             <Box sx={styles.mainContainer}>
                 <Box sx={styles.Box2}>
+                    <ArrowBackIcon fontSize='medium' onClick={goBack} />
                     <Box sx={styles.Boximg}>
-                    <Box sx={styles.Box50L}>
-                        <img style={{
-                            boxSizing: "border-box",
-                            objectFit: "cover",
-                            overflow: "hidden",
-                            height: "100%",
-                            width: "100%"
-                        }} src={kp} alt="pic here" />
-                    </Box>
+                        <Box sx={styles.Box50L}>
+                            <img style={{
+                                boxSizing: "border-box",
+                                objectFit: "cover",
+                                overflow: "hidden",
+                                height: "100%",
+                                width: "100%"
+                            }} src={kp} alt="pic here" />
+                        </Box>
                     </Box>
                     <Card sx={styles.Box50R}>
                         <Typography sx={styles.Text1}>Cteate course</Typography>
