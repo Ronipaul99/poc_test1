@@ -12,7 +12,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import L from "../../../Images/L.png"
+import kp from "../../../Images/kp.png"
 
 
 const CourseDetailsInput = () => {
@@ -46,13 +46,16 @@ const CourseDetailsInput = () => {
             <TDrawer />
             <Box sx={styles.mainContainer}>
                 <Box sx={styles.Box2}>
+                    <Box sx={styles.Boximg}>
                     <Box sx={styles.Box50L}>
                         <img style={{
                             boxSizing: "border-box",
                             objectFit: "cover",
+                            overflow: "hidden",
                             height: "100%",
                             width: "100%"
-                        }} src={L} alt="pic here" />
+                        }} src={kp} alt="pic here" />
+                    </Box>
                     </Box>
                     <Card sx={styles.Box50R}>
                         <Typography sx={styles.Text1}>Cteate course</Typography>
@@ -62,19 +65,19 @@ const CourseDetailsInput = () => {
                                 display: "flex",
                                 flexDirection: "column",
                                 width: "100%",
-                                '& .MuiTextField-root': { m: 1 },
+                                '& .MuiTextField-root': { m: 2 },
                             }}
                             noValidate
                             autoComplete="off"
                         >
                             <TextField id="Title" label="Title" size="small" />
                             <Box sx={styles.Textfield1}>
-                                <TextField id="NumberOfClasses" label="Number of classes" onChange={handleChange1} value={Number} sx={{ width: '200px' }} size="small" />
-                                <TextField id="StartDate" label="Start date" sx={{ width: '200px' }} size="small" />
+                                <TextField id="NumberOfClasses" label="Number of classes" onChange={handleChange1} value={Number} sx={{ width: '300px' }} size="small" />
+                                <TextField id="StartDate" label="Start date" sx={{ width: '300px' }} size="small" />
                             </Box>
                             <Box sx={styles.Textfield1}>
-                                <TextField id="Subject" label="Subject" sx={{ width: '200px' }} size="small" />
-                                <TextField id="SubjectTopic" label="Subject topic" sx={{ width: '200px' }} size="small" />
+                                <TextField id="Subject" label="Subject" sx={{ width: '300px' }} size="small" />
+                                <TextField id="SubjectTopic" label="Subject topic" sx={{ width: '300px' }} size="small" />
                             </Box>
                             {arr.map((user) => (
                                 <Box key={user} sx={{ display: "flex", width: "100%", }}>
@@ -95,7 +98,7 @@ const CourseDetailsInput = () => {
                             ))}
                             <TextField id="Keys" label="Keys" size="small" />
                             <TextField id="Description" label="Description" multiline rows={3} size="small" />
-                            <Box sx={{ width: "100%", ml: 1 }}>
+                            <Box sx={{ width: "100%", ml: 2 }}>
                                 <FormControlLabel
                                     label="Paid"
                                     control={

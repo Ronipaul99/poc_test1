@@ -459,8 +459,7 @@ function Auth() {
                 backgroundColor: "#eee"
             }}>
                 <Card sx={{
-                    height: "58vh",
-                    width: "55vw",
+                    width: "50%",
                     backgroundColor: "#fff",
                     position: "relative",
                     boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)"
@@ -469,6 +468,9 @@ function Auth() {
                         width: "100%",
                         height: "100%",
                         display: "flex",
+                        display:"flex",
+                        justifyContent:"center",
+                        alignItems: "center"
                     }}>
                         {/* while login image will be left side */}
                         {Page &&
@@ -476,7 +478,7 @@ function Auth() {
                                 width: "50%",
                                 backgroundColor: "#fff",
                                 height: "100%",
-                                overflow: "hidden"
+                                overflow: "hidden",
                             }}>
                                 <img style={{
                                     boxSizing: "border-box",
