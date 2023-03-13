@@ -10,11 +10,6 @@ const Schedule = () => {
         <Card sx={styles.Card}>
             <NavDrawer/>
             <TDrawer/>
-
-<Box>
-    dcsdfv
-</Box>
-
         </Card>
     </Box>
   )
