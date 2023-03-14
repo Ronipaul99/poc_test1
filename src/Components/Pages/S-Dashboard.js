@@ -96,7 +96,7 @@ export default function StudentDashboard() {
     return (
         <>
             <Card sx={{ display: 'flex', justifyContent: "center", backgroundColor: "#D3D3D3" }}>
-                <NavDrawer />
+                {/* <NavDrawer /> */}
 
                 {/* Body */}
                 <Box sx={{ backgroundColor: "#D3D3D3" }}>

@@ -8,8 +8,8 @@ const Schedule = () => {
   return (
     <Box sx={styles.mainContainer}>
         <Card sx={styles.Card}>
-            <NavDrawer/>
-            <TDrawer/>
+            {/* <NavDrawer/>
+            <TDrawer/> */}
         </Card>
     </Box>
   )

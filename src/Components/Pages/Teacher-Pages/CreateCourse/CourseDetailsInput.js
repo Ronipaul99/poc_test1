@@ -49,8 +49,8 @@ const CourseDetailsInput = () => {
 
     return (
         <>
-            <NavDrawer />
-            <TDrawer />
+            {/* <NavDrawer /> */}
+            {/* <TDrawer /> */}
             <Box sx={styles.mainContainer}>
                 <Box sx={styles.Box2}>
                     <ArrowBackIcon fontSize='medium' onClick={goBack} />

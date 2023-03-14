@@ -42,7 +42,7 @@ const TProfileOnCourse = () => {
     return (
 
         <Card sx={{ display: 'flex', justifyContent: "center", backgroundColor: "#D3D3D3" }}>
-            <NavDrawer />
+            {/* <NavDrawer /> */}
             <Card sx={{ display: "flex", flexDirection: "column", width: "100%" , height:"110vh"}}>
                 <DrawerHeader />
                 <Grid

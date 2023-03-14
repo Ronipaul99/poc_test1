@@ -94,7 +94,7 @@ export default function CourseDetails() {
     return (
         <>
             <Card sx={{ display: 'flex', flexDirection: "column", justifyContent: "center", marginLeft: "60px" }}>
-                <NavDrawer />
+                {/* <NavDrawer /> */}
 
                 {/* Body */}
                 <Box>

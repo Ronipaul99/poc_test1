@@ -22,8 +22,8 @@ const CreateCourse = () => {
 
     return (
         <>
-            <NavDrawer />
-            <TDrawer />
+            {/* <NavDrawer /> */}
+            {/* <TDrawer /> */}
             <Box sx={styles.mainContainer}>
                 <Card sx={styles.Card}>
                     <Box sx={styles.mainBox}>
