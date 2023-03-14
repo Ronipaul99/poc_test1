@@ -1,7 +1,8 @@
 const styles = {
     mainContainer: {
         backgroundColor: "#D3D3D3",
-        height: "100%"
+        height: "100%",
+        // overflow: "hidden"
     },
     Card: {
         backgroundSize: 'cover',
