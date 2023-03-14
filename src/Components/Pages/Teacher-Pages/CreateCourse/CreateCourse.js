@@ -28,7 +28,7 @@ const CreateCourse = () => {
                 <Card sx={styles.Card}>
                     <Box sx={styles.mainBox}>
                         <Box sx={styles.Box1}>
-                            <Typography sx={styles.Text}>Create Courses</Typography>
+                            <Typography sx={styles.Text}>Create courses</Typography>
                         </Box>
                         <Box sx={styles.Box2}>
                             <Button variant='contained' sx={styles.Button} onClick={goto}><Typography sx={styles.Text2}>Create new</Typography></Button>

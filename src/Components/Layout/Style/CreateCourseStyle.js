@@ -7,8 +7,7 @@ const styles = {
         flexDirection: "column",
         alignItems: "center",
         width: "100%",
-        height: "100vh",
-        p:2
+        height: "100vh"
     },
     Card: {
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
