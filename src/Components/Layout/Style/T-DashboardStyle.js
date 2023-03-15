@@ -57,7 +57,7 @@ const styles = {
         alignItems: "center"
     },
     ButtonIcon: {
-        p: 1
+        mr:1
     },
     ButtonText: {
         fontSize: "15px",

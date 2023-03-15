@@ -11,6 +11,8 @@ import CreateCourse from "./Components/Pages/Teacher-Pages/CreateCourse/CreateCo
 import Schedule from "./Components/Pages/Teacher-Pages/Schedule/Schedule";
 import TProfile from "./Components/Pages/Teacher-Pages/T-Dashboard/T-Profile/T-Profile";
 import { U } from "./Components/Store/User";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-daterangepicker/daterangepicker.css";
 
 function App() {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
