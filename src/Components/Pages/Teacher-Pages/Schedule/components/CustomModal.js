@@ -14,7 +14,7 @@ export default function CustomModal({
   children
 }) {
   return (
-    <Modal isOpen={isOpen} toggle={toggle}>
+    <Modal style={{ marginTop: "90px" }} isOpen={isOpen} toggle={toggle}>
       <ModalHeader toggle={toggle}>{title}</ModalHeader>
       <ModalBody>{children}</ModalBody>
       <ModalFooter>

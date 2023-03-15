@@ -13,6 +13,7 @@ import TProfile from "./Components/Pages/Teacher-Pages/T-Dashboard/T-Profile/T-P
 import { U } from "./Components/Store/User";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-daterangepicker/daterangepicker.css";
+import Doc from "./Components/Pages/Teacher-Pages/Documents/Documents";
 
 function App() {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -33,6 +34,7 @@ function App() {
           <Route path="/createCourse" element={isLoggedIn && <CreateCourse />} />
           <Route path="/CourseInput" element={isLoggedIn && <CourseDetailsInput />} />
           <Route path="/Schedule" element={isLoggedIn && <Schedule />} />
+          <Route path="/Documents" element={isLoggedIn && <Doc />} />
         </Routes>
       </BrowserRouter>
     </div>

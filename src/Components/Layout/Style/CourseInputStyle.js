@@ -35,7 +35,7 @@ const styles = {
         p: 2,
         display: "flex",
         flexDirection: "column",
-        width: "47%",
+        width: "48%",
         height: "100%",
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
         borderRadius: "15px"

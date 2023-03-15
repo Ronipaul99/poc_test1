@@ -26,6 +26,9 @@ export default function TDrawer() {
     const goto3 = () => {
         navigate("/Schedule")
     };
+    const goto4 = () => {
+        navigate("/Documents")
+    };
     return (
         <Box sx={TDrawerStyle.Drawer}>
 
@@ -41,7 +44,7 @@ export default function TDrawer() {
                     <Tab label="Dashboard" onClick={() => (goto)(window.localStorage.setItem("TaskbarId", 0))} />
                     <Tab label="Create course" onClick={() => (goto2)(window.localStorage.setItem("TaskbarId", 1))} />
                     <Tab label="Schedule" onClick={() => (goto3)(window.localStorage.setItem("TaskbarId", 2))} />
-                    <Tab label="Documents" onClick={() => (window.localStorage.setItem("TaskbarId", 3))} />
+                    <Tab label="Documents" onClick={() => (goto4)(window.localStorage.setItem("TaskbarId", 3))} />
                     <Tab label="Account" onClick={() => (window.localStorage.setItem("TaskbarId", 4))} />
                 </Tabs>
             </Box>
