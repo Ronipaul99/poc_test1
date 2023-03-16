@@ -3,11 +3,12 @@ const styles = {
         display: "flex",
         justifyContent: "center",
         marginLeft: "200px",
+        height: "100vh",
         backgroundColor: "hsl(0deg 0% 96%)"
     },
     Box1: {
         width: "80%",
-        marginTop:"90px"
+        marginTop: "90px"
     },
     Box2: {
         marginTop: "50px",
@@ -38,7 +39,36 @@ const styles = {
         color: '#bdbdbd',
         outline: 'none',
         transition: 'border .24s ease-in-out'
+    },
+    Li: {
+        p: 2,
+        height: "50px",
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        backgroundColor: "grey",
+        width: "100%",
+        borderWidth: 2,
+        borderRadius: 2,
+        marginTop:"10px"
+    },
+    Hed: {
+        display: "flex",
+        alignItems: "center"
+    },
+    Text1: {
+        fontSize: "30px",
+        fontWeight: "bold"
+    },
+    List: {
+        borderWidth: 2,
+        borderRadius: 2,
+        borderColor: 'black',
+        borderStyle: "double",
+        p: 2
+    },
+    Btn: {
+        marginTop: "8px"
     }
-
 };
 export default styles;
