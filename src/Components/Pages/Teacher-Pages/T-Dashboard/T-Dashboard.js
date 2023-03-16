@@ -146,7 +146,7 @@ const TDashboard = () => {
             {/* overview section */}
             <Box sx={{ display: 'flex', width: "100%", height: "100%", justifyContent: "space-between" }}>
 
-              <Card sx={{ display: "flex", flexDirection: "column", width: "46%", p: 2, boxShadow: "0 0 40px rgba(0, 0, 0, 0.1)" }}>
+              <Card sx={{ display: "flex", flexDirection: "column", width: "48%", p: 2, boxShadow: "0 0 40px rgba(0, 0, 0, 0.1)" }}>
                 <Box sx={{ width: "100%", height: "100%", display: "flex" }}>
                   <Box sx={{ width: "80%" }}>
                     <Typography sx={{ fontSize: "15px", fontWeight: "bold", p: 1 }}>Views</Typography>
@@ -180,7 +180,7 @@ const TDashboard = () => {
 
               {/* division */}
 
-              <Card sx={{ display: "flex", flexDirection: "column", width: "46%", p: 2, boxShadow: "0px 0px 50px rgba(0, 0, 0, 0.1)" }}>
+              <Card sx={{ display: "flex", flexDirection: "column", width: "48%", p: 2, boxShadow: "0px 0px 50px rgba(0, 0, 0, 0.1)" }}>
                 <Box sx={{ width: "100%", height: "100%", display: "flex" }}>
                   <Box sx={{ width: "80%" }}>
 
@@ -218,7 +218,7 @@ const TDashboard = () => {
 
             <Box sx={{ display: 'flex', width: "100%", height: "100%", justifyContent: "space-between", marginTop: "20px" }}>
 
-              <Card sx={{ display: "flex", flexDirection: "column", width: "46%", p: 2, boxShadow: "0 0 40px rgba(0, 0, 0, 0.1)" }}>
+              <Card sx={{ display: "flex", flexDirection: "column", width: "48%", p: 2, boxShadow: "0 0 40px rgba(0, 0, 0, 0.1)" }}>
                 <Box sx={{ width: "100%", height: "100%", display: "flex" }}>
                   <Box sx={{ width: "80%" }}>
                     <Typography sx={{ fontSize: "15px", fontWeight: "bold", p: 1 }}>Live learners in free live classes</Typography>
@@ -236,7 +236,7 @@ const TDashboard = () => {
 
               {/* division */}
 
-              <Card sx={{ display: "flex", flexDirection: "column", width: "46%", p: 2, boxShadow: "0px 0px 50px rgba(0, 0, 0, 0.1)" }}>
+              <Card sx={{ display: "flex", flexDirection: "column", width: "48%", p: 2, boxShadow: "0px 0px 50px rgba(0, 0, 0, 0.1)" }}>
                 <Box sx={{ width: "100%", height: "100%", display: "flex" }}>
                   <Box sx={{ width: "80%" }}>
                     <Typography sx={{ fontSize: "15px", fontWeight: "bold", p: 1 }}>Referrals</Typography>
@@ -256,7 +256,7 @@ const TDashboard = () => {
 
             <Box sx={{ display: 'flex', width: "100%", height: "100%", justifyContent: "space-between", marginTop: "20px" }}>
 
-              <Card sx={{ display: "flex", flexDirection: "column", width: "46%", p: 2, boxShadow: "0 0 40px rgba(0, 0, 0, 0.1)" }}>
+              <Card sx={{ display: "flex", flexDirection: "column", width: "48%", p: 2, boxShadow: "0 0 40px rgba(0, 0, 0, 0.1)" }}>
                 <Box sx={{ width: "100%", height: "100%", display: "flex" }}>
                   <Box sx={{ width: "80%" }}>
                     <Typography sx={{ fontSize: "15px", fontWeight: "bold", p: 1 }}>Alerts</Typography>
@@ -273,7 +273,7 @@ const TDashboard = () => {
 
               {/* division */}
 
-              <Card sx={{ display: "flex", flexDirection: "column", width: "46%", p: 2, boxShadow: "0px 0px 50px rgba(0, 0, 0, 0.1)" }}>
+              <Card sx={{ display: "flex", flexDirection: "column", width: "48%", p: 2, boxShadow: "0px 0px 50px rgba(0, 0, 0, 0.1)" }}>
                 <Box sx={{ width: "100%", height: "100%", display: "flex" }}>
                   <Box sx={{ width: "80%" }}>
                     <Typography sx={{ fontSize: "15px", p: 1 }}>Wrong attire</Typography>

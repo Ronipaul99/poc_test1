@@ -1,8 +1,7 @@
 const styles = {
     mainContainer: {
         backgroundColor: "#D3D3D3",
-        height: "100%",
-        // overflow: "hidden"
+        height: "100%"
     },
     Card: {
         backgroundSize: 'cover',
@@ -12,7 +11,7 @@ const styles = {
         flexDirection: "column",
         width: "100%",
         height: "100%",
-        p:2
+        p: 2
     },
     Box1: {
         display: "flex",
