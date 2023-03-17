@@ -5,10 +5,18 @@ import styles from '../../../Layout/Style/DocumentStyle';
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-import LinearProgress from '@mui/material/LinearProgress';
+import PropTypes from 'prop-types';
+import CircularProgress from '@mui/material/CircularProgress';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import data from "./data.json"
+import { useEffect } from 'react';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 // search
 const Search = styled('div')(({ theme }) => ({
@@ -70,19 +78,47 @@ const rejectStyle = {
   borderColor: '#ff1744'
 };
 
+
+
+
+
 function Doc(props) {
+
+  const [files, setFiles] = React.useState([]);
+
+
+  const img = {
+    display: 'block',
+    width: 'auto',
+    height: '100%'
+  };
+
+  const file = data.map((course, index) => (<Box sx={styles.Li} key={index}>{course.path} {course.size}</Box>));
+
+  console.log(data)
+
   const {
     getRootProps,
     getInputProps,
     isFocused,
     open,
-    acceptedFiles,
     isDragAccept,
     isDragReject
   } = useDropzone({
     accept: { 'image/*': [] }, noClick: true,
-    noKeyboard: true
+    noKeyboard: true,
+    onDrop: acceptedFiles => {
+      console.log(acceptedFiles ,data);
+      acceptedFiles.forEach(item=>{
+        data.push(item)
+      })
+      // data.push(acceptedFiles[0])
+      // setFiles(acceptedFiles.map(file => Object.assign(file, {
+      //   preview: URL.createObjectURL(file)
+      // })));
+    }
   });
+
 
   const style = useMemo(() => ({
     ...styles.baseStyle,
@@ -95,33 +131,109 @@ function Doc(props) {
     isDragReject
   ]);
 
-  const files = acceptedFiles.map(file => <Box sx={styles.Li} key={file.path}>{file.path}</Box>);
-  const file = data.map((course, index) => (<Box sx={styles.Li} key={index}>{course.name} {course.size}</Box>));
+
+  useEffect(() => {
+    // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
+    return () => files.forEach(file => URL.revokeObjectURL(file.preview));
+  }, []);
+
+
+  const files1 = files.map(file => <Box sx={styles.Li} key={file.path}>{file.path}<img alt='img' style={img} src={file.preview} onLoad={() => { URL.revokeObjectURL(file.preview) }} /></Box>);
+
+
+
+
+  // dialoug
+
+
+  const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+    '& .MuiDialogContent-root': {
+      padding: theme.spacing(2),
+    },
+    '& .MuiDialogActions-root': {
+      padding: theme.spacing(1),
+    },
+  }));
+
+  function BootstrapDialogTitle(props) {
+    const { children, onClose, ...other } = props;
+
+    return (
+      <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+        {children}
+        {onClose ? (
+          <IconButton
+            aria-label="close"
+            onClick={onClose}
+            sx={{
+              position: 'absolute',
+              right: 8,
+              top: 8,
+              color: (theme) => theme.palette.grey[500],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        ) : null}
+      </DialogTitle>
+    );
+  }
+
+  BootstrapDialogTitle.propTypes = {
+    children: PropTypes.node,
+    onClose: PropTypes.func.isRequired,
+  };
+  const [open1, setOpen2] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen2(true);
+  };
+  const handleClose = () => {
+    setOpen2(false);
+  };
+
 
   // Progress
-  const [progress, setProgress] = React.useState(0);
-  const [buffer, setBuffer] = React.useState(10);
+  function CircularProgressWithLabel(props) {
+    return (
+      <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+        <CircularProgress variant="determinate" {...props} />
+        <Box
+          sx={{
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            position: 'absolute',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Typography variant="caption" component="div" color="text.secondary">
+            {`${Math.round(props.value)}%`}
+          </Typography>
+        </Box>
+      </Box>
+    );
+  }
 
-  const progressRef = React.useRef(() => { });
-  React.useEffect(() => {
-    progressRef.current = () => {
-      if (progress > 100) {
-        // setProgress(0);
-        setBuffer(10);
-      } else {
-        const diff = Math.random() * 10;
-        const diff2 = Math.random() * 10;
-        setProgress(progress + diff);
-        setBuffer(progress + diff + diff2);
-      }
-    };
-  });
+  CircularProgressWithLabel.propTypes = {
+    // /**
+    //  * The value of the progress indicator for the determinate variant.
+    //  * Value between 0 and 100.
+    //  * @default 0
+    //  */
+    value: PropTypes.number.isRequired,
+  };
+
+
+  const [progress, setProgress] = React.useState(0);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
-      progressRef.current();
+      setProgress((prevProgress) => (prevProgress >= 100 ? 100 : prevProgress + 10));
     }, 500);
-
     return () => {
       clearInterval(timer);
     };
@@ -226,7 +338,22 @@ function Doc(props) {
         <Box sx={styles.Box2}>
 
           {/* progress */}
-          {<LinearProgress variant="buffer" value={progress} valueBuffer={buffer} />}
+          <BootstrapDialog
+            onClose={handleClose}
+            aria-labelledby="customized-dialog-title"
+            open={open1}
+          >
+            <DialogContent>
+              <CircularProgressWithLabel value={progress} />
+            </DialogContent>
+            <DialogActions>
+              <Button autoFocus onClick={handleClose}>
+                Done
+              </Button>
+            </DialogActions>
+          </BootstrapDialog>
+
+
           <Box sx={styles.Box3} {...getRootProps({ style })}>
             <input {...getInputProps()} />
             <Typography>Drag 'n' drop some files here, or click to select files</Typography>
@@ -239,6 +366,7 @@ function Doc(props) {
             <Box sx={styles.List}>
               <Typography varient="h4"> All documentes :</Typography>
               <Box sx={{ p: 1 }}>{file}</Box>
+              <Box sx={{ p: 1 }}>{files1}</Box>
             </Box>
           </Box>
         </Box>

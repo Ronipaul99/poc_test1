@@ -1,14 +1,14 @@
 [
     {
-        "name": "PIC001",
-        "size": "100MB"
+        "path": "PIC001",
+        "size": 100
     },
     {
-        "name": "PIC002",
-        "size": "100MB"
+        "path": "PIC002",
+        "size": 100
     },
     {
-        "name": "PIC003",
-        "size": "100MB"
+        "path": "PIC003",
+        "size": 100
     }
 ]
