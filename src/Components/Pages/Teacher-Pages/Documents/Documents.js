@@ -96,9 +96,7 @@ function Doc(props) {
   ]);
 
   const files = acceptedFiles.map(file => <Box sx={styles.Li} key={file.path}>{file.path}</Box>);
-  const file = data.map((course, index) => (<Box sx={styles.Li} key={index}>{course.name} {course.size}</Box>))
-  // console.log(files)
-  // data.push({files})
+  const file = data.map((course, index) => (<Box sx={styles.Li} key={index}>{course.name} {course.size}</Box>));
 
   // Progress
   const [progress, setProgress] = React.useState(0);
@@ -108,7 +106,7 @@ function Doc(props) {
   React.useEffect(() => {
     progressRef.current = () => {
       if (progress > 100) {
-        setProgress(0);
+        // setProgress(0);
         setBuffer(10);
       } else {
         const diff = Math.random() * 10;
@@ -226,7 +224,9 @@ function Doc(props) {
 
 
         <Box sx={styles.Box2}>
-          <LinearProgress variant="buffer" value={progress} valueBuffer={buffer} />
+
+          {/* progress */}
+          {<LinearProgress variant="buffer" value={progress} valueBuffer={buffer} />}
           <Box sx={styles.Box3} {...getRootProps({ style })}>
             <input {...getInputProps()} />
             <Typography>Drag 'n' drop some files here, or click to select files</Typography>
