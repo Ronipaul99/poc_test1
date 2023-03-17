@@ -160,9 +160,9 @@ function Doc(props) {
               <Chip label="Others" variant="outlined" />
             </Stack>
           </Box>
-          <Box sx={{ width: "100%", marginTop: "30px" }}>
-            <Box sx={{ height: "100%", width: "100%", display: "flex" }}>
-              <Box sx={{ width: "80%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <Box sx={styles.SearchSec}>
+            <Box sx={styles.B1}>
+              <Box sx={styles.B2}>
                 <Box>
                   <Search>
                     <SearchIconWrapper>
@@ -217,7 +217,7 @@ function Doc(props) {
                   ))}
                 </TextField>
               </Box>
-              <Box sx={{ width: "20%", display: "flex", justifyContent: "flex-end" }}>
+              <Box sx={styles.SearchB}>
                 <Button variant='contained'> search</Button>
               </Box>
             </Box>

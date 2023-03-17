@@ -50,7 +50,7 @@ const styles = {
         width: "100%",
         borderWidth: 2,
         borderRadius: 2,
-        marginTop:"10px"
+        marginTop: "10px"
     },
     Hed: {
         display: "flex",
@@ -69,6 +69,26 @@ const styles = {
     },
     Btn: {
         marginTop: "8px"
+    },
+    SearchSec: {
+        width: "100%",
+        marginTop: "30px"
+    },
+    B1: {
+        height: "100%",
+        width: "100%",
+        display: "flex"
+    },
+    B2: {
+        width: "80%",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center"
+    },
+    SearchB: {
+        width: "20%",
+        display: "flex",
+        justifyContent: "flex-end"
     }
 };
 export default styles;
