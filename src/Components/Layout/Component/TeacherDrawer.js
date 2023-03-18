@@ -18,7 +18,7 @@ export default function TDrawer() {
         setValue(newValue);
     };
     const goto = () => {
-        navigate("/Dashboard")
+        navigate("/")
     };
     const goto2 = () => {
         navigate("/createCourse")
