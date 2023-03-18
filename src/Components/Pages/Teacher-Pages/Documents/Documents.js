@@ -1,4 +1,4 @@
-import { Box, Button, Chip, Stack, Typography } from '@mui/material';
+import { Avatar, Box, Button, Card, Chip, Divider, Paper, Stack, Typography } from '@mui/material';
 import React, { useMemo } from 'react';
 import { useDropzone } from 'react-dropzone';
 import styles from '../../../Layout/Style/DocumentStyle';
@@ -10,21 +10,22 @@ import CircularProgress from '@mui/material/CircularProgress';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import data from "./data.json"
-import { useEffect } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 // search
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.black, 0.10),
+  backgroundColor: (theme.palette.common.white),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.black, 0.15),
+    backgroundColor: alpha(theme.palette.common.white, 0.100),
   },
   marginLeft: 0,
   width: '60%',
@@ -87,13 +88,43 @@ function Doc(props) {
   const [files, setFiles] = React.useState([]);
 
 
-  const img = {
-    display: 'block',
-    width: 'auto',
-    height: '100%'
-  };
-
-  const file = data.map((course, index) => (<Box sx={styles.Li} key={index}>{course.path} {course.size}</Box>));
+  const file = data.map((course, index) => (
+    <Paper variant="outlined" sx={styles.Li} key={index}>
+      <Box sx={styles.List1}>
+        <Box sx={styles.ListB1}>
+          <Box sx={styles.ListB12}>
+            <Box sx={styles.ListB13}>
+              {course.path}
+            </Box>
+            <Box sx={styles.ListB2}>
+              <Card sx={styles.LIcard}>
+                <Typography sx={styles.Text4}>PDF</Typography>
+              </Card>
+            </Box>
+            <Box sx={styles.ListB3}>
+              {course.size}KB
+            </Box>
+          </Box>
+        </Box>
+        <Box sx={styles.ListB4}>
+          <Box sx={styles.ListB41}>
+            <Avatar alt="Remy Sharp" sx={styles.ListB42} src="/static/images/avatar/1.jpg" />
+            <Typography sx={styles.Text5}>Reshab Naskar</Typography>
+          </Box>
+        </Box>
+        <Box sx={styles.ListB5}>
+          <Box sx={styles.ListB51}>
+            <Box sx={styles.ListB52}>
+              <Chip label="PHD Certificate" clickable variant="contained" />
+            </Box>
+            <Box sx={styles.ListB53}>
+              <FileDownloadOutlinedIcon sx={{ ml: 1 }} />
+              < DeleteOutlineOutlinedIcon sx={{ ml: 1 }} />
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </Paper>));
 
   console.log(data)
 
@@ -108,14 +139,10 @@ function Doc(props) {
     accept: { 'image/*': [] }, noClick: true,
     noKeyboard: true,
     onDrop: acceptedFiles => {
-      console.log(acceptedFiles ,data);
-      acceptedFiles.forEach(item=>{
+      console.log(acceptedFiles, data);
+      acceptedFiles.forEach(item => {
         data.push(item)
       })
-      // data.push(acceptedFiles[0])
-      // setFiles(acceptedFiles.map(file => Object.assign(file, {
-      //   preview: URL.createObjectURL(file)
-      // })));
     }
   });
 
@@ -131,21 +158,12 @@ function Doc(props) {
     isDragReject
   ]);
 
-
-  useEffect(() => {
-    // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
-    return () => files.forEach(file => URL.revokeObjectURL(file.preview));
-  }, []);
-
-
-  const files1 = files.map(file => <Box sx={styles.Li} key={file.path}>{file.path}<img alt='img' style={img} src={file.preview} onLoad={() => { URL.revokeObjectURL(file.preview) }} /></Box>);
+  const files1 = files.map(file => <Box sx={styles.Li} key={file.path}>{file.path}</Box>);
 
 
 
 
   // dialoug
-
-
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
       padding: theme.spacing(2),
@@ -265,9 +283,9 @@ function Doc(props) {
         <Box>
           <Box sx={styles.Hed}>
             <Typography sx={styles.Text1}>Documents</Typography>
-            <Stack direction="row" spacing={1} sx={{ ml: 3 }}>
-              <Chip label="All documents" variant="outlined" />
-              <Chip label="Others" variant="outlined" />
+            <Stack direction="row" spacing={1} sx={{ ml: 4 }}>
+              <Chip label="All documents" clickable variant="outlined" />
+              <Chip label="Others" clickable variant="outlined" />
             </Stack>
           </Box>
           <Box sx={styles.SearchSec}>
@@ -289,7 +307,7 @@ function Doc(props) {
                   select
                   size='small'
                   label="All categories"
-                  sx={{ width: "20ch" }}
+                  sx={{ width: "20ch", bgcolor: 'background.paper', }}
                   defaultValue="All"
                 >
                   {All.map((option) => (
@@ -303,7 +321,7 @@ function Doc(props) {
                   select
                   size='small'
                   label="Period"
-                  sx={{ width: "20ch" }}
+                  sx={{ width: "20ch", bgcolor: 'background.paper', }}
                   defaultValue="All"
                 >
                   {Period.map((option) => (
@@ -315,7 +333,7 @@ function Doc(props) {
                 <TextField
                   id="outlined-select-currency"
                   select
-                  sx={{ width: "20ch" }}
+                  sx={{ width: "20ch", bgcolor: 'background.paper', }}
                   size='small'
                   label="Document type"
                   defaultValue="All"
@@ -356,15 +374,15 @@ function Doc(props) {
 
           <Box sx={styles.Box3} {...getRootProps({ style })}>
             <input {...getInputProps()} />
-            <Typography>Drag 'n' drop some files here, or click to select files</Typography>
+            <Typography sx={styles.Text2}>Drag 'n' drop some files here, or click to select files</Typography>
             <Button sx={styles.Btn} variant='contained' onClick={open}>
               Choose a file
             </Button>
           </Box>
 
           <Box sx={styles.FBox}>
+            <Typography sx={styles.Text3}> All documentes :</Typography>
             <Box sx={styles.List}>
-              <Typography varient="h4"> All documentes :</Typography>
               <Box sx={{ p: 1 }}>{file}</Box>
               <Box sx={{ p: 1 }}>{files1}</Box>
             </Box>

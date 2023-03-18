@@ -4,7 +4,7 @@ const styles = {
         justifyContent: "center",
         marginLeft: "200px",
         height: "100%",
-        backgroundColor: "hsl(0deg 0% 96%)"
+        backgroundColor: "hsl(0deg 0% 95.28%)"
     },
     Box1: {
         width: "80%",
@@ -20,7 +20,7 @@ const styles = {
         flexDirection: 'column',
         alignItems: 'center',
         height: "150px",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     FBox: {
         marginTop: "150px"
@@ -33,9 +33,9 @@ const styles = {
         padding: '20px',
         borderWidth: 2,
         borderRadius: 2,
-        borderColor: '#eeeeee',
+        borderColor: 'blue',
         borderStyle: 'dashed',
-        backgroundColor: '#fafafa',
+        backgroundColor: 'rgb(227 235 255)',
         color: '#bdbdbd',
         outline: 'none',
         transition: 'border .24s ease-in-out'
@@ -43,14 +43,9 @@ const styles = {
     Li: {
         p: 2,
         height: "50px",
-        display: "flex",
-        justifyContent: "flex-start",
         alignItems: "center",
-        backgroundColor: "grey",
         width: "100%",
-        borderWidth: 2,
-        borderRadius: 2,
-        marginTop: "10px"
+        borderBottom: "1px solid rgb(170, 171, 173)"
     },
     Hed: {
         display: "flex",
@@ -58,15 +53,14 @@ const styles = {
     },
     Text1: {
         fontSize: "30px",
-        fontWeight: "bold"
+        color: "grey"
     },
     List: {
         borderWidth: 2,
         borderRadius: 2,
         borderColor: 'black',
         borderStyle: "double",
-        p: 2,
-        marginBottom:"50px"
+        marginBottom: "50px"
     },
     Btn: {
         marginTop: "8px"
@@ -90,6 +84,98 @@ const styles = {
         width: "20%",
         display: "flex",
         justifyContent: "flex-end"
+    },
+    Text2: {
+        color: "#656c72"
+    },
+    Text3: {
+        fontSize: "20px",
+        fontWeight: "bold",
+        p: 2
+    },
+    LIcard: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        p: 0.2,
+        border: "2px solid rgb(172, 199, 252.8)",
+        backgroundColor: "rgb(172, 199, 252.8)",
+        ml: 2,
+        mr: 2,
+        borderRadius: "8px"
+    },
+    Text4: {
+        fontSize: "11px"
+    },
+    List1: {
+        height: "100%",
+        widht: "100%",
+        display: "flex"
+    },
+    ListB1: {
+        width: "40%",
+        display: "flex"
+    },
+    ListB12: {
+        display: "flex",
+        height: "100%",
+        width: "100%"
+    },
+    ListB13: {
+        width: "34%",
+        display: "flex",
+        alignItems: "center"
+    },
+    ListB2: {
+        width: "33%",
+        display: "flex",
+        alignItems: "center"
+    },
+    ListB3: {
+        width: "33%",
+        display: "flex",
+        alignItems: "center"
+    },
+    ListB4: {
+        width: "40%",
+        display: "flex"
+    },
+    ListB41: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        ml: 2
+    },
+    ListB42: {
+        height: "30px",
+        width: "30px"
+    },
+    Text5: {
+        fontSize: "12px",
+        color: "grey",
+        ml: 1
+    },
+    ListB5: {
+        width: "20%",
+        display: "flex",
+        alignItems: "center"
+    },
+    ListB51: {
+        display: "flex",
+        height: "100%",
+        width: "100%"
+    },
+    ListB52: {
+        width: "70%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    ListB53: {
+        width: "30%",
+        display: "flex",
+        justifyContent: "flex-end",
+        alignItems: "center"
     }
 };
 export default styles;
