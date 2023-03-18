@@ -3,7 +3,7 @@ const styles = {
         display: "flex",
         justifyContent: "center",
         marginLeft: "200px",
-        height: "100vh",
+        height: "100%",
         backgroundColor: "hsl(0deg 0% 96%)"
     },
     Box1: {
@@ -65,7 +65,8 @@ const styles = {
         borderRadius: 2,
         borderColor: 'black',
         borderStyle: "double",
-        p: 2
+        p: 2,
+        marginBottom:"50px"
     },
     Btn: {
         marginTop: "8px"
