@@ -7,7 +7,6 @@ const styles = {
         marginBottom: "50px"
     },
     Box1: {
-
         width: "100%",
         height: "100%"
     },
@@ -19,11 +18,11 @@ const styles = {
     },
     U50: {
         width: "100%",
-        height: "80%"
+        height: "72%"
     },
     L50: {
         width: "100%",
-        height: "20%",
+        height: "28%",
         marginTop: "20px"
     },
     Text1: {
@@ -78,25 +77,31 @@ const styles = {
         justifyContent: "space-between"
     },
     Ten: {
-        width: "28%",
+        width: "30.5%",
         height: "100%",
         backgroundColor: "#aff3eb",
         opacity: "inherit",
-        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)"
+        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)",
+        p: 5,
+        borderRadius: "15px"
     },
     Eleven: {
-        width: "28%",
+        width: "30.5%",
         height: "100%",
         backgroundColor: "#dbcadd",
         opacity: "inherit",
-        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)"
+        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)",
+        p: 5,
+        borderRadius: "15px"
     },
     Twelve: {
-        width: "28%",
+        width: "30.5%",
         height: "100%",
         backgroundColor: "#dbcadd",
         opacity: "inherit",
-        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)"
+        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)",
+        p: 5,
+        borderRadius: "15px"
     },
     Thirteen: {
         width: "30%",
@@ -113,22 +118,96 @@ const styles = {
     },
     Fifteen: {
         width: "80%",
-        height: "27%",
+        height: "24.5%",
+        p: 5,
         backgroundColor: "#2a2a2c",
-        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)"
+        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)",
+        borderRadius: "15px"
     },
     Sixteen: {
         width: "80%",
-        height: "40%",
+        height: "45%",
+        p: 5,
         backgroundColor: "#aff3eb",
         opacity: "inherit",
-        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)"
+        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)",
+        borderRadius: "15px",
+        display: "flex",
+        flexDirection: "column"
     },
     Seventeen: {
         width: "80%",
-        height: "27%",
+        height: "24.5%",
+        p: 5,
         backgroundColor: "#2a2a2c",
-        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)"
+        boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)",
+        borderRadius: "15px"
+    },
+    SB1: {
+        width: "92%"
+    },
+    Text2: {
+        fontSize: "18px",
+        fontWeigth: "bold",
+        color: "white"
+    },
+    Btn: {
+        marginTop: "20px",
+        color: "inherit",
+        backgroundColor: "white"
+    },
+    Text4: {
+        fontSize: "12px",
+        fontWeigth: "bold",
+        color: "inherit"
+    },
+    Text3: {
+        fontSize: "18px",
+        fontWeigth: "bold",
+        color: "inherit"
+    },
+    Btn1: {
+        marginTop: "20px",
+        color: "inherit",
+        backgroundColor: "blue"
+    },
+    Btn2: {
+        marginTop: "20px",
+        color: "inherit",
+        backgroundColor: "orange"
+    },
+    Text5: {
+        fontSize: "12px",
+        fontWeigth: "bold",
+        color: "white"
+    },
+    Text6: {
+        fontSize: "15px",
+        fontWeigth: "bold",
+        color: "#25d743"
+    },
+    Text7: {
+        fontSize: "21px",
+        fontWeigth: "bold",
+        color: "#2a2a2c"
+    },
+    MidCard: {
+        width: "100%",
+        height: "100%"
+    },
+    BB1: {
+        width: "100%",
+        height: "80%"
+    },
+    BB2: {
+        width: "100%",
+        height: "20%",
+        display: "flex",
+        alignItems: "flex-end"
+    },
+    BB2Btn: {
+        width: "100%",
+        height: "40px"
     }
 };
 export default styles;
