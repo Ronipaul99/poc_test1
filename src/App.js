@@ -6,6 +6,7 @@ import Dashboard from "./Components/Layout/Dashboard";
 import Footer from "./Components/Pages/Footer";
 import Header from "./Components/Pages/Header";
 import LandingPage from "./Components/Pages/LandingPage";
+import TeacherAccount from "./Components/Pages/TeacherAccount";
 import { U } from "./Components/Store/User";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/Account" element={<TeacherAccount />} />
           <Route path = "/auth" element={<Auth/>}/>
           <Route path="/Dashboard" element={<Dashboard />} />
         </Routes>
