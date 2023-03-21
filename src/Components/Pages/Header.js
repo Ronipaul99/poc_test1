@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authActions } from '../Store/Auth';
 import { U } from "../Store/User";
 import {U1} from "../Store/U-Data"
+import Button from '@mui/material/Button';
 export default function Header() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -34,25 +35,31 @@ const Logout = () => {
               <input type='text' id='search' className='' placeholder='Search for courses,leasons ,educators'/>
               <button type='submit'><SearchIcon /></button>
             </form>
-              
+ 
             <div className='call-info col-sm-3'>
-                <div className='call-icon'>
-                  <PhoneInTalkIcon style={{color:'5a5a5a'}}/>
+              {!isLoggedIn?
+                <div>
+                  <div className='call-icon'>
+                    <PhoneInTalkIcon style={{color:'5a5a5a'}}/>
+                  </div>
+                  <div className='col-sm-9'>
+                      <div className='col-sm-12 call-text' >Talk to our experts</div>
+                      <div className='col-sm-12 call-number'>+91-8956347789</div>
+                  </div>
                 </div>
-                <div className='col-sm-9'>
-                    <div className='col-sm-12 call-text' >Talk to our experts</div>
-                    <div className='col-sm-12 call-number'>+91-8956347789</div>
-                </div>
+                :
+                <div className='col-9 call-text-2' >Welcome {userData.firstname}</div>
+              }
+
             </div>
             {!isLoggedIn ?            
               <div className='icon-area col-sm-2'>
-                <button className='icon-button' onClick={HandleClick}> Login</button>
-                <button className='icon-button'>signup</button>
+                <Button style={{marginInline:'5px'}} variant="outlined" onClick={HandleClick}> Login</Button>
+                <Button style={{marginInline:'5px'}} variant="outlined">signup</Button>
               </div> 
               :
                 <div className='icon-area col-sm-2'>
-                  <div className='col-6 call-text' >Welcome {userData.firstname}</div>
-                  <button className='icon-button' onClick={Logout}>Logout</button>
+                  <Button variant="outlined" onClick={Logout}>Logout</Button>
                 </div>
             }
 

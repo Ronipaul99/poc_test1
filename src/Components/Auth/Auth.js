@@ -483,7 +483,7 @@ function Auth() {
     return (
         // main interface
         <Card sx={{
-            width:"120%"
+            width:"100%"
         }}>
             <><Box sx={{
                 minHeight: "100vh",

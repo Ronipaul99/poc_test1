@@ -32,10 +32,10 @@ function App() {
         <Grid container spacing={2} sx={{ flexGrow: 1 }}>
           <Header />
           {!isLoggedIn && <Landing/>}
-          <Grid item xs={2}>
+          <Grid  xs={isLoggedIn ?2:0}>
             {isLoggedIn && string1 === string2 && <TDrawer />}
           </Grid>
-          <Grid item xs={10}>
+          <Grid  xs={isLoggedIn ?10:12}>
             <Routes>
               <Route path="/" element={isLoggedIn &&<Dashboard />} />
               <Route path="/auth" element={ <Auth />} />

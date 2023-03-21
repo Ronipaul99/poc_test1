@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 100px;
+    padding: 10px 75px;
 }
 
 .header-body{
@@ -17,13 +17,13 @@
     background-repeat:no-repeat;
     background-size: cover;
     background-position: center;
-    height: 70px;
-    width: 250px;
+    height: 60px;
+    width: 240px;
 }
 
 .search-bar{
-    height: 50px;
-    margin: 10px;
+    height: 40px;
+    margin: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,8 +40,8 @@
     flex: 1;
     border: 0;
     outline: none;
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 400;
     padding: 20px 20px;
     color: rgb(114, 114, 114);
 }
@@ -66,14 +66,17 @@
 .call-icon{
     padding: 20px;
 }
-
-.call-text{
+.call-text-2{
     color: rgb(128, 128, 128);
     font-size: 18px;
 }
+.call-text{
+    color: rgb(128, 128, 128);
+    font-size: 13px;
+}
 .call-number{
  color: #5a5a5a;
- font-size: 21px;
+ font-size: 15px;
  font-weight: 700;
 }
 .icon-area{
@@ -85,8 +88,7 @@
 
 .icon-button{
  margin-inline-end: 15px;
- border: 2px solid rgb(113, 112, 112);
- height: 50px;
+ height: 40px;
  width: 110px;
  display: flex;
  justify-content: center;
