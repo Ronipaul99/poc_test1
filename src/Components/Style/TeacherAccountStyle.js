@@ -117,7 +117,7 @@ const styles = {
         alignItems: "center"
     },
     Fifteen: {
-        width: "80%",
+        width: "70%",
         height: "24.5%",
         p: 5,
         backgroundColor: "#2a2a2c",
@@ -125,7 +125,7 @@ const styles = {
         borderRadius: "15px"
     },
     Sixteen: {
-        width: "80%",
+        width: "70%",
         height: "45%",
         p: 5,
         backgroundColor: "#aff3eb",
@@ -136,7 +136,7 @@ const styles = {
         flexDirection: "column"
     },
     Seventeen: {
-        width: "80%",
+        width: "70%",
         height: "24.5%",
         p: 5,
         backgroundColor: "#2a2a2c",
@@ -208,6 +208,9 @@ const styles = {
     BB2Btn: {
         width: "100%",
         height: "40px"
+    },
+    Icon:{
+         ml: 1 
     }
 };
 export default styles;

@@ -1,4 +1,5 @@
 import { Button, Card, Typography } from '@mui/material'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Box } from '@mui/system'
 import React from 'react'
 import styles from '../Style/TeacherAccountStyle'
@@ -162,7 +163,7 @@ const TeacherAccount = () => {
                                         <Typography sx={styles.Text7}>"Greatest store intro React & Redux"</Typography>
                                     </Box>
                                     <Box sx={styles.BB2}>
-                                        <Button variant='contained' color='success' sx={styles.BB2Btn}>Continue</Button>
+                                        <Button variant='contained' color='success' sx={styles.BB2Btn}>Continue<ArrowForwardIcon fontSize='small' sx={styles.Icon} /></Button>
                                     </Box>
                                 </Box>
 
