@@ -24,6 +24,8 @@ import P3 from '../Images/P3.webp';
 import { useDispatch } from 'react-redux';
 import { Type } from '../Store/User';
 import userData from '../../DummyData/user'
+import { Type1 } from '../Store/U-Data';
+import { authActions } from '../Store/Auth';
 
 // alert function for registration
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -318,7 +320,7 @@ function Auth() {
 
     // onsubmit function for login page
     const onSubmitForLoginPage = (data) => {
-        console.log(data);
+        //console.log(data);
         var flag = false
         var User = null
         userData.forEach(item=>{
@@ -329,9 +331,15 @@ function Auth() {
         })
         if (flag) {
             const a = (User.UserType);
+            window.localStorage.setItem("IniIn",true);
+            const b = (User);
+            const c = JSON.stringify(b)
+            window.localStorage.setItem('userData', c);
             window.localStorage.setItem('userType', User.UserType);
             dispatch(Type(a));
-            navigate("/Dashboard");
+            dispatch(Type1(b))
+            navigate("/")
+            dispatch(authActions.Login());
         }else{
             setError("Email or Password is incorrect");
         }
@@ -474,7 +482,7 @@ function Auth() {
 
     return (
         // main interface
-        <Box>
+        <Card>
             <><Box sx={{
                 minHeight: "100vh",
                 display: "flex",
@@ -483,8 +491,8 @@ function Auth() {
                 backgroundColor: "#eee"
             }}>
                 <Card sx={{
-                    height: "600px",
-                    width: "1000px",
+                    height: "58vh",
+                    width: "55vw",
                     backgroundColor: "#fff",
                     position: "relative",
                     boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)"
@@ -554,7 +562,7 @@ function Auth() {
                 </Card>
             </Box>
             </>
-        </Box>
+        </Card>
     );
 }
 export default Auth;

@@ -8,6 +8,15 @@ var  userData = [
         phone: "09903245034",
     },
     {
+        userId: "U1001",
+        firstname: "Reshab",
+        lastname: "Naskar",
+        phone: "0000000000",
+        email: "Reshab@gmail.com",
+        password: "Reshab123",
+        UserType: "T"
+    },
+    {
         name:'',
         details:'',
         course :['c001','c002']

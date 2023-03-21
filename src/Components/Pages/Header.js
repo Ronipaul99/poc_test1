@@ -3,7 +3,29 @@ import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
 import '../Style/Header.css'
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { authActions } from '../Store/Auth';
+import { U } from "../Store/User";
+import {U1} from "../Store/U-Data"
 export default function Header() {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const e = useSelector(U);
+  const userData = useSelector(U1)
+  console.log(userData);
+  const navigate = useNavigate();
+const HandleClick = (e) => {
+  navigate("/auth")
+}
+const Logout = () => {
+  navigate("/")
+  window.localStorage.removeItem("userType");
+  window.localStorage.removeItem("userData");
+  window.localStorage.setItem("IniIn", false);
+  window.localStorage.removeItem("TaskbarId");
+  dispatch(authActions.Logout());
+};
   return (
     <div className='header-container'>
         <div className='header-body row col-sm-12'>
@@ -22,10 +44,18 @@ export default function Header() {
                     <div className='col-sm-12 call-number'>+91-8956347789</div>
                 </div>
             </div>
-            <div className='icon-area col-sm-2'>
-                <button className='icon-button'> Login</button>
+            {!isLoggedIn ?            
+              <div className='icon-area col-sm-2'>
+                <button className='icon-button' onClick={HandleClick}> Login</button>
                 <button className='icon-button'>signup</button>
-            </div>
+              </div> 
+              :
+                <div className='icon-area col-sm-2'>
+                  <div className='col-6 call-text' >Welcome {userData.firstname}</div>
+                  <button className='icon-button' onClick={Logout}>Logout</button>
+                </div>
+            }
+
         </div>
     </div>
   )
