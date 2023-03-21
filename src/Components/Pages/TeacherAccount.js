@@ -1,4 +1,4 @@
-import { Button, Card, Typography } from '@mui/material'
+import { Avatar, AvatarGroup, Button, Card, Typography } from '@mui/material'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Box } from '@mui/system'
 import React from 'react'
@@ -113,13 +113,13 @@ const TeacherAccount = () => {
                                             </Box>
                                         </Box>
                                         <TabPanel value={value} index={0}>
-
+                                            {/* 1Tab Body here */}
                                         </TabPanel>
                                         <TabPanel value={value} index={1}>
-
+                                            {/* 2Tab Body here */}
                                         </TabPanel>
                                         <TabPanel value={value} index={2}>
-
+                                            {/* 3Tab Body here */}
                                         </TabPanel>
 
                                     </Card>
@@ -128,8 +128,9 @@ const TeacherAccount = () => {
                                     <Box sx={styles.Nine}>
                                         <Card sx={styles.Ten}>
                                             {/* Card1 */}
-                                            <Typography sx={styles.Text3}>Ovweall course progress</Typography>
+                                            <Typography sx={styles.Text3}>Overall course progress</Typography>
                                         </Card>
+
                                         <Card sx={styles.Eleven}>
                                             {/* card2 */}
                                             <Typography sx={styles.Text3}>You don't have sponsored students</Typography>
@@ -137,6 +138,7 @@ const TeacherAccount = () => {
                                                 <Typography sx={styles.Text5}>Find students</Typography>
                                             </Button>
                                         </Card>
+                                        
                                         <Card sx={styles.Twelve}>
                                             {/* Card3 */}
                                             <Typography sx={styles.Text3}>You have not invested tokens yet</Typography>
@@ -151,23 +153,32 @@ const TeacherAccount = () => {
                     </Box>
                     <Box sx={styles.Thirteen}>
                         <Box sx={styles.Fourteen}>
+
                             <Card sx={styles.Fifteen}>
                                 {/* right side top card */}
                                 <Typography sx={styles.Text2}>People brought your materials</Typography>
+                                <AvatarGroup sx={styles.AvatarGroup} max={4} total={24}>
+                                    <Avatar alt="Reshab" src="/static/images/avatar/4.jpg" />
+                                    <Avatar alt="Biswarup" src="/static/images/avatar/4.jpg" />
+                                    <Avatar alt="Arpita" src="/static/images/avatar/4.jpg" />
+                                    <Avatar alt="Madhumita" src="/static/images/avatar/5.jpg" />
+                                </AvatarGroup>
                             </Card>
+
                             <Card sx={styles.Sixteen}>
                                 {/* right side middle card */}
                                 <Box sx={styles.MidCard}>
                                     <Box sx={styles.BB1}>
                                         <Typography sx={styles.Text6}>RECENT ACTION</Typography>
                                         <Typography sx={styles.Text7}>"Greatest store intro React & Redux"</Typography>
+                                        <Typography sx={styles.Text8}>It is a long established fact that a reader will be distracted by the readble content...</Typography>
                                     </Box>
                                     <Box sx={styles.BB2}>
                                         <Button variant='contained' color='success' sx={styles.BB2Btn}>Continue<ArrowForwardIcon fontSize='small' sx={styles.Icon} /></Button>
                                     </Box>
                                 </Box>
-
                             </Card>
+
                             <Card sx={styles.Seventeen}>
                                 {/* right side bottom card */}
                                 <Box sx={styles.SB1}>
@@ -182,7 +193,7 @@ const TeacherAccount = () => {
                 </Box>
             </Box>
         </Box>
-    )
-}
+    );
+};
 
 export default TeacherAccount;

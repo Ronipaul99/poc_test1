@@ -79,7 +79,7 @@ const styles = {
     Ten: {
         width: "30.5%",
         height: "100%",
-        backgroundColor: "#aff3eb",
+        backgroundColor: "#cdf3ee",
         opacity: "inherit",
         boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)",
         p: 5,
@@ -88,7 +88,7 @@ const styles = {
     Eleven: {
         width: "30.5%",
         height: "100%",
-        backgroundColor: "#dbcadd",
+        backgroundColor: "#f8eef9",
         opacity: "inherit",
         boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)",
         p: 5,
@@ -97,7 +97,7 @@ const styles = {
     Twelve: {
         width: "30.5%",
         height: "100%",
-        backgroundColor: "#dbcadd",
+        backgroundColor: "#f8eef9",
         opacity: "inherit",
         boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)",
         p: 5,
@@ -128,7 +128,7 @@ const styles = {
         width: "70%",
         height: "45%",
         p: 5,
-        backgroundColor: "#aff3eb",
+        backgroundColor: "#cdf3ee",
         opacity: "inherit",
         boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)",
         borderRadius: "15px",
@@ -182,9 +182,9 @@ const styles = {
         color: "white"
     },
     Text6: {
-        fontSize: "15px",
+        fontSize: "14px",
         fontWeigth: "bold",
-        color: "#25d743"
+        color: "#2a933b"
     },
     Text7: {
         fontSize: "21px",
@@ -209,8 +209,18 @@ const styles = {
         width: "100%",
         height: "40px"
     },
-    Icon:{
-         ml: 1 
+    Icon: {
+        ml: 1
+    },
+    AvatarGroup: {
+        display: "flex",
+        justifyContent: "flex-end",
+        marginTop: "10px"
+    },
+    Text8: {
+        fontSize: "12px",
+        color: "grey",
+        marginTop: "20px"
     }
 };
 export default styles;
