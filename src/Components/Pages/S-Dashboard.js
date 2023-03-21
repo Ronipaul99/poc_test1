@@ -7,9 +7,13 @@ import InputBase from '@mui/material/InputBase';
 import Stack from '@mui/material/Stack';
 import { useEffect, useState } from 'react';
 import Card from '@mui/material/Card';
-import Info from '../Course/Course';
-import Courses from '../Course/Courses';
+// import Info from '../Course/Course';
+// import Courses from '../Course/Courses';
 import NavDrawer from '../Layout/Component/Nav&Drawer';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import Courses from '../Course/Courses';
+import Chip from '@mui/material/Chip';
+
 
 
 
@@ -18,12 +22,12 @@ import NavDrawer from '../Layout/Component/Nav&Drawer';
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.black, 0.15),
+    backgroundColor: alpha(theme.palette.common.white, 0.70),
     '&:hover': {
-        backgroundColor: alpha(theme.palette.common.black, 0.25),
+        backgroundColor: alpha(theme.palette.common.white, 0.80),
     },
     marginLeft: 0,
-    width: '100%',
+    width: '60%',
     [theme.breakpoints.up('sm')]: {
         marginLeft: theme.spacing(0),
         width: 'auto',
@@ -83,13 +87,19 @@ export default function StudentDashboard() {
     }, []);
 
 
+    // date function
+
+    const current = new Date();
+    const Date1 = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+
+
     return (
         <>
-            <Box sx={{ display: 'flex', justifyContent: "center", backgroundColor: "#B1B1B1" }}>
-                <NavDrawer />
+            <Card sx={{ display: 'flex', justifyContent: "center", backgroundColor: "#D3D3D3" }}>
+                {/* <NavDrawer /> */}
 
                 {/* Body */}
-                <Box sx={{ backgroundColor: "#B1B1B1" }}>
+                <Box sx={{ backgroundColor: "#D3D3D3" }}>
                     <Box>
                         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                             <DrawerHeader />
@@ -103,22 +113,34 @@ export default function StudentDashboard() {
                                         inputProps={{ 'aria-label': 'search' }}
                                     />
                                 </Search>
-                                <Card sx={{ width: "34vw", marginLeft: "10px", height: "40px" }}>
-                                    <Box sx={{ alignItems: "center", textAlign: "center", marginTop: "10px" }}>
+                                <Card sx={{ width: "34vw", marginLeft: "10px", height: "40px", backgroundColor: "#eee", display: "flex", alignItems: "center", boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)" }}>
+
+                                    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                        <CalendarMonthIcon sx={{ display: { xs: "none", md: "flex" }, mr: 12.5, p: 1, color: "grey" }} />
+                                        {Date1}
+                                        {' - '}
+
                                         {date.toLocaleTimeString()}
                                     </Box>
                                 </Card>
                             </Stack>
+                            <Stack direction="row" sx={{ alignItems: "center", width: "80vw", marginTop: "20px" }} >
+                                <Stack direction="row" spacing={1}>
+                                    <Chip label="Location" component="a" href="#basic-chip" clickable />
+                                    <Chip label="Subject" component="a" href="#basic-chip" clickable />
+                                    <Chip label="Teacher" component="a" href="#basic-chip" clickable />
+                                    <Chip label="Price" component="a" href="#basic-chip" clickable />
+                                </Stack>
+
+                            </Stack>
                         </Box>
                         {/* Courses */}
-                        {Courses.map((e) => {
-                            return (
-                                <Info name={e.name} rollNo={e.rollNo} imgurl={e.imgurl} details={e.details} />
-                            );
-                        })}
+                        <Box sx={{ display: "flex", justifyContent: "center" }}>
+                            <Courses />
+                        </Box>
                     </Box>
                 </Box>
-            </Box>
+            </Card>
         </>
     );
 };
