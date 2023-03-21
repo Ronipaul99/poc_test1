@@ -144,7 +144,7 @@ const styles = {
         borderRadius: "15px"
     },
     SB1: {
-        width: "92%"
+        width: "92%",
     },
     Text2: {
         fontSize: "18px",
@@ -221,6 +221,38 @@ const styles = {
         fontSize: "12px",
         color: "grey",
         marginTop: "20px"
+    },
+    B1: {
+        display: "flex",
+        marginTop: "10px",
+        justifyContent: 'center',
+        alignItems: "center"
+    },
+    CB2: {
+        height: "100%",
+        width: "100%",
+        display: 'flex'
+    },
+    CB21: {
+        width: "60%",
+        height: "100%"
+    },
+    CB22: {
+        width: "40%",
+        height: "100%",
+        display: 'flex',
+        justifyContent: "center",
+        alignItems: 'center'
+    },
+    Text9: {
+        fontSize: "35px",
+        fontWeight: "bold",
+        color:"#ff4b4b"
+    },
+    Text10:{
+        fontSize:"45px",
+        fontWeight:"bold",
+        color:"green"
     }
 };
 export default styles;

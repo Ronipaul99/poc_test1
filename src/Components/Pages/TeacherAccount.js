@@ -1,14 +1,16 @@
 import { Avatar, AvatarGroup, Button, Card, Typography } from '@mui/material'
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Chart from "react-apexcharts";
 import { Box } from '@mui/system'
-import React from 'react'
 import styles from '../Style/TeacherAccountStyle'
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-
+import React from 'react'
+import { useState } from 'react';
 
 
 
@@ -59,8 +61,12 @@ const TeacherAccount = () => {
             label: 'Last Month',
         },
         {
-            value: 'This Month',
-            label: 'This Month',
+            value: 'Last seven days',
+            label: 'Last seven days',
+        },
+        {
+            value: 'Total',
+            label: 'Total',
         }
     ];
 
@@ -69,6 +75,24 @@ const TeacherAccount = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    // Graph chart
+    const [state, setState] = useState({
+        options: {
+            chart: {
+                id: "basic-bar"
+            },
+            xaxis: {
+                categories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+            }
+        },
+        series: [
+            {
+                name: "Earning",
+                data: [18, 20, 13, 4, 15, 26, 17, 8, 19, 1, 19, 22, 32, 4, 24, 16, 11, 15, 29, 2, 23, 22, 23, 12, 2, 27, 37, 88, 39, 30]
+            }
+        ]
+    })
     return (
         <Box sx={styles.mainContainer}>
             <Box sx={styles.Box}>
@@ -86,7 +110,7 @@ const TeacherAccount = () => {
                                                 id="outlined-select-currency"
                                                 select
                                                 defaultValue="Last Month"
-                                                sx={{ width: "20ch" }}
+                                                sx={{ width: "22ch" }}
                                             >
                                                 {currencies.map((option) => (
                                                     <MenuItem key={option.value} value={option.value}>
@@ -106,7 +130,7 @@ const TeacherAccount = () => {
                                         <Box sx={{ display: "flex", justifyContent: "center", width: '100%' }}>
                                             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                                                    <Tab label="Authored Materials" {...a11yProps(0)} />
+                                                    <Tab label="Subscription" {...a11yProps(0)} />
                                                     <Tab label="Earning" {...a11yProps(1)} />
                                                     <Tab label="Activities" {...a11yProps(2)} />
                                                 </Tabs>
@@ -114,12 +138,33 @@ const TeacherAccount = () => {
                                         </Box>
                                         <TabPanel value={value} index={0}>
                                             {/* 1Tab Body here */}
+                                            <Chart
+                                                options={state.options}
+                                                series={state.series}
+                                                type="bar"
+                                                width="100%"
+                                                height="360"
+                                            />
                                         </TabPanel>
                                         <TabPanel value={value} index={1}>
                                             {/* 2Tab Body here */}
+                                            <Chart
+                                                options={state.options}
+                                                series={state.series}
+                                                type="bar"
+                                                width="100%"
+                                                height="360"
+                                            />
                                         </TabPanel>
                                         <TabPanel value={value} index={2}>
                                             {/* 3Tab Body here */}
+                                            <Chart
+                                                options={state.options}
+                                                series={state.series}
+                                                type="bar"
+                                                width="100%"
+                                                height="360"
+                                            />
                                         </TabPanel>
 
                                     </Card>
@@ -128,22 +173,32 @@ const TeacherAccount = () => {
                                     <Box sx={styles.Nine}>
                                         <Card sx={styles.Ten}>
                                             {/* Card1 */}
-                                            <Typography sx={styles.Text3}>Overall course progress</Typography>
+                                            <Typography sx={styles.Text3}>Total Earning</Typography>
+                                            <Typography sx={styles.Text10}>6000</Typography>
                                         </Card>
 
                                         <Card sx={styles.Eleven}>
                                             {/* card2 */}
-                                            <Typography sx={styles.Text3}>You don't have sponsored students</Typography>
-                                            <Button variant='contained' sx={styles.Btn1}>
-                                                <Typography sx={styles.Text5}>Find students</Typography>
-                                            </Button>
+                                            <Box sx={styles.CB2}>
+                                                <Box sx={styles.CB21}>
+                                                    <Typography sx={styles.Text3}>Settle earning</Typography>
+                                                    <Button variant='contained' sx={styles.Btn1}>
+                                                        <Typography sx={styles.Text5}>Dispatch</Typography>
+                                                    </Button>
+                                                </Box>
+                                                <Box sx={styles.CB22}>
+                                                    <Box sx={styles.B1}>
+                                                        <Typography sx={styles.Text9}>₹500</Typography>
+                                                    </Box>
+                                                </Box>
+                                            </Box>
                                         </Card>
-                                        
+
                                         <Card sx={styles.Twelve}>
                                             {/* Card3 */}
-                                            <Typography sx={styles.Text3}>You have not invested tokens yet</Typography>
+                                            <Typography sx={styles.Text3}>Your affiliated earing</Typography>
                                             <Button variant='contained' sx={styles.Btn2}>
-                                                <Typography sx={styles.Text5}>Start investing</Typography>
+                                                <Typography sx={styles.Text5}>Create link</Typography>
                                             </Button>
                                         </Card>
                                     </Box>
@@ -156,7 +211,7 @@ const TeacherAccount = () => {
 
                             <Card sx={styles.Fifteen}>
                                 {/* right side top card */}
-                                <Typography sx={styles.Text2}>People brought your materials</Typography>
+                                <Typography sx={styles.Text2}>Subscribed students</Typography>
                                 <AvatarGroup sx={styles.AvatarGroup} max={4} total={24}>
                                     <Avatar alt="Reshab" src="/static/images/avatar/4.jpg" />
                                     <Avatar alt="Biswarup" src="/static/images/avatar/4.jpg" />
@@ -169,8 +224,8 @@ const TeacherAccount = () => {
                                 {/* right side middle card */}
                                 <Box sx={styles.MidCard}>
                                     <Box sx={styles.BB1}>
-                                        <Typography sx={styles.Text6}>RECENT ACTION</Typography>
-                                        <Typography sx={styles.Text7}>"Greatest store intro React & Redux"</Typography>
+                                        <Typography sx={styles.Text6}>Get help from Uducate</Typography>
+                                        <Typography sx={styles.Text7}>"Get your personal account manage with us"</Typography>
                                         <Typography sx={styles.Text8}>It is a long established fact that a reader will be distracted by the readble content...</Typography>
                                     </Box>
                                     <Box sx={styles.BB2}>
@@ -178,13 +233,12 @@ const TeacherAccount = () => {
                                     </Box>
                                 </Box>
                             </Card>
-
                             <Card sx={styles.Seventeen}>
                                 {/* right side bottom card */}
                                 <Box sx={styles.SB1}>
-                                    <Typography sx={styles.Text2}>You don't have new requests</Typography>
+                                    <Typography sx={styles.Text2}>Contact help desk</Typography>
                                     <Button variant='contained' sx={styles.Btn}>
-                                        <Typography sx={styles.Text4}>View my requests</Typography>
+                                        <Typography sx={styles.Text4}>Contact</Typography>
                                     </Button>
                                 </Box>
                             </Card>
