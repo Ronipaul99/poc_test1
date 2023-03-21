@@ -482,7 +482,9 @@ function Auth() {
 
     return (
         // main interface
-        <Card>
+        <Card sx={{
+            width:"120%"
+        }}>
             <><Box sx={{
                 minHeight: "100vh",
                 display: "flex",
@@ -491,7 +493,7 @@ function Auth() {
                 backgroundColor: "#eee"
             }}>
                 <Card sx={{
-                    height: "58vh",
+                    height: "fit-content",
                     width: "55vw",
                     backgroundColor: "#fff",
                     position: "relative",
@@ -535,12 +537,10 @@ function Auth() {
                             <Card sx={{
                                 width: "50%",
                                 backgroundColor: "#fff",
-                                height: "100%",
-                                padding: "20px",
-
+                                height:'fit-content',
                             }}>
 
-                                <Login />
+                                <Login/>
 
                             </Card>}
                         {/* while registration image will be right side */}

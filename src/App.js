@@ -16,6 +16,9 @@ import "bootstrap-daterangepicker/daterangepicker.css";
 import Doc from "./Components/Pages/Teacher-Pages/Documents/Documents";
 import Header from './Components/Pages/Header'
 import Footer from './Components/Pages/Footer'
+import Grid from '@mui/material/Grid';
+import { Box } from "@mui/system";
+import Landing from "./Components/Pages/Landing";
 function App() {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const e = useSelector(U);
@@ -24,20 +27,31 @@ function App() {
   const string2 = e
   return (
     <div>
+      
       <BrowserRouter>
-        <Header />
-        {isLoggedIn && string1 === string2 && <TDrawer />}
-        <Routes>
-          <Route path="/" element={isLoggedIn &&<Dashboard />} />
-          <Route path="/auth" element={ <Auth />} />
-          <Route path="/CourseDetails/:id" element={isLoggedIn && <CourseDetails />} />
-          <Route path="/Tprofile" element={isLoggedIn && <TProfile />} />
-          <Route path="/createCourse" element={isLoggedIn && <CreateCourse />} />
-          <Route path="/CourseInput" element={isLoggedIn && <CourseDetailsInput />} />
-          <Route path="/Schedule" element={isLoggedIn && <Schedule />} />
-          <Route path="/Documents" element={isLoggedIn && <Doc />} />
-        </Routes>
+        <Grid container spacing={2} sx={{ flexGrow: 1 }}>
+          <Header />
+          {!isLoggedIn && <Landing/>}
+          <Grid item xs={2}>
+            {isLoggedIn && string1 === string2 && <TDrawer />}
+          </Grid>
+          <Grid item xs={10}>
+            <Routes>
+              <Route path="/" element={isLoggedIn &&<Dashboard />} />
+              <Route path="/auth" element={ <Auth />} />
+              <Route path="/CourseDetails/:id" element={isLoggedIn && <CourseDetails />} />
+              <Route path="/Tprofile" element={isLoggedIn && <TProfile />} />
+              <Route path="/createCourse" element={isLoggedIn && <CreateCourse />} />
+              <Route path="/CourseInput" element={isLoggedIn && <CourseDetailsInput />} />
+              <Route path="/Schedule" element={isLoggedIn && <Schedule />} />
+              <Route path="/Documents" element={isLoggedIn && <Doc />} />
+            </Routes>
+          </Grid>
+
+          </Grid>
       </BrowserRouter>
+
+
       <Footer/>
     </div>
   );

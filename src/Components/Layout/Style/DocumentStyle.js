@@ -2,7 +2,7 @@ const styles = {
     mainContainer: {
         display: "flex",
         justifyContent: "center",
-        marginLeft: "200px",
+        // marginLeft: "200px",
         height: "100%",
         backgroundColor: "hsl(0deg 0% 95.28%)"
     },

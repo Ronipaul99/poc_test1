@@ -4,7 +4,7 @@ const styles = {
         justifyContent: "center",
         height: "100%",
         backgroundColor: 'hsl(0deg 0% 96%)',
-        marginLeft: "200px"
+        // marginLeft: "200px"
     },
     sub: {
         width: "95%",

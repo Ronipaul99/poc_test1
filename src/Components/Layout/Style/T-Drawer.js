@@ -1,9 +1,9 @@
 const TDrawerStyle = {
     Drawer: {
         display:"flex",
-        position: "fixed",
+        position: "absolute",
         backgroundColor: "white",
-        width: "200px",
+        width: "250px",
         height: "100%",
         alignItems: "center",
         justifyContent: "center"
