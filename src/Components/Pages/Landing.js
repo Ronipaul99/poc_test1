@@ -140,7 +140,7 @@ function Landing() {
 
       {/* Card number 2 */}
       <Box sx={styles.Eleven1}>
-        <Card sx={styles.Twelve}>
+        <Card sx={styles.Twelve1}>
           <Box sx={styles.B11}>
             <Box sx={styles.B12}>
               <Box sx={styles.B13}>

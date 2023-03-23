@@ -183,6 +183,14 @@ const styles = {
         display: "flex",
         justifyContent: "center"
     },
+    Twelve1: {
+        width: "70%",
+        height: "480px",
+        minHeight: "480px",
+        boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
+        p: 4,
+        borderRadius: "11px"
+    },
     B1: {
         width: "70%",
         height: "40vh"
