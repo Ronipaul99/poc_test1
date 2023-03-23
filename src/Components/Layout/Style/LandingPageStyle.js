@@ -365,7 +365,8 @@ const styles = {
         backgroundImage: "url('https://static.uacdn.net/web-cms/highlightgoals_96d24a04e7_a8e8de225d.svg?q=75&auto=format%2Ccompress&w=384')",
         backgroundRepeat: "no-repeat",
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
-        p: 3
+        p: 3,
+        borderRadius: "11px"
     },
     B271: {
         height: "30%",
@@ -374,7 +375,8 @@ const styles = {
         backgroundImage: "url('https://static.uacdn.net/web-cms/highlightlive_b05ed1f073_a8042bd7a8.svg?q=75&auto=format%2Ccompress&w=384')",
         backgroundRepeat: "no-repeat",
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
-        p: 3
+        p: 3,
+        borderRadius: "11px"
     },
     B272: {
         height: "30%",
@@ -383,7 +385,8 @@ const styles = {
         backgroundImage: "url('https://static.uacdn.net/web-cms/highlightminswatched_fe52bc4026_ca82eba8b0.svg?q=75&auto=format%2Ccompress&w=384')",
         backgroundRepeat: "no-repeat",
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
-        p: 3
+        p: 3,
+        borderRadius: "11px"
     },
     B28: {
         width: "47%",
@@ -396,7 +399,8 @@ const styles = {
         backgroundImage: "url('https://static.uacdn.net/web-cms/hightlighteducators_c894789a76_58c2a07e52.svg?q=75&auto=format%2Ccompress&w=640')",
         backgroundRepeat: "no-repeat",
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
-        p: 3
+        p: 3,
+        borderRadius: "11px"
     },
     B291: {
         height: "45%",
@@ -405,7 +409,8 @@ const styles = {
         backgroundImage: "url('https://static.uacdn.net/web-cms/highlightfreecourses_bb697dbd44_47fe832f07.svg?q=75&auto=format%2Ccompress&w=640')",
         backgroundRepeat: "no-repeat",
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
-        p: 3
+        p: 3,
+        borderRadius: "11px"
     },
     Text17: {
         fontSize: "20px",
