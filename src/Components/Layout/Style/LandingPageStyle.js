@@ -96,7 +96,8 @@ const styles = {
     },
     Twelve: {
         width: "70%",
-        height: "50vh",
+        height: "480px",
+        minHeight: "480px",
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
         p: 4,
         borderRadius: "11px"
