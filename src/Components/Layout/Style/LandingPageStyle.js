@@ -86,7 +86,7 @@ const styles = {
         color: "#08BD80",
         fontWeight: "100",
         fontSize: "17px",
-        ml: 2
+        ml: 3
     },
     Eleven: {
         height: "800px",

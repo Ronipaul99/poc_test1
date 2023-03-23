@@ -54,7 +54,7 @@ function Landing() {
                 <Box sx={styles.Seventeen}>
                   <Box sx={styles.Eighteen}>
                     <Typography sx={styles.Text4}>INTRODUCING</Typography>
-                    <Typography sx={styles.Text5}>Unacademy Centres for IIT JEE and NEET UG</Typography>
+                    <Typography sx={styles.Text5}>Uducate Centres for IIT JEE and NEET UG</Typography>
                     <Typography sx={styles.Text6}>Admissions open in Kota, Delhi, Chandigarh, Sikar, Indore and 20+ other cities!</Typography>
                     <Box sx={styles.Twenty}>
                       <Typography sx={styles.Text7}> <CheckCircleOutlineIcon fontSize='small' sx={styles.Icon} />Learn from top educators in your city</Typography>
@@ -145,7 +145,7 @@ function Landing() {
             <Box sx={styles.B12}>
               <Box sx={styles.B13}>
                 <Typography sx={styles.Text13}>Get the learning app</Typography>
-                <Typography sx={styles.Text14}>Download lessons and learn anytime, anywhere with the Unacademy app</Typography>
+                <Typography sx={styles.Text14}>Download lessons and learn anytime, anywhere with the Uducate app</Typography>
                 <Box sx={styles.B14}>
                   <Box sx={styles.B15}>
                     <img style={{
