@@ -126,7 +126,7 @@ const styles = {
         ml: 4
     },
     Eighteen: {
-        width: "70%"
+        width: "68%"
     },
     Text4: {
         fontSize: "14px",
