@@ -572,6 +572,9 @@ const styles = {
         fontSize: "16px",
         fontWeight: "400",
         color: "#7A8B94"
+    },
+    Divider: {
+        marginTop: "50px"
     }
 };
 export default styles;

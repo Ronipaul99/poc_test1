@@ -135,6 +135,8 @@ const StudentLanding = () => {
                         </Box>
                     </Box>
 
+                    <Divider sx={styles.Divider} />
+
                     {/* second section */}
                     <Box sx={styles.B13}>
                         <Box sx={styles.B14}>
