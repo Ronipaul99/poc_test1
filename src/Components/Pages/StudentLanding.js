@@ -418,6 +418,8 @@ const StudentLanding = () => {
                     </Box>
                 </TabPanel>
 
+
+
                 {/* Courses Tab panel  */}
                 <TabPanel value={value} index={2}>
                     <Box sx={styles.B39}>
@@ -459,6 +461,9 @@ const StudentLanding = () => {
                     </Box>
 
                 </TabPanel>
+
+
+
 
 
                 {/* Batches Tab panel */}
@@ -589,14 +594,20 @@ const StudentLanding = () => {
                 </TabPanel>
 
 
+
+                {/* Colleges Tab panel */}
                 <TabPanel value={value} index={4}>
 
                 </TabPanel>
 
 
+
+                {/* Get free carrier councilling Tab panel */}
                 <TabPanel value={value} index={5}>
 
                 </TabPanel>
+
+
 
 
 
@@ -634,6 +645,8 @@ const StudentLanding = () => {
                 </TabPanel>
 
 
+
+                {/* Help desk Tab panel */}
                 <TabPanel value={value} index={7}>
 
                 </TabPanel>
