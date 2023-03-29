@@ -11,7 +11,7 @@ const styles = {
     },
     Card: {
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
-        width: "58%",
+        width: "68%",
         marginTop: "90px"
     },
     mainBox: {
@@ -47,7 +47,7 @@ const styles = {
     SecondBox: {
         display: "flex",
         flexDirection: "column",
-        width: "58%",
+        width: "68%",
         p: 1
     },
     List: {
@@ -58,7 +58,7 @@ const styles = {
 
     },
     ThirdBox: {
-        width: "60%"
+        width: "70%"
     }
 
 };

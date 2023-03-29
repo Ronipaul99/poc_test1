@@ -7,6 +7,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import TeacherCourses from '../../../Course/TeacherCourse/TeacherCourses'
 import { useNavigate } from 'react-router-dom'
+import Classes from './Classes/Classes'
 
 const CreateCourse = () => {
     const navigate =useNavigate();
@@ -54,7 +55,7 @@ const CreateCourse = () => {
                     </List>
                 </Box>
                 <Box sx={styles.ThirdBox}>
-                    <TeacherCourses />
+                    <Classes />
                 </Box>
             </Box>
         </>

@@ -104,7 +104,7 @@ export default function CourseDetails() {
                         </Box>
                         {/* Courses  image*/}
                         <Card sx={{
-                            width: "1630px",
+                            width: "100%",
                             height: "40vh",
                             overflow: "hidden"
                         }}>
