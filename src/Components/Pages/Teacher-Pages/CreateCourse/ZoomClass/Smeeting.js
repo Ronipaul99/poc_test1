@@ -12,7 +12,7 @@ const Smeeting = () => {
     const userData = useSelector(U1)
 
     const [result, setResult] = useState("");
-    
+
 
     const payload = {
         meetingNumber: 85484827257,
@@ -26,22 +26,6 @@ const Smeeting = () => {
     }
 
 
-    // console.log(payload)
-    fetch('http://localhost:4000', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            meetingNumber: payload.meetingNumber,
-            role: payload.role
-        })
-    }).then(res => res.json())
-        .then(response => {
-            setResult(response.signature)
-        }).catch(error => {
-            console.error(error)
-        })
-
-
 
     useEffect(async () => {
         const { ZoomMtg } = await import("@zoomus/websdk")
@@ -50,7 +34,19 @@ const Smeeting = () => {
         ZoomMtg.prepareWebSDK();
 
 
-
+        fetch('http://localhost:4000', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                meetingNumber: payload.meetingNumber,
+                role: payload.role
+            })
+        }).then(res => res.json())
+            .then(response => {
+                setResult(response.signature)
+            }).catch(error => {
+                console.error(error)
+            })
 
 
         ZoomMtg.generateSDKSignature({

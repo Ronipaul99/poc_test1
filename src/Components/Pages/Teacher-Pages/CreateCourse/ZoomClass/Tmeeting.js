@@ -8,18 +8,9 @@ import { U1 } from "../../../../Store/U-Data";
 const Meeting = () => {
 
     const e = useSelector(U);
-
-    const string1 = "T"
-    const string2 = e
-    const string3 = "S"
-    const string4 = e
     const userData = useSelector(U1)
 
     const [result, setResult] = useState("");
-    // const [role1, setRole] = useState();
-    // { string1 == string2 && setRole(1) }
-    // { string3 == string4 && setRole(0) }
-    // console.log(role1)
 
     const payload = {
         meetingNumber: 85484827257,
@@ -33,22 +24,6 @@ const Meeting = () => {
     }
 
 
-    // console.log(payload)
-    fetch('http://localhost:4000', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            meetingNumber: payload.meetingNumber,
-            role: payload.role
-        })
-    }).then(res => res.json())
-        .then(response => {
-            setResult(response.signature)
-        }).catch(error => {
-            console.error(error)
-        })
-
-
 
     useEffect(async () => {
         const { ZoomMtg } = await import("@zoomus/websdk")
@@ -57,6 +32,19 @@ const Meeting = () => {
         ZoomMtg.prepareWebSDK();
 
 
+        fetch('http://localhost:4000', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                meetingNumber: payload.meetingNumber,
+                role: payload.role
+            })
+        }).then(res => res.json())
+            .then(response => {
+                setResult(response.signature)
+            }).catch(error => {
+                console.error(error)
+            })
 
 
 
