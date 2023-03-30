@@ -6,7 +6,8 @@ import Carousel from "react-grid-carousel";
 import { CardActionArea } from '@mui/material';
 import { U } from '../../../../Store/User';
 import { useSelector } from 'react-redux';
-import Meeting from '../ZoomClass/meeting';
+import Meeting from '../ZoomClass/Tmeeting';
+import Smeeting from '../ZoomClass/Smeeting';
 
 
 
@@ -38,20 +39,12 @@ const Class = ({ StartTime, id, imgURL, Title }) => {
     // }
 
 
-    const payload = {
-        meetingNumber: 85484827257,
-        sdkKey: "_9i2iVs6QnOO4KonvPr2w",
-        sdkSecret: "2Z0ZnyvJByRNOjdXKuvVzElBywh4DOdn",
-        userName: "deep",
-        userEmail: "",
-        passWord: "vR2rNR",
-        role: 1,
-        leaveUrl: "http://localhost:3000"
-    }
+
     return (
         <>
             {Meeting1 ? (
-                <Meeting payload={payload} />
+                string1 == string2 ? <Meeting /> : <Smeeting />
+                // {string3 == string4 && <Smeeting />}
             )
                 :
                 (<Carousel.Item>
@@ -105,10 +98,12 @@ const Class = ({ StartTime, id, imgURL, Title }) => {
                                             <Typography sx={{ fontSize: "16px", fontWeight: 600, color: "#3C4852", letterSpacing: "-0.005em", p: 0.5 }}>{Title}</Typography>
                                         </Box>
                                         <Box sx={{ height: "10%", width: "100%", display: "flex", alignItems: "flex-end" }}>
-                                            <Button variant='contained' sx={{ width: "100%" }} onClick={() => setMeeting1(true)}>
-                                                {string3 == string4 && <Typography sx={{ fontSize: "12px", fontWeight: "bold" }}>Join Class</Typography>}
-                                                {string1 == string2 && <Typography sx={{ fontSize: "12px", fontWeight: "bold" }}>Start Class</Typography>}
-                                            </Button>
+                                            {string3 == string4 && <Button variant='contained' sx={{ width: "100%" }} onClick={() => setMeeting1(true)}>
+                                                <Typography sx={{ fontSize: "12px", fontWeight: "bold" }}>Join Class</Typography>
+                                            </Button>}
+                                            {string1 == string2 && <Button variant='contained' sx={{ width: "100%" }} onClick={() => setMeeting1(true)}>
+                                                <Typography sx={{ fontSize: "12px", fontWeight: "bold" }}>Start Class</Typography>
+                                            </Button>}
                                         </Box>
                                     </Box>
 

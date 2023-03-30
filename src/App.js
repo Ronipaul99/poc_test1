@@ -19,7 +19,7 @@ import Footer from './Components/Pages/Footer'
 import Grid from '@mui/material/Grid';
 import { Box } from "@mui/system";
 import Landing from "./Components/Pages/Landing";
-import Meeting from "./Components/Pages/Teacher-Pages/CreateCourse/ZoomClass/meeting";
+import Meeting from "./Components/Pages/Teacher-Pages/CreateCourse/ZoomClass/Tmeeting";
 function App() {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const e = useSelector(U);
