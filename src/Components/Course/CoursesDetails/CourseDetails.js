@@ -99,12 +99,9 @@ export default function CourseDetails() {
                 {/* Body */}
                 <Box>
                     <Card>
-                        <Box component="main" sx={{ flexGrow: 1 }}>
-                            <DrawerHeader />
-                        </Box>
                         {/* Courses  image*/}
                         <Card sx={{
-                            width: "1630px",
+                            width: "100%",
                             height: "40vh",
                             overflow: "hidden"
                         }}>
