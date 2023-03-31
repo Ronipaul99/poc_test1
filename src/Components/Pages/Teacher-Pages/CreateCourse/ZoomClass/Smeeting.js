@@ -1,27 +1,24 @@
 
 import React, { useEffect, Fragment } from "react";
-import { U } from '../../../../Store/User';
 import { useSelector } from 'react-redux';
-import { useState } from "react";
+// import { useState } from "react";
 import { U1 } from "../../../../Store/U-Data";
 
 const Smeeting = () => {
 
-    const e = useSelector(U);
-
     const userData = useSelector(U1)
 
-    const [result, setResult] = useState("");
+    // const [result, setResult] = useState("");
 
 
     const payload = {
         meetingNumber: 85484827257,
+        passWord: "vR2rNR",
+        role: 0,
         sdkKey: "_9i2iVs6QnOO4KonvPr2w",
         sdkSecret: "2Z0ZnyvJByRNOjdXKuvVzElBywh4DOdn",
         userName: userData.firstname,
-        userEmail: "",
-        passWord: "vR2rNR",
-        role: 0,
+        userEmail: userData.email,
         leaveUrl: "http://localhost:3000/"
     }
 
@@ -34,19 +31,19 @@ const Smeeting = () => {
         ZoomMtg.prepareWebSDK();
 
 
-        fetch('http://localhost:4000', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                meetingNumber: payload.meetingNumber,
-                role: payload.role
-            })
-        }).then(res => res.json())
-            .then(response => {
-                setResult(response.signature)
-            }).catch(error => {
-                console.error(error)
-            })
+        // fetch('http://localhost:4000', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify({
+        //         meetingNumber: payload.meetingNumber,
+        //         role: payload.role
+        //     })
+        // }).then(res => res.json())
+        //     .then(response => {
+        //         setResult(response.signature)
+        //     }).catch(error => {
+        //         console.error(error)
+        //     })
 
 
         ZoomMtg.generateSDKSignature({

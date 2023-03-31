@@ -1,37 +1,34 @@
-
-import React, { useEffect, Fragment } from "react";
-import { U } from '../../../../Store/User';
+import React, { useEffect, Fragment } from "react"
 import { useSelector } from 'react-redux';
-import { useState } from "react";
 import { U1 } from "../../../../Store/U-Data";
 
 const Meeting = () => {
 
-    const e = useSelector(U);
-    const userData = useSelector(U1)
-
-    const [result, setResult] = useState("");
+    const userData = useSelector(U1);
 
     const payload = {
         meetingNumber: 85484827257,
+        passWord: "vR2rNR",
+        role: 1,
         sdkKey: "_9i2iVs6QnOO4KonvPr2w",
         sdkSecret: "2Z0ZnyvJByRNOjdXKuvVzElBywh4DOdn",
         userName: userData.firstname,
-        userEmail: "",
-        passWord: "vR2rNR",
-        role: 1,
+        userEmail: userData.email,
         leaveUrl: "http://localhost:3000/createCourse"
     }
 
-
+    console.log(payload);
 
     useEffect(async () => {
         const { ZoomMtg } = await import("@zoomus/websdk")
         ZoomMtg.setZoomJSLib('https://source.zoom.us/2.10.1/lib', '/av');
         ZoomMtg.preLoadWasm();
         ZoomMtg.prepareWebSDK();
+        ZoomMtg.i18n.load("en-US");
+        ZoomMtg.i18n.reload("en-US");
 
 
+        // Post meetingNumber and Get singnature from backend
         fetch('http://localhost:4000', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -41,49 +38,42 @@ const Meeting = () => {
             })
         }).then(res => res.json())
             .then(response => {
-                setResult(response.signature)
+                startMeeting(response.signature)
             }).catch(error => {
                 console.error(error)
             })
 
 
 
-        ZoomMtg.generateSDKSignature({
-            meetingNumber: payload.meetingNumber,
-            role: payload.role,
-            sdkKey: payload.sdkKey,
-            sdkSecret: payload.sdkSecret,
+        function startMeeting(signature) {
 
-            success: function (signature) {
-                ZoomMtg.init({
-                    leaveUrl: payload.leaveUrl,
-                    success: function (data) {
-                        ZoomMtg.join({
-                            meetingNumber: payload.meetingNumber,
-                            signature: signature.result,
-                            sdkKey: payload.sdkKey,
-                            userName: payload.userName,
-                            userEmail: payload.userEmail,
-                            passWord: payload.passWord,
-                            tk: '',
-                            success: function () {
-                                console.log('--Joined--')
-                            },
-                            error: function (error) {
-                                console.log(error)
-                            }
-                        })
-                    },
-                    error: function (error) {
-                        console.log(error)
-                    }
+            // document.getElementById("zmmtg-root").style.display = "block";
 
-                })
-            },
-            error: function (error) {
-                console.log(error)
-            }
-        })
+            ZoomMtg.init({
+                leaveUrl: payload.leaveUrl,
+                success: function (data) {
+                    ZoomMtg.join({
+                        meetingNumber: payload.meetingNumber,
+                        signature: signature,
+                        sdkKey: payload.sdkKey,
+                        userName: payload.userName,
+                        userEmail: payload.userEmail,
+                        passWord: payload.passWord,
+                        tk: '',
+                        success: function () {
+                            console.log('--Joined--')
+                        },
+                        error: function (error) {
+                            console.log(error)
+                        }
+                    })
+                },
+                error: function (error) {
+                    console.log(error)
+                }
+
+            })
+        }
 
     }, [])
 
