@@ -2,7 +2,7 @@ const styles = {
     mainContainer: {
         display: "flex",
         justifyContent: "center",
-        height: "80vh",
+        height: "100%",
         marginTop: "50px",
         marginBottom: "50px"
     },
@@ -32,7 +32,7 @@ const styles = {
         p: 2
     },
     Box: {
-        width: "80%",
+        width: "98%",
         height: "100%",
         display: "flex"
     },
