@@ -42,7 +42,7 @@ const CourseDetailsInput = () => {
     const todayStartOfTheDay = today.startOf('day');
 
     const { register, handleSubmit } = useForm();
-    
+
     const onSubmit = (data) => {
         console.log(data)
     }
@@ -97,20 +97,21 @@ const CourseDetailsInput = () => {
                                 </Box>
                                 {arr.map((user) => (
                                     <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                            <DatePicker
+                                        {/* <DatePicker
                                                 label="Choose date"
                                                 value={value}
                                                 onChange={(newValue) => setValue(newValue)}
                                                 {...register("value", { required: true })}
-                                            />
+                                            /> */}
+                                        <TextField label="Choose date" id="Date" type="date"  {...register("Date", { required: true })} InputLabelProps={{
+                                            shrink: true,
+                                        }} size="small" />
 
-                                            <TimePicker id="StartTime" {...register("StartTime", { required: true })} label="Start from" defaultValue={todayStartOfTheDay} />
+                                        {/* <TimePicker id="StartTime" {...register("StartTime", { required: true })} label="Start from" defaultValue={todayStartOfTheDay} /> */}
+                                        <TextField type='time'  {...register("StartTime", { required: true })} label="Start from" defaultValue="12:00" size="small" />
+                                        <TextField type='time' {...register("EndTime", { required: true })} label="End at" defaultValue="12:00" size="small" />
 
-
-                                            <TimePicker id="EndTime" {...register("EndTime", { required: true })} label="End at" defaultValue={todayStartOfTheDay} />
-
-                                        </LocalizationProvider>
+                                        {/* <TimePicker id="EndTime" {...register("EndTime", { required: true })} label="End at" defaultValue={todayStartOfTheDay} /> */}
                                     </Box>
                                 ))}
                                 <TextField id="Keys" {...register("Keys", { required: true })} label="Keys" size="small" />
