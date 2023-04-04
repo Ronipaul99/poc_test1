@@ -8,7 +8,8 @@ const styles = {
     },
     Box1: {
         width: "80%",
-        marginTop: "90px"
+        marginTop: "90px",
+        marginBottom:"80px"
     },
     Box2: {
         marginTop: "50px",
@@ -82,6 +83,7 @@ const styles = {
     },
     SearchB: {
         width: "20%",
+        height:"43px",
         display: "flex",
         justifyContent: "flex-end"
     },
