@@ -50,6 +50,9 @@ const styles = {
     Boximg:{
         width: "45%", 
         height: "700px"
+    },
+    Btn1:{
+        width:"100%"
     }
 
 };
