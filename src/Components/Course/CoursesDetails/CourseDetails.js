@@ -23,6 +23,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CardContent from '@mui/material/CardContent';
 import StarBorder from '@mui/icons-material/StarBorder';
+import Classes from '../../Pages/Teacher-Pages/CreateCourse/Classes/Classes';
 
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -408,8 +409,10 @@ export default function CourseDetails() {
 
 
 
+                    </Card>
 
-
+                    <Card sx={{ p: 1, width: "100%" }} >
+                        <Classes />
                     </Card>
                 </Box>
             </Card>

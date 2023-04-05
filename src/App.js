@@ -17,6 +17,7 @@ import Header from './Components/Pages/Header'
 import Footer from './Components/Pages/Footer'
 import Grid from '@mui/material/Grid';
 import Landing from "./Components/Pages/Landing";
+import Meeting from "./Components/Pages/Teacher-Pages/CreateCourse/ZoomClass/Tmeeting";
 import TeacherAccount from "./Components/Pages/TeacherAccount";
 function App() {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -47,6 +48,7 @@ function App() {
               <Route path="/CourseInput" element={isLoggedIn && <CourseDetailsInput />} />
               <Route path="/Schedule" element={isLoggedIn && <Schedule />} />
               <Route path="/Documents" element={isLoggedIn && <Doc />} />
+              <Route path="/Meeting" element={isLoggedIn && <Meeting />} />
               <Route path="/Account" element={<TeacherAccount />} />
             </Routes>
           </Grid>

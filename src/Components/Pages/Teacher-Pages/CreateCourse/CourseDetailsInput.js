@@ -15,6 +15,7 @@ import { useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Form } from 'semantic-ui-react';
 import { useForm } from 'react-hook-form';
+import arr1 from "./CreatedCourseData/data.json"
 
 
 const CourseDetailsInput = () => {
@@ -41,7 +42,7 @@ const CourseDetailsInput = () => {
     // const today = dayjs();
     // const todayStartOfTheDay = today.startOf('day');
 
-    const { register, handleSubmit } = useForm();
+    // const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
         console.log(data)
@@ -52,6 +53,16 @@ const CourseDetailsInput = () => {
     const navigate = useNavigate();
     const goBack = () => {
         navigate(-1);
+    }
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+
+    const formsubmit = (data) => {
+
+        arr1.push(data)
+        console.log(arr1)
+
     }
 
     return (
