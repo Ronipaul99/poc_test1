@@ -4,12 +4,12 @@ import React from 'react'
 import styles from '../../../Layout/Style/CourseInputStyle'
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import dayjs from 'dayjs';
+// import dayjs from 'dayjs';
 import InputAdornment from '@mui/material/InputAdornment';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+// import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import kp from "../../../Images/kp.png"
 import { useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -19,7 +19,7 @@ import { useForm } from 'react-hook-form';
 
 const CourseDetailsInput = () => {
 
-    const [value, setValue] = React.useState(dayjs('2023-03-20'));
+    // const [value, setValue] = React.useState(dayjs('2023-03-20'));
     const [Number, setNumber] = React.useState([1]);
 
     const [checked, setChecked] = React.useState(false);
@@ -38,8 +38,8 @@ const CourseDetailsInput = () => {
     };
 
 
-    const today = dayjs();
-    const todayStartOfTheDay = today.startOf('day');
+    // const today = dayjs();
+    // const todayStartOfTheDay = today.startOf('day');
 
     const { register, handleSubmit } = useForm();
 

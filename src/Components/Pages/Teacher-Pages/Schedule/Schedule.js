@@ -27,6 +27,7 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import PropTypes from 'prop-types';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+import dayjs from "dayjs";
 
 
 
@@ -231,6 +232,8 @@ export default function Schedule() {
     setValue(newValue);
   };
 
+  const today = dayjs();
+
   return (
     <Box sx={styles.mainContainer}>
 
@@ -291,7 +294,7 @@ export default function Schedule() {
                   </Search>
                   <Box sx={styles.LB2}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DateCalendar />
+                      <DateCalendar defaultValue={today}/>
                     </LocalizationProvider>
                   </Box>
                   <Divider />
