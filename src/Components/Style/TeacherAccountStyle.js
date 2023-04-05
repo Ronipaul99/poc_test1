@@ -4,7 +4,7 @@ const styles = {
         justifyContent: "center",
         height: "80vh",
         marginTop: "50px",
-        marginBottom: "50px"
+        marginBottom: "150px",
     },
     Box1: {
         width: "100%",
@@ -32,7 +32,7 @@ const styles = {
         p: 2
     },
     Box: {
-        width: "80%",
+        width: "95%",
         height: "100%",
         display: "flex"
     },

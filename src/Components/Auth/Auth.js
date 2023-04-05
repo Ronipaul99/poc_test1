@@ -26,6 +26,7 @@ import { Type } from '../Store/User';
 import userData from '../../DummyData/user'
 import { Type1 } from '../Store/U-Data';
 import { authActions } from '../Store/Auth';
+import { LogActions } from '../Store/LoginPageFunc';
 
 // alert function for registration
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -323,15 +324,15 @@ function Auth() {
         //console.log(data);
         var flag = false
         var User = null
-        userData.forEach(item=>{
-            if (item.email==data.email && item.password==data.password) {
+        userData.forEach(item => {
+            if (item.email == data.email && item.password == data.password) {
                 flag = true
                 User = item
             }
         })
         if (flag) {
             const a = (User.UserType);
-            window.localStorage.setItem("IniIn",true);
+            window.localStorage.setItem("IniIn", true);
             const b = (User);
             const c = JSON.stringify(b)
             window.localStorage.setItem('userData', c);
@@ -340,7 +341,8 @@ function Auth() {
             dispatch(Type1(b))
             navigate("/")
             dispatch(authActions.Login());
-        }else{
+            dispatch(LogActions.disableLogin());
+        } else {
             setError("Email or Password is incorrect");
         }
         // axios.post('http://localhost:5002/user/login', data).then((res) => {
@@ -443,19 +445,19 @@ function Auth() {
 
         setLoading(true);
         setSuccess(false);
-             setGo("You are redirecting to login page...")
-            setShow(true)
-            setWarn(false)
-            timer.current = window.setTimeout(() => {
-                setSuccess(true);
-                setLoading(false);
-                setFail(false)
-            }, 2000);
+        setGo("You are redirecting to login page...")
+        setShow(true)
+        setWarn(false)
+        timer.current = window.setTimeout(() => {
+            setSuccess(true);
+            setLoading(false);
+            setFail(false)
+        }, 2000);
 
-            setTimeout(() => {
-                window.location.reload();
-                setPage(true);
-            }, 2500);
+        setTimeout(() => {
+            window.location.reload();
+            setPage(true);
+        }, 2500);
         // axios.post('http://localhost:5002/user/register', data).then(() => {
         //     setGo("You are redirecting to login page...")
         //     setShow(true)
@@ -483,20 +485,19 @@ function Auth() {
     return (
         // main interface
         <Card sx={{
-            width:"100%"
+            width: "100%"
         }}>
             <><Box sx={{
                 minHeight: "100vh",
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#eee"
+                alignItems: "center"
             }}>
                 <Card sx={{
-                    height: "fit-content",
-                    width: "55vw",
+                    height: "100%",
+                    width: "60%",
                     backgroundColor: "#fff",
-                    position: "relative",
+                    // position: "relative",
                     boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)"
                 }}>
                     <Box sx={{
@@ -510,12 +511,13 @@ function Auth() {
                                 width: "50%",
                                 backgroundColor: "#fff",
                                 height: "100%",
-                                overflow: "hidden"
+                                display: { xs: 'none', sm: 'block' }
+
                             }}>
                                 <img style={{
                                     boxSizing: "border-box",
                                     objectFit: "cover",
-                                    height: "100%",
+                                    height: "566.5px",
                                     width: "100%"
                                 }} src={P1} alt="pic here" />
 
@@ -537,10 +539,11 @@ function Auth() {
                             <Card sx={{
                                 width: "50%",
                                 backgroundColor: "#fff",
-                                height:'fit-content',
+                                height: '566.5px',
+                                p: 2
                             }}>
 
-                                <Login/>
+                                <Login />
 
                             </Card>}
                         {/* while registration image will be right side */}
@@ -549,14 +552,16 @@ function Auth() {
                                 width: "50%",
                                 backgroundColor: "#fff",
                                 height: "100%",
-                                overflow: "hidden"
+                                display: { xs: 'none', sm: 'block' }
                             }}>
-                                <img style={{
-                                    boxSizing: "border-box",
-                                    objectFit: "cover",
-                                    height: "100%",
-                                    width: "100%"
-                                }} src={P3} alt="pic here" />
+                                <Box sx={{ height: "100%", width: "100%" }}>
+                                    <img style={{
+                                        boxSizing: "border-box",
+                                        objectFit: "cover",
+                                        height: "566.5px",
+                                        width: "100%"
+                                    }} src={P3} alt="pic here" />
+                                </Box>
                             </Box>}
                     </Box>
                 </Card>

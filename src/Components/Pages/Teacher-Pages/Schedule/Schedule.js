@@ -27,6 +27,7 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import PropTypes from 'prop-types';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+import dayjs from "dayjs";
 
 
 
@@ -137,7 +138,8 @@ export default function Schedule() {
   function handleDateSelect(selectInfo) {
     if (
       selectInfo.view.type === "timeGridWeek" ||
-      selectInfo.view.type === "timeGridDay"
+      selectInfo.view.type === "timeGridDay"  ||
+      selectInfo.view.type === "dayGridMonth"
     ) {
       selectInfo.view.calendar.unselect();
       setState({ selectInfo, state: "create" });
@@ -149,7 +151,7 @@ export default function Schedule() {
   }
   function renderEventContent(eventInfo) {
     return (
-      <div>
+      <Box>
         <i
           style={{
             whiteSpace: "nowrap",
@@ -159,7 +161,7 @@ export default function Schedule() {
         >
           {eventInfo.event.title}
         </i>
-      </div>
+      </Box>
     );
   }
   function handleEventClick(clickInfo) {
@@ -230,14 +232,16 @@ export default function Schedule() {
     setValue(newValue);
   };
 
+  const today = dayjs();
+
   return (
     <Box sx={styles.mainContainer}>
 
       <Box sx={styles.sub}>
-        <Card sx={{ height: "auto", p: 2, boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)", backgroundSize: 'cover', backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn-_nfAteCz39y3acSazyydc8nUBs5zzq7jAUyQPY1CsO7DgExYmWrBX04kED4qxPZZyg&usqp=CAU')",opacity:"0.8", backgroundRepeat: "no-repeat",marginBottom:"15px" }}>
+        <Card sx={{ height: "auto", p: 2, boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)", backgroundSize: 'cover', backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn-_nfAteCz39y3acSazyydc8nUBs5zzq7jAUyQPY1CsO7DgExYmWrBX04kED4qxPZZyg&usqp=CAU')", opacity: "0.8", backgroundRepeat: "no-repeat", marginBottom: "15px" }}>
 
-          <Typography color="white" sx={{fontWeight:"bold",fontSize:"20px",p:1}}>{Date1}</Typography>
-          <Typography color="white" sx={{fontSize:"12px",p:1}}>You have 5 notifications</Typography>
+          <Typography color="white" sx={{ fontWeight: "bold", fontSize: "20px", p: 1 }}>{Date1}</Typography>
+          <Typography color="white" sx={{ fontSize: "12px", p: 1 }}>You have 5 notifications</Typography>
 
         </Card>
         <Box>
@@ -274,10 +278,10 @@ export default function Schedule() {
 
               {/* l50 */}
               <Card sx={styles.L502}>
-                <Box sx={{p:1}}>
-                  <Typography sx={{fontSize:"20px",fontWeight:"bold"}}>{Date1}</Typography>
+                <Box sx={{ p: 1 }}>
+                  <Typography sx={{ fontSize: "20px", fontWeight: "bold" }}>{Date1}</Typography>
                 </Box>
-                <Divider sx={{marginBottom:"7px"}}/>
+                <Divider sx={{ marginBottom: "7px" }} />
                 <Box sx={styles.LB1}>
                   <Search>
                     <SearchIconWrapper>
@@ -290,7 +294,7 @@ export default function Schedule() {
                   </Search>
                   <Box sx={styles.LB2}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DateCalendar />
+                      <DateCalendar defaultValue={today}/>
                     </LocalizationProvider>
                   </Box>
                   <Divider />
@@ -353,13 +357,13 @@ export default function Schedule() {
                       day: "day",
                       list: "list"
                     }}
-                    initialView="timeGridWeek"
+                    initialView="dayGridMonth"
                     editable={true}
                     selectable={true}
                     selectMirror={true}
                     dayMaxEvents={true}
                     weekends={weekendsVisible}
-                    //
+                    
                     initialEvents={[
                       {
                         id: nanoid(),
@@ -372,7 +376,9 @@ export default function Schedule() {
                         start: todayStr + "T12:00:00",
                         end: todayStr + "T12:30:00"
                       }
-                    ]} // alternatively, use the `events` setting to fetch from a feed
+                    ]} 
+                    // initialEvents={currentEvents}
+                    // alternatively, use the `events` setting to fetch from a feed
                     select={handleDateSelect}
                     eventContent={renderEventContent} // custom render function
                     eventClick={handleEventClick}

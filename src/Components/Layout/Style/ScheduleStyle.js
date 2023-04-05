@@ -9,6 +9,7 @@ const styles = {
     sub: {
         width: "95%",
         marginTop: "90px",
+        height:"100%",
         marginBottom: "80px"
     },
     calHead: {
@@ -62,7 +63,7 @@ const styles = {
         p: 3
     },
     R502: {
-        width: "68%",
+        width: "71%",
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
         p: 1,
         height: "100%"

@@ -20,6 +20,7 @@ import Landing from "./Components/Pages/Landing";
 import TeacherAccount from "./Components/Pages/TeacherAccount";
 function App() {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const Log = useSelector(state => state.Log.Enable);
   const e = useSelector(U);
 
   const string1 = "T"
@@ -32,14 +33,14 @@ function App() {
       <BrowserRouter>
         <Grid container spacing={2} sx={{ flexGrow: 1 }}>
           <Header />
-          {!isLoggedIn && <Landing />}
+          {!isLoggedIn && !Log && <Landing />}
           <Grid xs={(isLoggedIn && string1 === string2 ? 2 : 0)}>
             {isLoggedIn && string1 === string2 && <TDrawer />}
           </Grid>
           <Grid xs={(isLoggedIn ? 12 : 12) && (isLoggedIn && string3 === string4 ? 12 : 10) && (isLoggedIn && string1 === string2 ? 10 : 12)}>
             <Routes>
               <Route path="/" element={isLoggedIn && <Dashboard />} />
-              <Route path="/auth" element={<Auth />} />
+              <Route path="/auth" element={Log && <Auth />} />
               <Route path="/CourseDetails/:id" element={isLoggedIn && <CourseDetails />} />
               <Route path="/Tprofile" element={isLoggedIn && <TProfile />} />
               <Route path="/createCourse" element={isLoggedIn && <CreateCourse />} />

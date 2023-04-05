@@ -5,9 +5,7 @@ const styles = {
         // overflow: "hidden"
     },
     Card: {
-        backgroundSize: 'cover',
-        backgroundImage: "url('https://img.freepik.com/free-photo/blue-abstract-gradient-wave-wallpaper_53876-108364.jpg?w=1380&t=st=1677220877~exp=1677221477~hmac=eef7e55022d564946d00ccac883ea670b3eba52e00e6db06f520b9126d9a4546')",
-        backgroundRepeat: "no-repeat",
+        backgroundColor: 'hsl(0deg 0% 96%)',
         display: "flex",
         flexDirection: "column",
         width: "100%",
@@ -17,7 +15,7 @@ const styles = {
     Box1: {
         display: "flex",
         flexDirection: "column",
-        width: "60%"
+        width: "70%"
     },
     Box1Heading: {
         width: "100%",
@@ -152,7 +150,7 @@ const styles = {
     },
     SecondCard: {
         display: 'flex',
-        width: "60%",
+        width: "70%",
         flexDirection: "column",
         marginTop: "20px"
     },
@@ -179,8 +177,8 @@ const styles = {
         margin: "15px 0"
     },
     List: {
-        width: '60%',
-        maxWidth: 360,
+        width: '70%',
+        maxWidth: 370,
         bgcolor: 'background.paper'
     },
 

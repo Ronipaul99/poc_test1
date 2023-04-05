@@ -656,4 +656,4 @@ const StudentLanding = () => {
     )
 }
 
-export default StudentLanding
+export default StudentLanding;
