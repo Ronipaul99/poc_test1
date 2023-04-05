@@ -15,9 +15,9 @@ const styles = {
     Box2: {
         display: "flex",
         justifyContent: "space-Between",
-        width: "70%",
-        marginTop: "150px",
-        marginBottom:"80px",
+        width: "85%",
+        marginTop: "90px",
+        marginBottom:"140px",
         backgroundColor: 'transparent',
 
     },
@@ -50,6 +50,9 @@ const styles = {
     Boximg:{
         width: "45%", 
         height: "700px"
+    },
+    Btn1:{
+        width:"100%"
     }
 
 };

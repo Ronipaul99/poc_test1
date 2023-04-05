@@ -1,29 +1,25 @@
 import { Button, Card, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
-import NavDrawer from '../../../Layout/Component/Nav&Drawer'
-import TDrawer from '../../../Layout/Component/TeacherDrawer'
 import styles from '../../../Layout/Style/CourseInputStyle'
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import dayjs from 'dayjs';
+// import dayjs from 'dayjs';
 import InputAdornment from '@mui/material/InputAdornment';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+// import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import kp from "../../../Images/kp.png"
 import { useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Form } from 'semantic-ui-react'
-import { useForm } from 'react-hook-form'
-import arr1 from "./CreatedCourseData/data.json"
+import { Form } from 'semantic-ui-react';
+import { useForm } from 'react-hook-form';
 
 
 const CourseDetailsInput = () => {
 
-    const [value, setValue] = React.useState(dayjs('2023-03-20'));
-    const [ST, setST] = React.useState(dayjs(''));
+    // const [value, setValue] = React.useState(dayjs('2023-03-20'));
     const [Number, setNumber] = React.useState([1]);
 
     const [checked, setChecked] = React.useState(false);
@@ -42,8 +38,15 @@ const CourseDetailsInput = () => {
     };
 
 
-    const today = dayjs();
-    const todayStartOfTheDay = today.startOf('day');
+    // const today = dayjs();
+    // const todayStartOfTheDay = today.startOf('day');
+
+    const { register, handleSubmit } = useForm();
+
+    const onSubmit = (data) => {
+        console.log(data)
+    }
+
 
 
     const navigate = useNavigate();
@@ -79,9 +82,10 @@ const CourseDetailsInput = () => {
                             }} src={kp} alt="pic here" />
                         </Box>
                     </Box>
+
                     <Card sx={styles.Box50R}>
-                        <Typography sx={styles.Text1}>Cteate course</Typography>
-                        <Form onSubmit={handleSubmit(formsubmit)}>
+                        <Form onSubmit={handleSubmit(onSubmit)}>
+                            <Typography sx={styles.Text1}>Cteate course</Typography>
                             <Box
                                 sx={{
                                     display: "flex",
@@ -92,38 +96,36 @@ const CourseDetailsInput = () => {
                                 noValidate
                                 autoComplete="off"
                             >
+                                <TextField id="Title" {...register("Title", { required: true })} label="Title" size="small" /> <Box sx={styles.Textfield1}>
 
-
-                                <TextField id="Title" label="Title" {...register("Title")} size="small" />
-                                <Box sx={styles.Textfield1}>
-                                    <TextField id="NumberOfClasses"  {...register("NumberOfClasses")} label="Number of classes" onChange={handleChange1} value={Number} sx={{ width: '300px' }} size="small" />
-                                    <TextField id="StartDate" label="Start date"  {...register("StartDate")} sx={{ width: '300px' }} size="small" />
+                                    <TextField id="NumberOfClasses" {...register("NumberOfClasses", { required: true })} label="Number of classes" onChange={handleChange1} value={Number} sx={{ width: '300px' }} size="small" />
+                                    <TextField id="StartDate" {...register("StartDate", { required: true })} label="Start date" sx={{ width: '300px' }} size="small" />
                                 </Box>
                                 <Box sx={styles.Textfield1}>
-                                    <TextField id="Subject"  {...register("Subject")} label="Subject" sx={{ width: '300px' }} size="small" />
-                                    <TextField id="SubjectTopic"  {...register("SubjectTopic")} label="Subject topic" sx={{ width: '300px' }} size="small" />
+                                    <TextField id="Subject" {...register("Subject", { required: true })} label="Subject" sx={{ width: '300px' }} size="small" />
+                                    <TextField id="SubjectTopic" {...register("SubjectTopic", { required: true })} label="Subject topic" sx={{ width: '300px' }} size="small" />
                                 </Box>
                                 {arr.map((user) => (
                                     <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                            <DatePicker
+                                        {/* <DatePicker
                                                 label="Choose date"
                                                 value={value}
-                                                id="Date"
                                                 onChange={(newValue) => setValue(newValue)}
-                                                {...register("Date")}
-                                            />
+                                                {...register("value", { required: true })}
+                                            /> */}
+                                        <TextField label="Choose date" id="Date" type="date"  {...register("Date", { required: true })} InputLabelProps={{
+                                            shrink: true,
+                                        }} size="small" />
 
-                                            <TimePicker label="Start from" id="StartTime" defaultValue={todayStartOfTheDay}  {...register("StartTime")} />
+                                        {/* <TimePicker id="StartTime" {...register("StartTime", { required: true })} label="Start from" defaultValue={todayStartOfTheDay} /> */}
+                                        <TextField type='time'  {...register("StartTime", { required: true })} label="Start from" defaultValue="12:00" size="small" />
+                                        <TextField type='time' {...register("EndTime", { required: true })} label="End at" defaultValue="12:00" size="small" />
 
-
-                                            <TimePicker label="End at" id="EndTime" defaultValue={todayStartOfTheDay}  {...register("EndTime")} />
-
-                                        </LocalizationProvider>
+                                        {/* <TimePicker id="EndTime" {...register("EndTime", { required: true })} label="End at" defaultValue={todayStartOfTheDay} /> */}
                                     </Box>
                                 ))}
-                                <TextField id="Keys" label="Keys"  {...register("Keys")} size="small" />
-                                <TextField id="Description" label="Description"  {...register("Description")} multiline rows={3} size="small" />
+                                <TextField id="Keys" {...register("Keys", { required: true })} label="Keys" size="small" />
+                                <TextField id="Description" {...register("Description", { required: true })} label="Description" multiline rows={3} size="small" />
                                 <Box sx={{ width: "100%", ml: 2 }}>
                                     <FormControlLabel
                                         label="Paid"
@@ -134,15 +136,15 @@ const CourseDetailsInput = () => {
                                                 inputProps={{ 'aria-label': 'controlled' }}
                                             />} />
                                 </Box>
-                                {checked && <TextField id="Price" label="Price"  {...register("Price")} InputProps={{
+                                {checked && <TextField id="Price" {...register("price")} label="Price" InputProps={{
                                     startAdornment: <InputAdornment position="start">INR</InputAdornment>,
                                 }} />}
-
                             </Box>
 
-                            <Button variant='contained' sx={{ width: "100%" }} type="submit">Create</Button>
+                            <Button variant='contained' type='submit' sx={styles.Btn1}>Create</Button>
                         </Form>
                     </Card>
+
                 </Box>
             </Box>
         </>

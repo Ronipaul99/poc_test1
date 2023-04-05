@@ -1,8 +1,6 @@
 const styles = {
     mainContainer: {
-        backgroundSize: 'cover',
-        backgroundImage: "url('https://img.freepik.com/free-photo/blue-abstract-gradient-wave-wallpaper_53876-108364.jpg?w=1380&t=st=1677220877~exp=1677221477~hmac=eef7e55022d564946d00ccac883ea670b3eba52e00e6db06f520b9126d9a4546')",
-        backgroundRepeat: "no-repeat",
+        backgroundColor: 'hsl(0deg 0% 96%)',
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -11,7 +9,7 @@ const styles = {
     },
     Card: {
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
-        width: "68%",
+        width: "70%",
         marginTop: "90px"
     },
     mainBox: {
@@ -47,7 +45,7 @@ const styles = {
     SecondBox: {
         display: "flex",
         flexDirection: "column",
-        width: "68%",
+        width: "70%",
         p: 1
     },
     List: {
@@ -58,7 +56,7 @@ const styles = {
 
     },
     ThirdBox: {
-        width: "70%"
+        width: "72%"
     }
 
 };

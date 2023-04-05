@@ -1,4 +1,4 @@
-.header-container{
+.header-container {
     width: 100%;
     height: 80px;
     display: flex;
@@ -7,30 +7,32 @@
     padding: 10px 75px;
 }
 
-.header-body{
+.header-body {
     height: 100%;
     width: 100%;
+    display: flex;
+    align-items: center;
 }
 
-.brand{
+.brand {
     background-image: url('../../../public/logo2.png');
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 60px;
     width: 240px;
 }
 
-.search-bar{
+.search-bar {
     height: 40px;
     margin: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 60px;
-  padding: 5px 10px;
-  border: 2px solid rgb(187, 187, 187);
-  backdrop-filter: blur(4px) saturate(180%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60px;
+    padding: 5px 10px;
+    border: 2px solid rgb(187, 187, 187);
+    backdrop-filter: blur(4px) saturate(180%);
 }
 
 .search-bar input {
@@ -45,7 +47,8 @@
     padding: 20px 20px;
     color: rgb(114, 114, 114);
 }
-::placeholder{
+
+::placeholder {
     color: rgb(189, 189, 189);
 }
 
@@ -57,50 +60,67 @@
     cursor: pointer;
     background: #d3d3d3;
 }
-.call-info{
+
+.call-info {
     display: flex;
     align-items: center;
     justify-content: center;
     padding-left: 40px;
 }
-.call-icon{
+
+.call-icon {
     padding: 20px;
 }
-.call-text-2{
+
+.call-text-2 {
     color: rgb(128, 128, 128);
     font-size: 18px;
 }
-.call-text{
+
+.call-text {
     color: rgb(128, 128, 128);
     font-size: 13px;
 }
-.call-number{
- color: #5a5a5a;
- font-size: 15px;
- font-weight: 700;
+
+.call-number {
+    color: #5a5a5a;
+    font-size: 15px;
+    font-weight: 700;
 }
-.icon-area{
+
+.icon-area {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 5px 5px;
 }
 
-.icon-button{
- margin-inline-end: 15px;
- height: 40px;
- width: 110px;
- display: flex;
- justify-content: center;
- align-items: center;
- background-color: #ffffff;
- border-radius: 10px;
- font-size: 18px;
- color: #5a5a5a;
- font-weight: 700;
+.icon-button {
+    margin-inline-end: 15px;
+    height: 40px;
+    width: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #5a5a5a;
+    font-weight: 700;
 }
 
-.icon-button:hover{
+.icon-button:hover {
     background-color: #0063e4;
     color: #ffffff;
+}
+
+.col-sm-9 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.info {
+    display: flex;
+    width: 100%;
 }
