@@ -48,7 +48,7 @@ export default function TDrawer() {
                     <Tab label="Create course" onClick={() => (goto2)(window.localStorage.setItem("TaskbarId", 1))} />
                     <Tab label="Schedule" onClick={() => (goto3)(window.localStorage.setItem("TaskbarId", 2))} />
                     <Tab label="Documents" onClick={() => (goto4)(window.localStorage.setItem("TaskbarId", 3))} />
-                    <Tab label="Account" onClick={() => (goto5)(window.localStorage.setItem("TaskbarId", 4))} />
+                    <Tab label="Earning" onClick={() => (goto5)(window.localStorage.setItem("TaskbarId", 4))} />
                 </Tabs>
             </Box>
         </Box >

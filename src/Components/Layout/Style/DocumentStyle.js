@@ -9,7 +9,7 @@ const styles = {
     Box1: {
         width: "80%",
         marginTop: "90px",
-        marginBottom:"80px"
+        marginBottom:"85px"
     },
     Box2: {
         marginTop: "50px",

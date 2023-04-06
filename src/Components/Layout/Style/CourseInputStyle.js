@@ -35,7 +35,7 @@ const styles = {
         p: 2,
         display: "flex",
         flexDirection: "column",
-        width: "48%",
+        width: "46.5%",
         height: "100%",
         boxShadow: "0 35px 100px rgba(0, 0, 0, 0.1)",
         borderRadius: "15px"
@@ -48,7 +48,7 @@ const styles = {
         backgroundColor: 'transparent'
     },
     Boximg:{
-        width: "45%", 
+        width: "36%", 
         height: "700px"
     },
     Btn1:{
