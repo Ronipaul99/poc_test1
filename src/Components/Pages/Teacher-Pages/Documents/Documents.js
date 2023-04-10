@@ -126,7 +126,7 @@ function Doc(props) {
       </Box>
     </Paper>));
 
-  console.log(data)
+  // console.log(data)
 
   const {
     getRootProps,

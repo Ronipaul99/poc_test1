@@ -28,8 +28,8 @@ import PropTypes from 'prop-types';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import dayjs from "dayjs";
-import { useDispatch } from "react-redux";
-import { Data } from "../../../Store/Time-slice";
+// import { useDispatch } from "react-redux";
+// import { Data } from "../../../Store/Time-slice";
 
 
 
@@ -115,7 +115,7 @@ function a11yProps(index) {
 
 export default function Schedule() {
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch();
   // dispatch(Data(start));
   // console.log(start)
 

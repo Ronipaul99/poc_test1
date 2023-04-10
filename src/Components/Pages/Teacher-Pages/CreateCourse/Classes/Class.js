@@ -26,7 +26,7 @@ const Class = ({ StartTime, id, imgURL, Title }) => {
     const string5 = (`${year}-${month < 10 ? `0${month}` : `${month}`}-${date}`)
     const string6 = Time
 
-    console.log(string6 === string5)
+    // console.log(string6 === string5)
 
     const string1 = "T"
     const string2 = e
@@ -54,7 +54,7 @@ const Class = ({ StartTime, id, imgURL, Title }) => {
     return (
         <>
             {Meeting1 ? (
-                string1 == string2 ? <Meeting /> : <Smeeting />
+                string1 === string2 ? <Meeting /> : <Smeeting />
                 // {string3 == string4 && <Smeeting />}
             )
                 :
@@ -109,10 +109,10 @@ const Class = ({ StartTime, id, imgURL, Title }) => {
                                             <Typography sx={{ fontSize: "16px", fontWeight: 600, color: "#3C4852", letterSpacing: "-0.005em", p: 0.5 }}>{Title}</Typography>
                                         </Box>
                                         <Box sx={{ height: "10%", width: "100%", display: "flex", alignItems: "flex-end" }}>
-                                            {string3 == string4 && <Button variant='contained' disabled={string6 == string5} sx={{ width: "100%" }} onClick={() => setMeeting1(true)}>
+                                            {string3 === string4 && <Button variant='contained' disabled={!(string6 === string5)} sx={{ width: "100%" }} onClick={() => setMeeting1(true)}>
                                                 <Typography sx={{ fontSize: "12px", fontWeight: "bold" }}>Join Class</Typography>
                                             </Button>}
-                                            {string1 == string2 && <Button variant='contained' disabled={!(string6 == string5)} sx={{ width: "100%" }} onClick={() => setMeeting1(true)}>
+                                            {string1 === string2 && <Button variant='contained' disabled={!(string6 === string5)} sx={{ width: "100%" }} onClick={() => setMeeting1(true)}>
                                                 <Typography sx={{ fontSize: "12px", fontWeight: "bold" }}>Start Class</Typography>
                                             </Button>}
                                         </Box>
