@@ -4,7 +4,7 @@ const time = window.localStorage.getItem("Time")
 
 export const TimeDataAction = createSlice({
     name: 'TimeData',
-    initialState: { value: JSON.parse(time) },
+    initialState: { value: time },
 
     // The `reducers` field lets us define reducers and generate associated actions
     reducers: {

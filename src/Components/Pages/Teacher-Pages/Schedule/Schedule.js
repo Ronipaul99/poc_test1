@@ -112,9 +112,6 @@ function a11yProps(index) {
 }
 
 
-// let todayStr = new Date().toISOString().replace(/T.*$/, "");
-
-
 
 export default function Schedule() {
 
@@ -138,10 +135,9 @@ export default function Schedule() {
   dispatch(Data(getById(events, 5)[0].start));
   const c = (getById(events, 5)[0].start)
   window.localStorage.setItem("Time", c)
-  console.log(c)
+  // console.log(c)
 
 
-  // console.log(events.start)
   const [modal, setModal] = useState(false);
   const [confirmModal, setConfirmModal] = useState(false);
   const calendarRef = useRef(null);

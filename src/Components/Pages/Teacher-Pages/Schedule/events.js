@@ -22,7 +22,7 @@ const events = [
     id: "05",
     title: "Conference",
     start: "2023-04-10",
-    end: getDate("2023-05-19")
+    end: getDate("2023-04-11")
   },
   {
     id: "06",
