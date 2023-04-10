@@ -19,6 +19,9 @@ import Grid from '@mui/material/Grid';
 import Landing from "./Components/Pages/Landing";
 import Meeting from "./Components/Pages/Teacher-Pages/CreateCourse/ZoomClass/Tmeeting";
 import TeacherAccount from "./Components/Pages/TeacherAccount";
+import events from "./Components/Pages/Teacher-Pages/Schedule/events";
+import { useDispatch } from "react-redux";
+import { Data } from "./Components/Store/Time-slice";
 function App() {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const Log = useSelector(state => state.Log.Enable);
@@ -28,6 +31,15 @@ function App() {
   const string2 = e
   const string3 = "S"
   const string4 = e
+
+  // Schedule universal changes input for redux
+  function getById(events, id) {
+    return events.filter(function (o) { return o.id == id });
+  };
+  const dispatch = useDispatch();
+  dispatch(Data(getById(events, 5)[0].start));
+
+
   return (
     <div>
 

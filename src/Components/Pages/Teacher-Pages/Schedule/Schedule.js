@@ -132,7 +132,7 @@ export default function Schedule() {
   };
 
   
-  dispatch(Data(getById(events, 5)[0].start));
+  // dispatch(Data(getById(events, 5)[0].start));
   const c = (getById(events, 5)[0].start)
   window.localStorage.setItem("Time", c)
   // console.log(c)
