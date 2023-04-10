@@ -53,6 +53,11 @@ const styles = {
     },
     Btn1:{
         width:"100%"
+    },
+    Text2:{
+        p: 2,
+        fontSize: "25px",
+        fontWeight: "bold",
     }
 
 };

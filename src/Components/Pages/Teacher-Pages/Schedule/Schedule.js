@@ -28,6 +28,8 @@ import PropTypes from 'prop-types';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import dayjs from "dayjs";
+import { useDispatch } from "react-redux";
+import { Data } from "../../../Store/Time-slice";
 
 
 
@@ -110,15 +112,36 @@ function a11yProps(index) {
 }
 
 
-let todayStr = new Date().toISOString().replace(/T.*$/, "");
+// let todayStr = new Date().toISOString().replace(/T.*$/, "");
 
 
 
 export default function Schedule() {
 
+  const dispatch = useDispatch()
+  // dispatch(Data(start));
+  // console.log(start)
 
   const [weekendsVisible, setWeekendsVisible] = useState(true);
-  const [currentEvents, setCurrentEvents] = useState([]);
+
+  const [currentEvents, setCurrentEvents] = useState(events);
+
+
+
+  function getById(events, id) {
+
+    return events.filter(function (o) { return o.id == id });
+
+  };
+
+  
+  dispatch(Data(getById(events, 5)[0].start));
+  const c = (getById(events, 5)[0].start)
+  window.localStorage.setItem("Time", c)
+  console.log(c)
+
+
+  // console.log(events.start)
   const [modal, setModal] = useState(false);
   const [confirmModal, setConfirmModal] = useState(false);
   const calendarRef = useRef(null);
@@ -138,7 +161,7 @@ export default function Schedule() {
   function handleDateSelect(selectInfo) {
     if (
       selectInfo.view.type === "timeGridWeek" ||
-      selectInfo.view.type === "timeGridDay"  ||
+      selectInfo.view.type === "timeGridDay" ||
       selectInfo.view.type === "dayGridMonth"
     ) {
       selectInfo.view.calendar.unselect();
@@ -294,7 +317,7 @@ export default function Schedule() {
                   </Search>
                   <Box sx={styles.LB2}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DateCalendar defaultValue={today}/>
+                      <DateCalendar defaultValue={today} />
                     </LocalizationProvider>
                   </Box>
                   <Divider />
@@ -363,21 +386,23 @@ export default function Schedule() {
                     selectMirror={true}
                     dayMaxEvents={true}
                     weekends={weekendsVisible}
-                    
-                    initialEvents={[
-                      {
-                        id: nanoid(),
-                        title: "All-day event",
-                        start: todayStr
-                      },
-                      {
-                        id: nanoid(),
-                        title: "Timed event",
-                        start: todayStr + "T12:00:00",
-                        end: todayStr + "T12:30:00"
-                      }
-                    ]} 
-                    // initialEvents={currentEvents}
+
+                    //   initialEvents={
+                    //     [
+                    //     {
+                    //       id: nanoid(),
+                    //       title: "All-day event",
+                    //       start: todayStr
+                    //     },
+                    //     {
+                    //       id: nanoid(),
+                    //       title: "Timed event",
+                    //       start: todayStr + "T12:00:00",
+                    //       end: todayStr + "T12:30:00"
+                    //     }
+                    //   ]
+                    // } 
+                    initialEvents={currentEvents}
                     // alternatively, use the `events` setting to fetch from a feed
                     select={handleDateSelect}
                     eventContent={renderEventContent} // custom render function

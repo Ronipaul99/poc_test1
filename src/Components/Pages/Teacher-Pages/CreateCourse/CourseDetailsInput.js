@@ -241,7 +241,7 @@ const CourseDetailsInput = () => {
 
                                                             <Divider />
 
-                                                            <Typography sx={styles.Text1}>Course content</Typography>
+                                                            <Typography sx={styles.Text2}>Course content</Typography>
                                                             <Box sx={styles.Textfield1}>
                                                                 <TextField id="Numberofinputs1" label="Number of inputs" sx={{ width: "100%" }} onChange={handleChange2} value={Number1} size="small" />
                                                             </Box>
@@ -270,13 +270,13 @@ const CourseDetailsInput = () => {
                                                             noValidate
                                                             autoComplete="off"
                                                         >
+                                                            <Box sx={styles.Textfield1}>
+                                                                <TextField id="Numberoclasses" label="Number of classes"  {...register("NumberOfClasses", { required: true })} onChange={handleChange3} value={Number2} sx={{ width: '100%' }} size="small" />
+                                                            </Box>
 
-                                                            <Box sx={styles.Textfield1}>
-                                                                <TextField id="Classes" {...register("Classes", { required: true })} label="Classes" sx={{ width: '100%' }} size="small" />
-                                                            </Box>
-                                                            <Box sx={styles.Textfield1}>
-                                                                <TextField id="Numberoclasses" label="Number of classes" onChange={handleChange3} value={Number2} sx={{ width: '100%' }} size="small" />
-                                                            </Box>
+                                                            <Divider />
+
+                                                            <Typography sx={styles.Text2}>Schedule</Typography>
                                                             {arr3.map((user) => (
                                                                 <Box key={user} sx={{ display: "flex", width: "100%", }}>
                                                                     <TextField label="Choose date" id="Date" type="date"  {...register("Date", { required: true })} InputLabelProps={{
