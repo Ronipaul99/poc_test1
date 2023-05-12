@@ -17,7 +17,7 @@ const styles = {
         justifyContent: "space-Between",
         width: "85%",
         marginTop: "90px",
-        marginBottom:"140px",
+        marginBottom:"150px",
         backgroundColor: 'transparent',
 
     },

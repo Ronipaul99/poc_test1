@@ -10,6 +10,7 @@
     "@fullcalendar/interaction": "^6.1.4",
     "@fullcalendar/react": "^6.1.4",
     "@fullcalendar/timegrid": "^6.1.4",
+    "@hookform/error-message": "^2.0.1",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.12",
     "@mui/styled-engine": "^5.11.0",
@@ -45,6 +46,7 @@
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
+    "react-tag-input-component": "^2.0.2",
     "reactstrap": "^9.1.6",
     "semantic-ui-react": "^2.1.4",
     "web-vitals": "^2.1.4"

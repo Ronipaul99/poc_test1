@@ -19,6 +19,7 @@ import arr1 from "./CreatedCourseData/data.json"
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
+import { ErrorMessage } from '@hookform/error-message';
 
 const steps = ['Course overview', 'Course content', 'Classes', 'Course requirement'];
 
@@ -30,14 +31,14 @@ const CourseDetailsInput = () => {
     const [Number2, setNumber2] = React.useState([1]);
     const [Number3, setNumber3] = React.useState([1]);
 
-    const [checked, setChecked] = React.useState(false);
+    const [checked, setChecked] = React.useState(true);
 
     const handleChange = (event) => {
         setChecked(event.target.checked);
     };
 
     var arr = [];
-    for (let i = 1; i <= parseFloat(Number); i++) {
+    for (let i = 0; i <= parseFloat(Number) - 1; i++) {
         arr.push(i)
     };
     const handleChange1 = event => {
@@ -47,7 +48,7 @@ const CourseDetailsInput = () => {
 
 
     var arr2 = [];
-    for (let i = 1; i <= parseFloat(Number1); i++) {
+    for (let i = 0; i <= parseFloat(Number1) - 1; i++) {
         arr2.push(i)
     };
     const handleChange2 = event => {
@@ -55,7 +56,7 @@ const CourseDetailsInput = () => {
     };
 
     var arr3 = [];
-    for (let i = 1; i <= parseFloat(Number2); i++) {
+    for (let i = 0; i <= parseFloat(Number2) - 1; i++) {
         arr3.push(i)
     };
     const handleChange3 = event => {
@@ -65,7 +66,7 @@ const CourseDetailsInput = () => {
 
 
     var arr4 = [];
-    for (let i = 1; i <= parseFloat(Number3); i++) {
+    for (let i = 0; i <= parseFloat(Number3) - 1; i++) {
         arr4.push(i)
     };
     const handleChange4 = event => {
@@ -235,7 +236,7 @@ const CourseDetailsInput = () => {
                                                             </Box>
                                                             {arr.map((user) => (
                                                                 <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                    <TextField  {...register("AreaofLearning", { required: true })} label="Area of learning" size="small" sx={{ width: "100%" }} />
+                                                                    <TextField id={user} {...register(`AreaOfLearning.${user}`, { required: true })} label="Area of learning" size="small" sx={{ width: "100%" }} />
                                                                 </Box>
                                                             ))}
 
@@ -245,9 +246,10 @@ const CourseDetailsInput = () => {
                                                             <Box sx={styles.Textfield1}>
                                                                 <TextField id="Numberofinputs1" label="Number of inputs" sx={{ width: "100%" }} onChange={handleChange2} value={Number1} size="small" />
                                                             </Box>
-                                                            {arr2.map((user1) => (
-                                                                <Box key={user1} sx={{ display: "flex", width: "100%", }}>
-                                                                    <TextField id="CourseContent" {...register("Course content", { required: true })} label="Couse content" sx={{ width: '100%' }} size="small" />
+                                                            {arr2.map((user) => (
+                                                                <Box key={user} sx={{ display: "flex", width: "100%", }}>
+                                                                    <TextField id={user} {...register(`CourseContent.${user}`, { required: true })} label="Couse content" sx={{ width: '100%' }} size="small" />
+                                                                    <TextField id={user} {...register(`Description.${user}`, { required: true })} label="Description" sx={{ width: '100%' }} size="small" />
                                                                 </Box>
                                                             ))}
                                                         </Box>
@@ -278,13 +280,15 @@ const CourseDetailsInput = () => {
 
                                                             <Typography sx={styles.Text2}>Schedule</Typography>
                                                             {arr3.map((user) => (
-                                                                <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                    <TextField label="Choose date" id="Date" type="date"  {...register("Date", { required: true })} InputLabelProps={{
-                                                                        shrink: true,
-                                                                    }} size="small" />
-                                                                    <TextField type='time'  {...register("StartTime", { required: true })} label="Start from" defaultValue="12:00" size="small" />
-                                                                    <TextField type='time' {...register("EndTime", { required: true })} label="End at" defaultValue="12:00" size="small" />
-                                                                </Box>
+                                                                <>
+                                                                    <TextField id={user} {...register(`NameOfClass.${user}`, { required: true })} label="Name of class" size="small" />
+                                                                    <Box key={user} sx={{ display: "flex", width: "100%", }}>
+                                                                        <TextField label="Choose date" type="date" id={user} {...register(`date.${user}`, { required: true })} InputLabelProps={{
+                                                                            shrink: true,
+                                                                        }} size="small" />
+                                                                        <TextField type='time' id={user} {...register(`StartFrom.${user}`, { required: true })} label="Start from" defaultValue="12:00" size="small" />
+                                                                        <TextField type='time' id={user} {...register(`EndAt.${user}`, { required: true })} label="End at" defaultValue="12:00" size="small" />
+                                                                    </Box></>
                                                             ))}
 
                                                         </Box>
@@ -314,8 +318,13 @@ const CourseDetailsInput = () => {
                                                                 <TextField id="Numberofinputs" label="Number of classes" onChange={handleChange4} value={Number3} sx={{ width: '100%' }} size="small" />
                                                             </Box>
                                                             {arr4.map((user) => (
-                                                                <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                    <TextField label="Requirement" id='Requirement' {...register("Requirement", { required: true })} sx={{ width: "100%" }} size="small" />
+                                                                <Box key={user} sx={{ display: "flex", width: "100%",flexDirection:"column" }}>
+                                                                    <TextField label="Requirement" id={user} {...register(`Requirement.${user}`, { required: "put something" })}  size="small" />
+                                                                    <ErrorMessage
+                                                                        errors={errors}
+                                                                        name={`Requirement.${user}`}
+                                                                        render={() => <p style={{fontSize:"10px",color:"red",marginLeft:"20px"}}>please fill before submit</p>}
+                                                                    />
                                                                 </Box>
                                                             ))}
 
@@ -366,67 +375,3 @@ const CourseDetailsInput = () => {
 }
 
 export default CourseDetailsInput;
-
-
-
-
-
-{/* <Form onSubmit={handleSubmit(onSubmit)}>
-                            <Typography sx={styles.Text1}>Cteate course</Typography>
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    width: "100%",
-                                    '& .MuiTextField-root': { m: 2 },
-                                }}
-                                noValidate
-                                autoComplete="off"
-                            >
-                                <TextField id="Title" {...register("Title", { required: true })} label="Title" size="small" /> <Box sx={styles.Textfield1}>
-
-                                    <TextField id="NumberOfClasses" {...register("NumberOfClasses", { required: true })} label="Number of classes" onChange={handleChange1} value={Number} sx={{ width: '300px' }} size="small" />
-                                    <TextField id="StartDate" {...register("StartDate", { required: true })} label="Start date" sx={{ width: '300px' }} size="small" />
-                                </Box>
-                                <Box sx={styles.Textfield1}>
-                                    <TextField id="Subject" {...register("Subject", { required: true })} label="Subject" sx={{ width: '300px' }} size="small" />
-                                    <TextField id="SubjectTopic" {...register("SubjectTopic", { required: true })} label="Subject topic" sx={{ width: '300px' }} size="small" />
-                                </Box>
-                                {arr.map((user) => (
-                                    <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                        {/* <DatePicker
-                                                label="Choose date"
-                                                value={value}
-                                                onChange={(newValue) => setValue(newValue)}
-                                                {...register("value", { required: true })}
-                                            /> 
-                                        <TextField label="Choose date" id="Date" type="date"  {...register("Date", { required: true })} InputLabelProps={{
-                                            shrink: true,
-                                        }} size="small" /> */}
-
-                        //                 {/* <TimePicker id="StartTime" {...register("StartTime", { required: true })} label="Start from" defaultValue={todayStartOfTheDay} /> */}
-                        //                 <TextField type='time'  {...register("StartTime", { required: true })} label="Start from" defaultValue="12:00" size="small" />
-                        //                 <TextField type='time' {...register("EndTime", { required: true })} label="End at" defaultValue="12:00" size="small" />
-
-                        //                 {/* <TimePicker id="EndTime" {...register("EndTime", { required: true })} label="End at" defaultValue={todayStartOfTheDay} /> */}
-                        //             </Box>
-                        //         ))}
-                        //          <TextField id="Keys" {...register("Keys", { required: true })} label="Keys" size="small" />
-                        //         <TextField id="Description" {...register("Description", { required: true })} label="Description" multiline rows={3} size="small" />
-                        //      <Box sx={{ width: "100%", ml: 2 }}>
-                        //             <FormControlLabel
-                        //                 label="Paid"
-                        //                 control={
-                        //                 <Checkbox
-                        //                          checked={checked}
-                        //                         onChange={handleChange}
-                        //                        inputProps={{ 'aria-label': 'controlled' }}
-                        //                     />} />
-                        //         </Box>
-                        //         {checked && <TextField id="Price" {...register("price")} label="Price" InputProps={{
-                        //             startAdornment: <InputAdornment position="start">INR</InputAdornment>,
-                        //        }} />}
-                        //     </Box>
-
-                        //      <Button variant='contained' type='submit' sx={styles.Btn1}>Create</Button>
-                        //  </Form> 
