@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import NavDrawer from '../../Layout/Component/Nav&Drawer';
+// import NavDrawer from '../../Layout/Component/Nav&Drawer';
 import { useParams } from 'react-router-dom';
 import { Button, Card, Grid, Link, Typography, CardActions, IconButton, Divider } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
@@ -544,7 +544,7 @@ export default function CourseDetails() {
                                             <Typography>
                                                 The curriculum was developed over a period of four years, with comprehensive student testing and feedback.
                                             </Typography>
-                                            <Typography variant='h5' sx={{ fontWeight: "bold", p: 3 }}>Who this course is for:</Typography>
+                                            <Typography variant='h5' sx={{ fontWeight: "bold", p: 3 }}>Who this course is for</Typography>
                                             <List>If you want to learn to code through building fun and useful projects, then take this course.</List>
                                             <List>If you want to start your own startup by building your own websites and web apps.</List>
                                         </CardContent>
