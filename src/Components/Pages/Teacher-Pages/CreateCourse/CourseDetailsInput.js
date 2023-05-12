@@ -236,7 +236,7 @@ const CourseDetailsInput = () => {
                                                             </Box>
                                                             {arr.map((user) => (
                                                                 <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                    <TextField id={user} {...register(`AreaOfLearning.${user}`, { required: true })} label="Area of learning" size="small" sx={{ width: "100%" }} />
+                                                                    <TextField id={user} {...register(`AreaOfLearning.${user}`, { required: true })} multiline rows={3} label="Area of learning" size="small" sx={{ width: "100%" }} />
                                                                 </Box>
                                                             ))}
 
@@ -248,8 +248,8 @@ const CourseDetailsInput = () => {
                                                             </Box>
                                                             {arr2.map((user) => (
                                                                 <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                    <TextField id={user} {...register(`CourseContent.${user}`, { required: true })} label="Couse content" sx={{ width: '100%' }} size="small" />
-                                                                    <TextField id={user} {...register(`Description.${user}`, { required: true })} label="Description" sx={{ width: '100%' }} size="small" />
+                                                                    <TextField id={user} {...register(`CourseContent.${user}`, { required: true })} multiline rows={3} label="Couse content" sx={{ width: '100%' }} size="small" />
+                                                                    <TextField id={user} {...register(`Description.${user}`, { required: true })} multiline rows={3} label="Description" sx={{ width: '100%' }} size="small" />
                                                                 </Box>
                                                             ))}
                                                         </Box>
@@ -319,7 +319,7 @@ const CourseDetailsInput = () => {
                                                             </Box>
                                                             {arr4.map((user) => (
                                                                 <Box key={user} sx={{ display: "flex", width: "100%",flexDirection:"column" }}>
-                                                                    <TextField label="Requirement" id={user} {...register(`Requirement.${user}`, { required: "put something" })}  size="small" />
+                                                                    <TextField label="Requirement" id={user} multiline rows={2} {...register(`Requirement.${user}`, { required: "put something" })}  size="small" />
                                                                     <ErrorMessage
                                                                         errors={errors}
                                                                         name={`Requirement.${user}`}
