@@ -4,12 +4,7 @@ import React from 'react'
 import styles from '../../../Layout/Style/CourseInputStyle'
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-// import dayjs from 'dayjs';
 import InputAdornment from '@mui/material/InputAdornment';
-// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-// import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import kp from "../../../Images/kp.png"
 import { useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -25,11 +20,23 @@ const steps = ['Course overview', 'Course content', 'Classes', 'Course requireme
 
 const CourseDetailsInput = () => {
 
-    // const [value, setValue] = React.useState(dayjs('2023-03-20'));
     const [Number, setNumber] = React.useState([1]);
     const [Number1, setNumber1] = React.useState([1]);
     const [Number2, setNumber2] = React.useState([1]);
     const [Number3, setNumber3] = React.useState([1]);
+    const [Text, setText] = React.useState("");
+    const [Text1, setText1] = React.useState("");
+    const [Text2, setText2] = React.useState("");
+    const [Text3, setText3] = React.useState("");
+    const [Text4, setText4] = React.useState("");
+    const [Text5, setText5] = React.useState("");
+    const [Text6, setText6] = React.useState("");
+    const [Text7, setText7] = React.useState("");
+    const [Text8, setText8] = React.useState("");
+    const [Text9, setText9] = React.useState("");
+    const [Text10, setText10] = React.useState("");
+
+
 
     const [checked, setChecked] = React.useState(true);
 
@@ -37,7 +44,7 @@ const CourseDetailsInput = () => {
         setChecked(event.target.checked);
     };
 
-    var arr = [];
+    const arr = [];
     for (let i = 0; i <= parseFloat(Number) - 1; i++) {
         arr.push(i)
     };
@@ -47,7 +54,7 @@ const CourseDetailsInput = () => {
 
 
 
-    var arr2 = [];
+    const arr2 = [];
     for (let i = 0; i <= parseFloat(Number1) - 1; i++) {
         arr2.push(i)
     };
@@ -55,7 +62,7 @@ const CourseDetailsInput = () => {
         setNumber1(event.target.value);
     };
 
-    var arr3 = [];
+    const arr3 = [];
     for (let i = 0; i <= parseFloat(Number2) - 1; i++) {
         arr3.push(i)
     };
@@ -65,7 +72,7 @@ const CourseDetailsInput = () => {
 
 
 
-    var arr4 = [];
+    const arr4 = [];
     for (let i = 0; i <= parseFloat(Number3) - 1; i++) {
         arr4.push(i)
     };
@@ -74,10 +81,6 @@ const CourseDetailsInput = () => {
     };
 
 
-    // const today = dayjs();
-    // const todayStartOfTheDay = today.startOf('day');
-
-    // const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
         console.log(data)
@@ -102,10 +105,6 @@ const CourseDetailsInput = () => {
 
 
 
-    // 
-    // 
-    // 
-    // 
     const [activeStep, setActiveStep] = React.useState(0);
 
 
@@ -122,10 +121,44 @@ const CourseDetailsInput = () => {
         window.location.reload();
     };
 
+
+    const change = (e) => {
+        setText(e.target.value)
+    };
+    const change1 = (e) => {
+        setText1(e.target.value)
+    };
+    const change2 = (e) => {
+        setText2(e.target.value)
+    };
+    const change3 = (e) => {
+        setText3(e.target.value)
+    };
+    const change4 = (e) => {
+        setText4(e.target.value)
+        console.log(e.target.value)
+    };
+    const change5 = (e) => {
+        setText5(e.target.value)
+    };
+    const change6 = (e) => {
+        setText6(e.target.value)
+    };
+    const change7 = (e) => {
+        setText7(e.target.value)
+    };
+    const change8 = (e) => {
+        setText8(e.target.value)
+    };
+    const change9 = (e) => {
+        setText9(e.target.value)
+    };
+    const change10 = (e) => {
+        setText10(e.target.value)
+    };
+
     return (
         <>
-            {/* <NavDrawer /> */}
-            {/* <TDrawer /> */}
             <Box sx={styles.mainContainer}>
                 <Box sx={styles.Box2}>
                     <ArrowBackIcon fontSize='medium' onClick={goBack} />
@@ -169,13 +202,11 @@ const CourseDetailsInput = () => {
                             ) : (
                                 <React.Fragment>
                                     <Form style={{ height: "630px" }} onSubmit={handleSubmit(onSubmit)}>
-                                        {/* <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography> */}
                                         <Box sx={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center" }}>
                                             <Box sx={{ width: "100%", height: "90%", overflow: "auto" }}>
 
                                                 {/* Step 1 */}
                                                 {activeStep === 0 &&
-                                                    // <Form onSubmit={handleSubmit(onSubmit)}>
                                                     <>
                                                         <Typography sx={styles.Text1}>Course overview</Typography>
                                                         <Box
@@ -188,13 +219,13 @@ const CourseDetailsInput = () => {
                                                             noValidate
                                                             autoComplete="off"
                                                         >
-                                                            <TextField id="Title" {...register("Title", { required: true })} label="Title" size="small" />
+                                                            <TextField id="Title" {...register("Title", { required: true })} label="Title" size="small" onChange={change} />
 
                                                             <Box sx={styles.Textfield1}>
-                                                                <TextField id="Language" {...register("Language", { required: true })} label="Language" sx={{ width: '100%' }} size="small" />
+                                                                <TextField id="Language" {...register("Language", { required: true })} label="Language" sx={{ width: '100%' }} size="small" onChange={change1} />
                                                             </Box>
-                                                            <TextField id="Keys" {...register("Keys", { required: true })} label="Keys" size="small" />
-                                                            <TextField id="Description" {...register("Description", { required: true })} label="Description" multiline rows={3} size="small" />
+                                                            <TextField id="Keys" {...register("Keys", { required: true })} label="Keys" size="small" onChange={change2} />
+                                                            <TextField id="Description" {...register("Description", { required: true })} label="Description" multiline rows={3} size="small" onChange={change3} />
                                                             <Box sx={{ width: "100%" }}>
                                                                 <FormControlLabel
                                                                     label="Paid"
@@ -211,14 +242,12 @@ const CourseDetailsInput = () => {
                                                             }} />}
                                                         </Box>
                                                     </>
-                                                    //</Form> 
                                                 }
 
 
 
                                                 {/* Step 2 */}
                                                 {activeStep === 1 &&
-                                                    // <Form onSubmit={handleSubmit(onSubmit)}>
                                                     <>
                                                         <Typography sx={styles.Text1}>Area of learning</Typography>
                                                         <Box
@@ -236,7 +265,7 @@ const CourseDetailsInput = () => {
                                                             </Box>
                                                             {arr.map((user) => (
                                                                 <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                    <TextField id={user} {...register(`AreaOfLearning.${user}`, { required: true })} multiline rows={3} label="Area of learning" size="small" sx={{ width: "100%" }} />
+                                                                    <TextField id={user} onChange={change4} {...register(`AreaOfLearning.${user}`, { required: true })} multiline rows={3} label="Area of learning" size="small" sx={{ width: "100%" }} />
                                                                 </Box>
                                                             ))}
 
@@ -248,18 +277,16 @@ const CourseDetailsInput = () => {
                                                             </Box>
                                                             {arr2.map((user) => (
                                                                 <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                    <TextField id={user} {...register(`CourseContent.${user}`, { required: true })} multiline rows={3} label="Couse content" sx={{ width: '100%' }} size="small" />
-                                                                    <TextField id={user} {...register(`Description.${user}`, { required: true })} multiline rows={3} label="Description" sx={{ width: '100%' }} size="small" />
+                                                                    <TextField id={user} onChange={change5} {...register(`CourseContent.${user}`, { required: true })} multiline rows={3} label="Couse content" sx={{ width: '100%' }} size="small" />
+                                                                    <TextField id={user} onChange={change6} {...register(`Description1.${user}`, { required: true })} multiline rows={3} label="Description" sx={{ width: '100%' }} size="small" />
                                                                 </Box>
                                                             ))}
                                                         </Box>
-                                                        {/* </Form> */}
                                                     </>
                                                 }
 
                                                 {/* Steps 3 */}
                                                 {activeStep === 2 &&
-                                                    // <Form onSubmit={handleSubmit(onSubmit)}>
                                                     <>
                                                         <Typography sx={styles.Text1}>Classes</Typography>
                                                         <Box
@@ -283,24 +310,22 @@ const CourseDetailsInput = () => {
                                                                 <>
                                                                     <TextField id={user} {...register(`NameOfClass.${user}`, { required: true })} label="Name of class" size="small" />
                                                                     <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                        <TextField label="Choose date" type="date" id={user} {...register(`date.${user}`, { required: true })} InputLabelProps={{
+                                                                        <TextField onChange={change7} label="Choose date" type="date" id={user} {...register(`date.${user}`, { required: true })} InputLabelProps={{
                                                                             shrink: true,
                                                                         }} size="small" />
-                                                                        <TextField type='time' id={user} {...register(`StartFrom.${user}`, { required: true })} label="Start from" defaultValue="12:00" size="small" />
-                                                                        <TextField type='time' id={user} {...register(`EndAt.${user}`, { required: true })} label="End at" defaultValue="12:00" size="small" />
+                                                                        <TextField onChange={change8} type='time' id={user} {...register(`StartFrom.${user}`, { required: true })} label="Start from" defaultValue="12:00" size="small" />
+                                                                        <TextField onChange={change9} type='time' id={user} {...register(`EndAt.${user}`, { required: true })} label="End at" defaultValue="12:00" size="small" />
                                                                     </Box></>
                                                             ))}
 
                                                         </Box>
                                                     </>
-                                                    // </Form> 
                                                 }
 
 
                                                 {/* Step 4 */}
 
                                                 {activeStep === 3 &&
-                                                    // <Form onSubmit={handleSubmit(onSubmit)}>
                                                     <>
                                                         <Typography sx={styles.Text1}>Course requirement</Typography>
                                                         <Box
@@ -318,19 +343,18 @@ const CourseDetailsInput = () => {
                                                                 <TextField id="Numberofinputs" label="Number of classes" onChange={handleChange4} value={Number3} sx={{ width: '100%' }} size="small" />
                                                             </Box>
                                                             {arr4.map((user) => (
-                                                                <Box key={user} sx={{ display: "flex", width: "100%",flexDirection:"column" }}>
-                                                                    <TextField label="Requirement" id={user} multiline rows={2} {...register(`Requirement.${user}`, { required: "put something" })}  size="small" />
+                                                                <Box key={user} sx={{ display: "flex", width: "100%", flexDirection: "column" }}>
+                                                                    <TextField onChange={change10} label="Requirement" id={user} multiline rows={2} {...register(`Requirement.${user}`, { required: "put something" })} size="small" />
                                                                     <ErrorMessage
                                                                         errors={errors}
                                                                         name={`Requirement.${user}`}
-                                                                        render={() => <p style={{fontSize:"10px",color:"red",marginLeft:"20px"}}>please fill before submit</p>}
+                                                                        render={() => <p style={{ fontSize: "10px", color: "red", marginLeft: "20px" }}>please fill before submit</p>}
                                                                     />
                                                                 </Box>
                                                             ))}
 
                                                         </Box>
                                                     </>
-                                                    // </Form>
                                                 }
 
 
@@ -354,9 +378,20 @@ const CourseDetailsInput = () => {
                                                         <Button type='submit' variant='contained'>Create</Button>
                                                     </>
                                                         :
-                                                        <Button onClick={handleNext}>
-                                                            Next
-                                                        </Button>}
+                                                        <>
+                                                            {activeStep === 0 && Text && Text1 && Text2 && Text3 && <Button onClick={handleNext}>
+                                                                Next
+                                                            </Button>}
+                                                            {activeStep === 1 && Text4 && Text5 && Text6 && <Button onClick={handleNext}>
+                                                                Next
+                                                            </Button>}
+                                                            {activeStep === 2 && Text7 && Text8 && Text9 && <Button onClick={handleNext}>
+                                                                Next
+                                                            </Button>}
+                                                            {activeStep === 3 && Text10 && <Button onClick={handleNext}>
+                                                                Next
+                                                            </Button>}
+                                                        </>}
 
                                                 </Box>
                                             </Box>
