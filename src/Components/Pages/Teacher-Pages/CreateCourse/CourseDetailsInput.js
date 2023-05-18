@@ -234,7 +234,7 @@ const CourseDetailsInput = () => {
                                                                             checked={checked}
                                                                             onChange={handleChange}
                                                                             sx={{ ml: 2 }}
-                                                                            inputProps={{ 'aria-label': 'controlled' }}
+                                                                            // inputProps={{ 'aria-label': 'controlled' }}
                                                                         />} />
                                                             </Box>
                                                             {checked && <TextField id="Price" {...register("price")} label="Price" InputProps={{
@@ -379,16 +379,16 @@ const CourseDetailsInput = () => {
                                                     </>
                                                         :
                                                         <>
-                                                            {activeStep === 0 && Text && Text1 && Text2 && Text3 && <Button onClick={handleNext}>
+                                                            {activeStep === 0 && <Button disabled={!Text || !Text1 || !Text2 || !Text3} onClick={handleNext}>
                                                                 Next
                                                             </Button>}
-                                                            {activeStep === 1 && Text4 && Text5 && Text6 && <Button onClick={handleNext}>
+                                                            {activeStep === 1 && <Button disabled={!Text4 || !Text5 || !Text6} onClick={handleNext}>
                                                                 Next
                                                             </Button>}
-                                                            {activeStep === 2 && Text7 && Text8 && Text9 && <Button onClick={handleNext}>
+                                                            {activeStep === 2 && <Button disabled={!Text7 || !Text8 || !Text9} onClick={handleNext}>
                                                                 Next
                                                             </Button>}
-                                                            {activeStep === 3 && Text10 && <Button onClick={handleNext}>
+                                                            {activeStep === 3 && <Button disabled={!Text10} onClick={handleNext}>
                                                                 Next
                                                             </Button>}
                                                         </>}
