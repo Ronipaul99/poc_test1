@@ -34,7 +34,6 @@ const CourseDetailsInput = () => {
     const [Text7, setText7] = React.useState("");
     const [Text8, setText8] = React.useState("");
     const [Text9, setText9] = React.useState("");
-    const [Text10, setText10] = React.useState("");
 
 
 
@@ -136,7 +135,6 @@ const CourseDetailsInput = () => {
     };
     const change4 = (e) => {
         setText4(e.target.value)
-        console.log(e.target.value)
     };
     const change5 = (e) => {
         setText5(e.target.value)
@@ -152,9 +150,6 @@ const CourseDetailsInput = () => {
     };
     const change9 = (e) => {
         setText9(e.target.value)
-    };
-    const change10 = (e) => {
-        setText10(e.target.value)
     };
 
     return (
@@ -234,7 +229,7 @@ const CourseDetailsInput = () => {
                                                                             checked={checked}
                                                                             onChange={handleChange}
                                                                             sx={{ ml: 2 }}
-                                                                            // inputProps={{ 'aria-label': 'controlled' }}
+                                                                        // inputProps={{ 'aria-label': 'controlled' }}
                                                                         />} />
                                                             </Box>
                                                             {checked && <TextField id="Price" {...register("price")} label="Price" InputProps={{
@@ -265,7 +260,7 @@ const CourseDetailsInput = () => {
                                                             </Box>
                                                             {arr.map((user) => (
                                                                 <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                    <TextField id={user} onChange={change4} {...register(`AreaOfLearning.${user}`, { required: true })} multiline rows={3} label="Area of learning" size="small" sx={{ width: "100%" }} />
+                                                                    <TextField id={user}  {...register(`AreaOfLearning.${user}`, { required: true })} multiline rows={3} label="Area of learning" size="small" sx={{ width: "100%" }} onChange={change4} />
                                                                 </Box>
                                                             ))}
 
@@ -277,8 +272,8 @@ const CourseDetailsInput = () => {
                                                             </Box>
                                                             {arr2.map((user) => (
                                                                 <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                    <TextField id={user} onChange={change5} {...register(`CourseContent.${user}`, { required: true })} multiline rows={3} label="Couse content" sx={{ width: '100%' }} size="small" />
-                                                                    <TextField id={user} onChange={change6} {...register(`Description1.${user}`, { required: true })} multiline rows={3} label="Description" sx={{ width: '100%' }} size="small" />
+                                                                    <TextField id={user}  {...register(`CourseContent.${user}`, { required: true })} multiline rows={3} label="Couse content" sx={{ width: '100%' }} size="small" onChange={change5} />
+                                                                    <TextField id={user}  {...register(`Description1.${user}`, { required: true })} multiline rows={3} label="Description" sx={{ width: '100%' }} size="small" onChange={change6} />
                                                                 </Box>
                                                             ))}
                                                         </Box>
@@ -310,11 +305,11 @@ const CourseDetailsInput = () => {
                                                                 <>
                                                                     <TextField id={user} {...register(`NameOfClass.${user}`, { required: true })} label="Name of class" size="small" />
                                                                     <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                        <TextField onChange={change7} label="Choose date" type="date" id={user} {...register(`date.${user}`, { required: true })} InputLabelProps={{
+                                                                        <TextField  label="Choose date" type="date" id={user} {...register(`date.${user}`, { required: true })} InputLabelProps={{
                                                                             shrink: true,
-                                                                        }} size="small" />
-                                                                        <TextField onChange={change8} type='time' id={user} {...register(`StartFrom.${user}`, { required: true })} label="Start from" defaultValue="12:00" size="small" />
-                                                                        <TextField onChange={change9} type='time' id={user} {...register(`EndAt.${user}`, { required: true })} label="End at" defaultValue="12:00" size="small" />
+                                                                        }} size="small" onChange={change7} />
+                                                                        <TextField  type='time' id={user} {...register(`StartFrom.${user}`, { required: true })} label="Start from" defaultValue="12:00" size="small" onChange={change8}/>
+                                                                        <TextField type='time' id={user} {...register(`EndAt.${user}`, { required: true })} label="End at" defaultValue="12:00" size="small" onChange={change9} />
                                                                     </Box></>
                                                             ))}
 
@@ -344,7 +339,7 @@ const CourseDetailsInput = () => {
                                                             </Box>
                                                             {arr4.map((user) => (
                                                                 <Box key={user} sx={{ display: "flex", width: "100%", flexDirection: "column" }}>
-                                                                    <TextField onChange={change10} label="Requirement" id={user} multiline rows={2} {...register(`Requirement.${user}`, { required: "put something" })} size="small" />
+                                                                    <TextField  label="Requirement" id={user} multiline rows={2} {...register(`Requirement.${user}`, { required: "put something" })} size="small"/>
                                                                     <ErrorMessage
                                                                         errors={errors}
                                                                         name={`Requirement.${user}`}
@@ -386,9 +381,6 @@ const CourseDetailsInput = () => {
                                                                 Next
                                                             </Button>}
                                                             {activeStep === 2 && <Button disabled={!Text7 || !Text8 || !Text9} onClick={handleNext}>
-                                                                Next
-                                                            </Button>}
-                                                            {activeStep === 3 && <Button disabled={!Text10} onClick={handleNext}>
                                                                 Next
                                                             </Button>}
                                                         </>}
