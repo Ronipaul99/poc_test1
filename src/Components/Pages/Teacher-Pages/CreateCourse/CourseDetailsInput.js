@@ -34,6 +34,7 @@ const CourseDetailsInput = () => {
     const [Text7, setText7] = React.useState("");
     const [Text8, setText8] = React.useState("");
     const [Text9, setText9] = React.useState("");
+    const [Text10, setText10] = React.useState("");
 
 
 
@@ -150,6 +151,9 @@ const CourseDetailsInput = () => {
     };
     const change9 = (e) => {
         setText9(e.target.value)
+    };
+    const change10 = (e) => {
+        setText10(e.target.value)
     };
 
     return (
@@ -305,10 +309,10 @@ const CourseDetailsInput = () => {
                                                                 <>
                                                                     <TextField id={user} {...register(`NameOfClass.${user}`, { required: true })} label="Name of class" size="small" />
                                                                     <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                        <TextField  label="Choose date" type="date" id={user} {...register(`date.${user}`, { required: true })} InputLabelProps={{
+                                                                        <TextField label="Choose date" type="date" id={user} {...register(`date.${user}`, { required: true })} InputLabelProps={{
                                                                             shrink: true,
                                                                         }} size="small" onChange={change7} />
-                                                                        <TextField  type='time' id={user} {...register(`StartFrom.${user}`, { required: true })} label="Start from" defaultValue="12:00" size="small" onChange={change8}/>
+                                                                        <TextField type='time' id={user} {...register(`StartFrom.${user}`, { required: true })} label="Start from" defaultValue="12:00" size="small" onChange={change8} />
                                                                         <TextField type='time' id={user} {...register(`EndAt.${user}`, { required: true })} label="End at" defaultValue="12:00" size="small" onChange={change9} />
                                                                     </Box></>
                                                             ))}
@@ -339,7 +343,7 @@ const CourseDetailsInput = () => {
                                                             </Box>
                                                             {arr4.map((user) => (
                                                                 <Box key={user} sx={{ display: "flex", width: "100%", flexDirection: "column" }}>
-                                                                    <TextField  label="Requirement" id={user} multiline rows={2} {...register(`Requirement.${user}`, { required: "put something" })} size="small"/>
+                                                                    <TextField label="Requirement" id={user} multiline rows={2} {...register(`Requirement.${user}`, { required: "put something" })} size="small" onChange={change10} />
                                                                     <ErrorMessage
                                                                         errors={errors}
                                                                         name={`Requirement.${user}`}
@@ -370,7 +374,7 @@ const CourseDetailsInput = () => {
 
                                                     {activeStep === steps.length - 1 ? <>
                                                         <Button onClick={handleNext}> Exit</Button>
-                                                        <Button type='submit' variant='contained'>Create</Button>
+                                                        <Button disabled={!Text10} type='submit' variant='contained'>Create</Button>
                                                     </>
                                                         :
                                                         <>
