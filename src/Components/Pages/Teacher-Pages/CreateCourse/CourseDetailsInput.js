@@ -188,214 +188,214 @@ const CourseDetailsInput = () => {
                                     );
                                 })}
                             </Stepper>
-                            {activeStep === steps.length ? (
-                                <React.Fragment>
-                                    <Typography sx={{ mt: 2, mb: 1 }}>
-                                        All steps completed - you&apos;re finished
-                                    </Typography>
-                                    <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                                        <Box sx={{ flex: '1 1 auto' }} />
-                                        <Button onClick={handleReset}>Reset</Button>
-                                    </Box>
-                                </React.Fragment>
-                            ) : (
-                                <React.Fragment>
-                                    <Form style={{ height: "630px" }} onSubmit={handleSubmit(onSubmit)}>
-                                        <Box sx={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                                            <Box sx={{ width: "100%", height: "90%", overflow: "auto" }}>
+                            {/* {activeStep === steps.length ? ( */}
+                            {/* <React.Fragment> */}
+                            {/* <Typography sx={{ mt: 2, mb: 1 }}> */}
+                            {/* All steps completed - you&apos;re finished */}
+                            {/* </Typography> */}
+                            {/* <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}> */}
+                            {/* <Box sx={{ flex: '1 1 auto' }} /> */}
+                            {/* <Button onClick={handleReset}>Reset</Button> */}
+                            {/* </Box> */}
+                            {/* </React.Fragment> */}
+                            {/*  ) : ( */}
+                            <React.Fragment>
+                                <Form style={{ height: "630px" }} onSubmit={handleSubmit(onSubmit)}>
+                                    <Box sx={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                                        <Box sx={{ width: "100%", height: "90%", overflow: "auto" }}>
 
-                                                {/* Step 1 */}
-                                                {activeStep === 0 &&
-                                                    <>
-                                                        <Typography sx={styles.Text1}>Course overview</Typography>
-                                                        <Box
-                                                            sx={{
-                                                                display: "flex",
-                                                                flexDirection: "column",
-                                                                width: "100%",
-                                                                '& .MuiTextField-root': { m: 2 },
-                                                            }}
-                                                            noValidate
-                                                            autoComplete="off"
-                                                        >
-                                                            <TextField id="Title" {...register("Title", { required: true })} label="Title" size="small" onChange={change} />
-
-                                                            <Box sx={styles.Textfield1}>
-                                                                <TextField id="Language" {...register("Language", { required: true })} label="Language" sx={{ width: '100%' }} size="small" onChange={change1} />
-                                                            </Box>
-                                                            <TextField id="Keys" {...register("Keys", { required: true })} label="Keys" size="small" onChange={change2} />
-                                                            <TextField id="Description" {...register("Description", { required: true })} label="Description" multiline rows={3} size="small" onChange={change3} />
-                                                            <Box sx={{ width: "100%" }}>
-                                                                <FormControlLabel
-                                                                    label="Paid"
-                                                                    control={
-                                                                        <Checkbox
-                                                                            checked={checked}
-                                                                            onChange={handleChange}
-                                                                            sx={{ ml: 2 }}
-                                                                        // inputProps={{ 'aria-label': 'controlled' }}
-                                                                        />} />
-                                                            </Box>
-                                                            {checked && <TextField id="Price" {...register("price")} label="Price" InputProps={{
-                                                                startAdornment: <InputAdornment position="start">INR</InputAdornment>,
-                                                            }} />}
-                                                        </Box>
-                                                    </>
-                                                }
-
-
-
-                                                {/* Step 2 */}
-                                                {activeStep === 1 &&
-                                                    <>
-                                                        <Typography sx={styles.Text1}>Area of learning</Typography>
-                                                        <Box
-                                                            sx={{
-                                                                display: "flex",
-                                                                flexDirection: "column",
-                                                                width: "100%",
-                                                                '& .MuiTextField-root': { m: 2 },
-                                                            }}
-                                                            noValidate
-                                                            autoComplete="off"
-                                                        >
-                                                            <Box sx={styles.Textfield1}>
-                                                                <TextField id="Numberofinputs" label="Number of inputs" sx={{ width: "100%" }} onChange={handleChange1} value={Number} size="small" />
-                                                            </Box>
-                                                            {arr.map((user) => (
-                                                                <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                    <TextField id={user}  {...register(`AreaOfLearning.${user}`, { required: true })} multiline rows={3} label="Area of learning" size="small" sx={{ width: "100%" }} onChange={change4} />
-                                                                </Box>
-                                                            ))}
-
-                                                            <Divider />
-
-                                                            <Typography sx={styles.Text2}>Course content</Typography>
-                                                            <Box sx={styles.Textfield1}>
-                                                                <TextField id="Numberofinputs1" label="Number of inputs" sx={{ width: "100%" }} onChange={handleChange2} value={Number1} size="small" />
-                                                            </Box>
-                                                            {arr2.map((user) => (
-                                                                <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                    <TextField id={user}  {...register(`CourseContent.${user}`, { required: true })} multiline rows={3} label="Couse content" sx={{ width: '100%' }} size="small" onChange={change5} />
-                                                                    <TextField id={user}  {...register(`Description1.${user}`, { required: true })} multiline rows={3} label="Description" sx={{ width: '100%' }} size="small" onChange={change6} />
-                                                                </Box>
-                                                            ))}
-                                                        </Box>
-                                                    </>
-                                                }
-
-                                                {/* Steps 3 */}
-                                                {activeStep === 2 &&
-                                                    <>
-                                                        <Typography sx={styles.Text1}>Classes</Typography>
-                                                        <Box
-                                                            sx={{
-                                                                display: "flex",
-                                                                flexDirection: "column",
-                                                                width: "100%",
-                                                                '& .MuiTextField-root': { m: 2 },
-                                                            }}
-                                                            noValidate
-                                                            autoComplete="off"
-                                                        >
-                                                            <Box sx={styles.Textfield1}>
-                                                                <TextField id="Numberoclasses" label="Number of classes"  {...register("NumberOfClasses", { required: true })} onChange={handleChange3} value={Number2} sx={{ width: '100%' }} size="small" />
-                                                            </Box>
-
-                                                            <Divider />
-
-                                                            <Typography sx={styles.Text2}>Schedule</Typography>
-                                                            {arr3.map((user) => (
-                                                                <>
-                                                                    <TextField id={user} {...register(`NameOfClass.${user}`, { required: true })} label="Name of class" size="small" />
-                                                                    <Box key={user} sx={{ display: "flex", width: "100%", }}>
-                                                                        <TextField label="Choose date" type="date" id={user} {...register(`date.${user}`, { required: true })} InputLabelProps={{
-                                                                            shrink: true,
-                                                                        }} size="small" onChange={change7} />
-                                                                        <TextField type='time' id={user} {...register(`StartFrom.${user}`, { required: true })} label="Start from" defaultValue="12:00" size="small" onChange={change8} />
-                                                                        <TextField type='time' id={user} {...register(`EndAt.${user}`, { required: true })} label="End at" defaultValue="12:00" size="small" onChange={change9} />
-                                                                    </Box></>
-                                                            ))}
-
-                                                        </Box>
-                                                    </>
-                                                }
-
-
-                                                {/* Step 4 */}
-
-                                                {activeStep === 3 &&
-                                                    <>
-                                                        <Typography sx={styles.Text1}>Course requirement</Typography>
-                                                        <Box
-                                                            sx={{
-                                                                display: "flex",
-                                                                flexDirection: "column",
-                                                                width: "100%",
-                                                                '& .MuiTextField-root': { m: 2 },
-                                                            }}
-                                                            noValidate
-                                                            autoComplete="off"
-                                                        >
-
-                                                            <Box sx={styles.Textfield1}>
-                                                                <TextField id="Numberofinputs" label="Number of classes" onChange={handleChange4} value={Number3} sx={{ width: '100%' }} size="small" />
-                                                            </Box>
-                                                            {arr4.map((user) => (
-                                                                <Box key={user} sx={{ display: "flex", width: "100%", flexDirection: "column" }}>
-                                                                    <TextField label="Requirement" id={user} multiline rows={2} {...register(`Requirement.${user}`, { required: "put something" })} size="small" onChange={change10} />
-                                                                    <ErrorMessage
-                                                                        errors={errors}
-                                                                        name={`Requirement.${user}`}
-                                                                        render={() => <p style={{ fontSize: "10px", color: "red", marginLeft: "20px" }}>please fill before submit</p>}
-                                                                    />
-                                                                </Box>
-                                                            ))}
-
-                                                        </Box>
-                                                    </>
-                                                }
-
-
-                                            </Box>
-
-
-                                            <Box sx={{ width: "100%", height: "10%", justifyContent: "flex-end", alignItems: "flex-end", display: "flex" }}>
-                                                <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                                                    <Button
-                                                        color="inherit"
-                                                        disabled={activeStep === 0}
-                                                        onClick={handleBack}
-                                                        sx={{ mr: 1 }}
+                                            {/* Step 1 */}
+                                            {activeStep === 0 &&
+                                                <>
+                                                    <Typography sx={styles.Text1}>Course overview</Typography>
+                                                    <Box
+                                                        sx={{
+                                                            display: "flex",
+                                                            flexDirection: "column",
+                                                            width: "100%",
+                                                            '& .MuiTextField-root': { m: 2 },
+                                                        }}
+                                                        noValidate
+                                                        autoComplete="off"
                                                     >
-                                                        Back
-                                                    </Button>
-                                                    <Box sx={{ flex: '1 1 auto' }} />
+                                                        <TextField id="Title" {...register("Title", { required: true })} label="Title" size="small" onChange={change} />
 
-                                                    {activeStep === steps.length - 1 ? <>
-                                                        <Button onClick={handleNext}> Exit</Button>
-                                                        <Button disabled={!Text10} type='submit' variant='contained'>Create</Button>
-                                                    </>
-                                                        :
-                                                        <>
-                                                            {activeStep === 0 && <Button disabled={!Text || !Text1 || !Text2 || !Text3} onClick={handleNext}>
-                                                                Next
-                                                            </Button>}
-                                                            {activeStep === 1 && <Button disabled={!Text4 || !Text5 || !Text6} onClick={handleNext}>
-                                                                Next
-                                                            </Button>}
-                                                            {activeStep === 2 && <Button disabled={!Text7 || !Text8 || !Text9} onClick={handleNext}>
-                                                                Next
-                                                            </Button>}
-                                                        </>}
+                                                        <Box sx={styles.Textfield1}>
+                                                            <TextField id="Language" {...register("Language", { required: true })} label="Language" sx={{ width: '100%' }} size="small" onChange={change1} />
+                                                        </Box>
+                                                        <TextField id="Keys" {...register("Keys", { required: true })} label="Keys" size="small" onChange={change2} />
+                                                        <TextField id="Description" {...register("Description", { required: true })} label="Description" multiline rows={3} size="small" onChange={change3} />
+                                                        <Box sx={{ width: "100%" }}>
+                                                            <FormControlLabel
+                                                                label="Paid"
+                                                                control={
+                                                                    <Checkbox
+                                                                        checked={checked}
+                                                                        onChange={handleChange}
+                                                                        sx={{ ml: 2 }}
+                                                                    // inputProps={{ 'aria-label': 'controlled' }}
+                                                                    />} />
+                                                        </Box>
+                                                        {checked && <TextField id="Price" {...register("price")} label="Price" InputProps={{
+                                                            startAdornment: <InputAdornment position="start">INR</InputAdornment>,
+                                                        }} />}
+                                                    </Box>
+                                                </>
+                                            }
 
-                                                </Box>
-                                            </Box>
+
+
+                                            {/* Step 2 */}
+                                            {activeStep === 1 &&
+                                                <>
+                                                    <Typography sx={styles.Text1}>Area of learning</Typography>
+                                                    <Box
+                                                        sx={{
+                                                            display: "flex",
+                                                            flexDirection: "column",
+                                                            width: "100%",
+                                                            '& .MuiTextField-root': { m: 2 },
+                                                        }}
+                                                        noValidate
+                                                        autoComplete="off"
+                                                    >
+                                                        <Box sx={styles.Textfield1}>
+                                                            <TextField id="Numberofinputs" label="Number of inputs" sx={{ width: "100%" }} onChange={handleChange1} value={Number} size="small" />
+                                                        </Box>
+                                                        {arr.map((user) => (
+                                                            <Box key={user} sx={{ display: "flex", width: "100%", }}>
+                                                                <TextField id={user}  {...register(`AreaOfLearning.${user}`, { required: true })} multiline rows={3} label="Area of learning" size="small" sx={{ width: "100%" }} onChange={change4} />
+                                                            </Box>
+                                                        ))}
+
+                                                        <Divider />
+
+                                                        <Typography sx={styles.Text2}>Course content</Typography>
+                                                        <Box sx={styles.Textfield1}>
+                                                            <TextField id="Numberofinputs1" label="Number of inputs" sx={{ width: "100%" }} onChange={handleChange2} value={Number1} size="small" />
+                                                        </Box>
+                                                        {arr2.map((user) => (
+                                                            <Box key={user} sx={{ display: "flex", width: "100%", }}>
+                                                                <TextField id={user}  {...register(`CourseContent.${user}`, { required: true })} multiline rows={3} label="Couse content" sx={{ width: '100%' }} size="small" onChange={change5} />
+                                                                <TextField id={user}  {...register(`Description1.${user}`, { required: true })} multiline rows={3} label="Description" sx={{ width: '100%' }} size="small" onChange={change6} />
+                                                            </Box>
+                                                        ))}
+                                                    </Box>
+                                                </>
+                                            }
+
+                                            {/* Steps 3 */}
+                                            {activeStep === 2 &&
+                                                <>
+                                                    <Typography sx={styles.Text1}>Classes</Typography>
+                                                    <Box
+                                                        sx={{
+                                                            display: "flex",
+                                                            flexDirection: "column",
+                                                            width: "100%",
+                                                            '& .MuiTextField-root': { m: 2 },
+                                                        }}
+                                                        noValidate
+                                                        autoComplete="off"
+                                                    >
+                                                        <Box sx={styles.Textfield1}>
+                                                            <TextField id="Numberoclasses" label="Number of classes"  {...register("NumberOfClasses", { required: true })} onChange={handleChange3} value={Number2} sx={{ width: '100%' }} size="small" />
+                                                        </Box>
+
+                                                        <Divider />
+
+                                                        <Typography sx={styles.Text2}>Schedule</Typography>
+                                                        {arr3.map((user) => (
+                                                            <>
+                                                                <TextField id={user} {...register(`NameOfClass.${user}`, { required: true })} label="Name of class" size="small" />
+                                                                <Box key={user} sx={{ display: "flex", width: "100%", }}>
+                                                                    <TextField label="Choose date" type="date" id={user} {...register(`date.${user}`, { required: true })} InputLabelProps={{
+                                                                        shrink: true,
+                                                                    }} size="small" onChange={change7} />
+                                                                    <TextField type='time' id={user} {...register(`StartFrom.${user}`, { required: true })} label="Start from" defaultValue="12:00" size="small" onChange={change8} />
+                                                                    <TextField type='time' id={user} {...register(`EndAt.${user}`, { required: true })} label="End at" defaultValue="12:00" size="small" onChange={change9} />
+                                                                </Box></>
+                                                        ))}
+
+                                                    </Box>
+                                                </>
+                                            }
+
+
+                                            {/* Step 4 */}
+
+                                            {activeStep === 3 &&
+                                                <>
+                                                    <Typography sx={styles.Text1}>Course requirement</Typography>
+                                                    <Box
+                                                        sx={{
+                                                            display: "flex",
+                                                            flexDirection: "column",
+                                                            width: "100%",
+                                                            '& .MuiTextField-root': { m: 2 },
+                                                        }}
+                                                        noValidate
+                                                        autoComplete="off"
+                                                    >
+
+                                                        <Box sx={styles.Textfield1}>
+                                                            <TextField id="Numberofinputs" label="Number of classes" onChange={handleChange4} value={Number3} sx={{ width: '100%' }} size="small" />
+                                                        </Box>
+                                                        {arr4.map((user) => (
+                                                            <Box key={user} sx={{ display: "flex", width: "100%", flexDirection: "column" }}>
+                                                                <TextField label="Requirement" id={user} multiline rows={2} {...register(`Requirement.${user}`, { required: "put something" })} size="small" onChange={change10} />
+                                                                <ErrorMessage
+                                                                    errors={errors}
+                                                                    name={`Requirement.${user}`}
+                                                                    render={() => <p style={{ fontSize: "10px", color: "red", marginLeft: "20px" }}>please fill before submit</p>}
+                                                                />
+                                                            </Box>
+                                                        ))}
+
+                                                    </Box>
+                                                </>
+                                            }
+
+
                                         </Box>
 
-                                    </Form>
-                                </React.Fragment>
-                            )}
+
+                                        <Box sx={{ width: "100%", height: "10%", justifyContent: "flex-end", alignItems: "flex-end", display: "flex" }}>
+                                            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+                                                <Button
+                                                    color="inherit"
+                                                    disabled={activeStep === 0}
+                                                    onClick={handleBack}
+                                                    sx={{ mr: 1 }}
+                                                >
+                                                    Back
+                                                </Button>
+                                                <Box sx={{ flex: '1 1 auto' }} />
+
+                                                {activeStep === steps.length - 1 ? <>
+                                                    <Button onClick={handleReset}>Reset</Button>
+                                                    <Button disabled={!Text10} type='submit' variant='contained'>Create</Button>
+                                                </>
+                                                    :
+                                                    <>
+                                                        {activeStep === 0 && <Button disabled={!Text || !Text1 || !Text2 || !Text3} onClick={handleNext}>
+                                                            Next
+                                                        </Button>}
+                                                        {activeStep === 1 && <Button disabled={!Text4 || !Text5 || !Text6} onClick={handleNext}>
+                                                            Next
+                                                        </Button>}
+                                                        {activeStep === 2 && <Button disabled={!Text7 || !Text8 || !Text9} onClick={handleNext}>
+                                                            Next
+                                                        </Button>}
+                                                    </>}
+
+                                            </Box>
+                                        </Box>
+                                    </Box>
+
+                                </Form>
+                            </React.Fragment>
+                            {/* )} */}
                         </Box>
                     </Card>
 
